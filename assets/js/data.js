@@ -82,19 +82,19 @@ const PROJECTS = [
       "MIDI",
       "Registry"
     ],
-    "path": "`D:\\My_project\\chenge_lang`",
+    "path": "",
     "platform": "C++ / Win32 API / Windows",
     "paired": null,
     "github": "https://github.com/dgimbialo/KeyBeep",
-    "description": "Lightweight Windows tray-програма для аудіального підтвердження перемикання мови або будь-якого hotkey. Вирішує проблему відсутності зворотного зв'язку при пропущеному натисканні клавіші перемикання мови.",
+    "description": "Lightweight Windows tray app for audio feedback on language switching or any custom hotkey. Solves the problem of missing feedback on missed key presses.",
     "features": [
-      "Глобальний хук клавіатури (WH_KEYBOARD_LL) — перехоплення hotkey по всій системі незалежно від активного вікна",
-      "MIDI-аудіо через WinMM — постійно відкритий HMIDIOUT handle, обходить затримку WASAPI",
-      "7 типів звуків — 4 MIDI тони (Low/Mid/High/Double Beep) + 3 системних Windows звуки",
-      "Системний трей (Shell_NotifyIcon) — мінімалістичний UI; налаштування подвійним кліком",
+      "Global keyboard hook (WH_KEYBOARD_LL) — intercept hotkey system-wide regardless of active window",
+      "MIDI audio via WinMM — persistent HMIDIOUT handle, bypasses WASAPI latency",
+      "7 sound types — 4 MIDI tones (Low/Mid/High/Double Beep) + 3 Windows system sounds",
+      "System tray (Shell_NotifyIcon) — minimalist UI; configure via double-click",
       "Конфігурація у реєстрі HKCU\\Software\\KeyBeep — VK-код, modifiers, тип звуку; зберігаються після перезавантаження",
       "Self-installer — setup.exe витягує KeyBeep.exe до %LOCALAPPDATA%\\KeyBeep\\ і додає в autostart",
-      "Thread safety — хук постить WM_USER+10 і повертається; відтворення у worker thread"
+      "Thread safety — hook posts WM_USER+10 and returns; playback in worker thread"
     ],
     "stack": [
       [
@@ -102,7 +102,7 @@ const PROJECTS = [
         "---"
       ],
       [
-        "Мова",
+        "Language",
         "C++ (MSVC)"
       ],
       [
@@ -110,7 +110,7 @@ const PROJECTS = [
         "Win32 API, SystemTray, Keyboard hooks"
       ],
       [
-        "Аудіо",
+        "Audio",
         "WinMM (MIDI Out)"
       ],
       [
@@ -122,8 +122,8 @@ const PROJECTS = [
         "batch build.bat"
       ],
       [
-        "Розмір",
-        "~80 KB, нульові залежності"
+        "Size",
+        "~80 KB, zero dependencies"
       ]
     ],
     "media": {
@@ -152,14 +152,14 @@ const PROJECTS = [
     "platform": "HTML/CSS/JS + Cloudflare Pages",
     "paired": null,
     "github": "",
-    "description": "Корпоративний сайт EPC-підрядника з будівництва сонячних електростанцій (Photovoltaik) для ринків Германія / Польща / Австрія / Бельгія / Нідерланди.",
+    "description": "Corporate website for EPC solar contractor serving markets in Germany / Poland / Austria / Belgium / Netherlands.",
     "features": [
-      "Мультимовна локалізація (i18n) — 4 мови: DE/PL/UK/EN; зміна без перезавантаження",
-      "SEO-оптимізація — hreflang, OpenGraph, Twitter Card, JSON-LD Organization + ProfessionalService, GA4",
-      "Адаптивний дизайн — responsive CSS для мобільних та десктоп",
-      "Деплой на Cloudflare Pages через Wrangler CLI — zero-config edge hosting",
-      "Image processing pipeline — Sharp для оптимізації фото проектів (7.4 MW+)",
-      "Sitemap / robots.txt для коректної індексації"
+      "Multilingual localization (i18n) — 4 languages: DE/PL/UK/EN; switch without reload",
+      "SEO optimization — hreflang, OpenGraph, Twitter Card, JSON-LD Organization + ProfessionalService, GA4",
+      "Responsive design — responsive CSS for mobile and desktop",
+      "Deployed on Cloudflare Pages via Wrangler CLI — zero-config edge hosting",
+      "Image processing pipeline — Sharp for optimizing project photos (7.4 MW+)",
+      "Sitemap / robots.txt for proper indexing"
     ],
     "stack": [
       [
@@ -172,7 +172,7 @@ const PROJECTS = [
       ],
       [
         "i18n",
-        "Власна система через locales/ JSON"
+        "Custom system via locales/ JSON"
       ],
       [
         "Hosting",
@@ -209,18 +209,18 @@ const PROJECTS = [
       "SCPI",
       "WebSocket"
     ],
-    "path": "`D:\\My_project\\TDS_520A_GPIB`",
+    "path": "",
     "platform": "C++17 + MFC + NI-488.2 / Win64",
     "paired": null,
     "github": "",
-    "description": "Windows-застосунок для управління осцилографом Tektronix TDS 520A через GPIB (IEEE-488). Надає GDI waveform viewer і вбудований веб-інтерфейс для перегляду з мобільного.",
+    "description": "Windows application for controlling Tektronix TDS 520A oscilloscope via GPIB (IEEE-488). Provides GDI waveform viewer and embedded web interface for mobile viewing.",
     "features": [
-      "GPIB auto-scan — скан адрес 1–30 на board 0, ідентифікація за *IDN?",
-      "SCPI протокол — WFMPRE?, CURVE?, ACQuire? для preamble і бінарних даних кривої",
-      "Waveform decoder — конвертація raw ADC у В/с за YMULT/YOFF/YZERO/XINCR",
-      "GDI double-buffered renderer — zoom/pan, автомасштаб, cursor overlay, ~10 FPS",
-      "Lock-free ring buffer (SPSC) — потокобезпечна передача між acquisition thread і GUI",
-      "Embedded HTTP + WebSocket server (RFC 6455) з self-contained SHA-1 та Base64",
+      "GPIB auto-scan — scan addresses 1–30 on board 0, identify via *IDN?",
+      "SCPI protocol — WFMPRE?, CURVE?, ACQuire? for preamble and binary waveform data",
+      "Waveform decoder — convert raw ADC to V/s using YMULT/YOFF/YZERO/XINCR",
+      "GDI double-buffered renderer — zoom/pan, autoscale, cursor overlay, ~10 FPS",
+      "Lock-free ring buffer (SPSC) — thread-safe transfer between acquisition thread and GUI",
+      "Embedded HTTP + WebSocket server (RFC 6455) with self-contained SHA-1 and Base64",
       "HtmlGenerator — автогенерує single-page frontend; waveform по WebSocket на мобільний"
     ],
     "stack": [
@@ -229,7 +229,7 @@ const PROJECTS = [
         "---"
       ],
       [
-        "Мова",
+        "Language",
         "C++17"
       ],
       [
@@ -241,7 +241,7 @@ const PROJECTS = [
         "NI-488.2 (ni4882.lib)"
       ],
       [
-        "Протокол",
+        "Protocol",
         "SCPI over GPIB"
       ],
       [
@@ -273,16 +273,16 @@ const PROJECTS = [
       "MIDI",
       "CMake"
     ],
-    "path": "`D:\\My_project\\SimpleMidiViwer`",
+    "path": "",
     "platform": "C++17 + MFC + CMake / Windows",
     "paired": null,
     "github": "",
-    "description": "Desktop Windows-застосунок для відкриття, парсингу та візуалізації MIDI-файлів у вигляді нотних рядків.",
+    "description": "Desktop Windows application for opening, parsing, and visualizing MIDI files as musical notation.",
     "features": [
       "MIDI parser — SMF: header/track chunks, VLQ decoding, note on/off, meta, SysEx",
-      "Score rendering — відображення нот у стандартних нотних лінійках з масштабуванням",
-      "MFC MDI GUI — MainFrame, ScoreView, меню Open/Save/Export",
-      "CMake build з precompiled headers"
+      "Score rendering — display notes in standard staves with zoom capability",
+      "MFC MDI GUI — MainFrame, ScoreView, Open/Save/Export menus",
+      "CMake build with precompiled headers"
     ],
     "stack": [
       [
@@ -290,7 +290,7 @@ const PROJECTS = [
         "---"
       ],
       [
-        "Мова",
+        "Language",
         "C++17"
       ],
       [
@@ -299,7 +299,7 @@ const PROJECTS = [
       ],
       [
         "MIDI",
-        "Власний SMF parser"
+        "Custom SMF parser"
       ],
       [
         "Build",
@@ -327,17 +327,17 @@ const PROJECTS = [
       "Jinja2",
       "REST API"
     ],
-    "path": "`D:\\My_project\\webHz`",
+    "path": "",
     "platform": "Python + Flask + MySQL",
     "paired": "CrossZeroDetector (#11)",
     "github": "",
-    "description": "Веб-сервер для моніторингу та логування даних частоти мережі 50 Гц. Отримує дані від CrossZeroDetector (ESP32) і надає адмін-інтерфейс.",
+    "description": "Web server for monitoring and logging grid frequency data at 50 Hz. Receives data from CrossZeroDetector (ESP32) and provides admin interface.",
     "features": [
-      "REST API /frequency_data — повертає JSON з поточним значенням частоти",
-      "Jinja2 web-форма /entry для введення параметрів",
-      "Адмін-сторінка /admin — захищена @check_logged_in",
-      "Перегляд логу /viewlog — таблиця MySQL: phrase, letters, ip, browser, result",
-      "MySQL через UseDatabase context manager (DBcm.py) — exception-safe",
+      "REST API /frequency_data — returns JSON with current frequency value",
+      "Jinja2 web form /entry for parameter input",
+      "Admin page /admin — protected with @check_logged_in",
+      "Log view /viewlog — MySQL table: phrase, letters, ip, browser, result",
+      "MySQL via UseDatabase context manager (DBcm.py) — exception-safe",
       "Auth middleware checker.py — Flask session",
       "Custom exceptions — ConnectionError, CredentialsError, SQLError"
     ],
@@ -347,7 +347,7 @@ const PROJECTS = [
         "---"
       ],
       [
-        "Мова",
+        "Language",
         "Python 3"
       ],
       [
@@ -388,18 +388,18 @@ const PROJECTS = [
       "LCD",
       "Relay"
     ],
-    "path": "`D:\\My_project\\Pump_Controller_MEGA_2560`",
+    "path": "",
     "platform": "Arduino C/C++ / Arduino Mega 2560",
     "paired": null,
     "github": "",
-    "description": "Firmware контролера насосу для автоматичної та ручної подачі рідини з 3-сенсорною системою визначення рівня.",
+    "description": "Pump controller firmware for automatic and manual liquid supply with 3-sensor level detection system.",
     "features": [
-      "3-сенсорна система — LOW/MIDDLE/HIGH рівень; управління реле насосу",
-      "Автоматичний режим — управління за рівнем рідини",
-      "Ручний режим — override через кнопки з індикацією на LCD",
-      "Error state detection — аварійні ситуації (відсутність/помилка сенсора)",
-      "LCD UI (LiquidCrystal 16×2) — режим, рівень, стан помилок",
-      "Централізований custom_pins.h для GPIO маппінгу"
+      "3-sensor system — LOW/MIDDLE/HIGH levels; pump relay control",
+      "Automatic mode — control based on liquid level",
+      "Manual mode — override via buttons with LCD indication",
+      "Error state detection — emergency situations (sensor missing/fault)",
+      "LCD UI (LiquidCrystal 16×2) — mode, level, error states",
+      "Centralized custom_pins.h for GPIO mapping"
     ],
     "stack": [
       [
@@ -445,17 +445,17 @@ const PROJECTS = [
       "EEPROM",
       "LCD"
     ],
-    "path": "`D:\\My_project\\COMUS_ACTUAL`",
+    "path": "",
     "platform": "Arduino C/C++ / ATmega",
     "paired": null,
     "github": "",
-    "description": "Firmware автономного контролера для системи сонячного колектора: управляє вентилятором/насосом на основі різниці температур між колектором і приміщенням.",
+    "description": "Firmware for autonomous solar collector system controller: manages fan/pump based on temperature difference between collector and room.",
     "features": [
-      "Двосенсорна система DS18B20 (OneWire) — HomeThermometer + CollectorThermometer; перевірка 2 девайсів при старті",
-      "3 режими — OFF / COOL / HEAT на основі різниці температур + ручний режим",
-      "EEPROM persistence — nSetTemp та nManualMode відновлюються після вимкнення",
-      "Interrupt-driven кнопки — attachInterrupt pin 2; debounce 100 мс; Temp Down / Mode / Temp Up",
-      "LCD UI (LiquidCrystal 16×2) — обидві температури, режим, задана температура"
+      "Dual-sensor system DS18B20 (OneWire) — HomeThermometer + CollectorThermometer; verify 2 devices at startup",
+      "3 modes — OFF / COOL / HEAT based on temperature difference + manual mode",
+      "EEPROM persistence — nSetTemp and nManualMode restored after power cycle",
+      "Interrupt-driven buttons — attachInterrupt pin 2; debounce 100 ms; Temp Down / Mode / Temp Up",
+      "LCD UI (LiquidCrystal 16×2) — both temperatures, mode, setpoint"
     ],
     "stack": [
       [
@@ -504,18 +504,18 @@ const PROJECTS = [
       "HTML export",
       "CSV"
     ],
-    "path": "`D:\\My_project\\eagle-upl-scripts`",
+    "path": "",
     "platform": "EAGLE ULP / Autodesk EAGLE",
     "paired": null,
     "github": "",
-    "description": "Скрипт-аналізатор для EAGLE Schematic Editor: аналізує які піни Source компонента з'єднані з Target, а які вільні (N/C).",
+    "description": "Script analyzer for EAGLE Schematic Editor: analyzes which Source component pins are connected to Target and which are free (N/C).",
     "features": [
-      "Автозбір компонентів — schematic(SCH) { SCH.parts(P) } — name + value список",
-      "Аналіз netlist — для кожного піна Source пошук net-з'єднань із Target",
-      "Фільтрація та сортування — All/Connected/Free N/C; 7 критеріїв сортування",
-      "HTML-рендеринг у EAGLE viewer з кольоровим маркуванням (зелений/сірий)",
-      "Мульти-формат експорту — CSV, TXT, HTML",
-      "Statistics line — лічильник connected/free пінів"
+      "Auto-collect components — schematic(SCH) { SCH.parts(P) } — name + value list",
+      "Netlist analysis — for each Source pin find net connections with Target",
+      "Filtering and sorting — All/Connected/Free N/C; 7 sort criteria",
+      "HTML rendering in EAGLE viewer with color coding (green/gray)",
+      "Multi-format export — CSV, TXT, HTML",
+      "Statistics line — counter of connected/free pins"
     ],
     "stack": [
       [
@@ -523,7 +523,7 @@ const PROJECTS = [
         "---"
       ],
       [
-        "Мова",
+        "Language",
         "EAGLE ULP (C-like DSL)"
       ],
       [
@@ -557,18 +557,18 @@ const PROJECTS = [
       "GDI",
       "Spectrogram"
     ],
-    "path": "`D:\\My_project\\FastAcqWinApp`",
+    "path": "",
     "platform": "C++ + MFC / Windows (MSVC, x64)",
     "paired": "STM32H7 Firmware (#10)",
     "github": "",
-    "description": "Windows desktop для real-time прийому та аналізу сигналів від STM32H7 ADC-пристрою через USB CDC. Режими: FFT-on-device та PC-side FFT (RAW samples + локальна обробка).",
+    "description": "Windows desktop for real-time signal acquisition and analysis from STM32H7 ADC device via USB CDC. Modes: FFT-on-device and PC-side FFT (RAW samples + local processing).",
     "features": [
-      "SerialWorker — background thread: Win32 COM API, ReadFile loop, CRC бінарний протокол",
+      "SerialWorker — background thread: Win32 COM API, ReadFile loop, CRC binary protocol",
       "ChirpStore — CRITICAL_SECTION ring buffer 200 chirp frames: Push/GetLatest/GetAt",
-      "LocalFft — Radix-2 Cooley-Tukey FFT до 16384 точок; Rectangular/Hann/Hamming/Blackman вікна",
+      "LocalFft — Radix-2 Cooley-Tukey FFT up to 16384 points; Rectangular/Hann/Hamming/Blackman windows",
       "WaveformView — GDI zoom/pan (X+/X−/Y+/Y− + mousewheel + scrollbars)",
-      "SpectrumView — лінійна/логарифмічна АЧХ з cursor overlay",
-      "WaterfallView — spectrogram у псевдокольорі",
+      "SpectrumView — linear/logarithmic frequency response with cursor overlay",
+      "WaterfallView — spectrogram in pseudocolor",
       "CommandPanel — COM combo, Start/Stop, Set Freq/Samples, Ping, Mode, Trigger, PC/Device mode"
     ],
     "stack": [
@@ -577,7 +577,7 @@ const PROJECTS = [
         "---"
       ],
       [
-        "Мова",
+        "Language",
         "C++17"
       ],
       [
@@ -620,18 +620,18 @@ const PROJECTS = [
       "USB CDC",
       "CMake"
     ],
-    "path": "`D:\\My_project\\ADC_STM32H7`",
+    "path": "",
     "platform": "C + ASM / STM32H743 / arm-none-eabi",
     "paired": "FastAcqWinApp (#9)",
     "github": "",
-    "description": "Firmware high-speed ADC пристрою на STM32H743 (Cortex-M7, 480 MHz). Захоплює аналоговий сигнал через паралельний DCMI ADC, виконує chirp-excitation та FFT на MCU.",
+    "description": "High-speed ADC firmware on STM32H743 (Cortex-M7, 480 MHz). Captures analog signal via parallel DCMI ADC, performs chirp-excitation and FFT on MCU.",
     "features": [
-      "DCMI ADC capture (dcmi_adc.c) — паралельна 8/16-бітна шина; DMA → зовнішня SDRAM",
-      "External SDRAM (sdram_init.c) — FMC контролер для великих масивів вибірок",
-      "Chirp DAC (chirp_dac.c) — генерація збуджуючого chirp-сигналу через DAC",
-      "On-device FFT (chirp_fft.c) — спектр на MCU; стиснення перед USB передачею",
-      "Phase analysis (phase_a.c, phase_b.c) — двоканальний фазовий аналіз",
-      "USB CDC binary protocol (usb_protocol.h) — відповідь на команди FastAcqWinApp"
+      "DCMI ADC capture (dcmi_adc.c) — parallel 8/16-bit bus; DMA → external SDRAM",
+      "External SDRAM (sdram_init.c) — FMC controller for large sample arrays",
+      "Chirp DAC (chirp_dac.c) — generate excitation chirp signal via DAC",
+      "On-device FFT (chirp_fft.c) — spectrum on MCU; compress before USB transmission",
+      "Phase analysis (phase_a.c, phase_b.c) — dual-channel phase analysis",
+      "USB CDC binary protocol (usb_protocol.h) — respond to FastAcqWinApp commands"
     ],
     "stack": [
       [
@@ -643,7 +643,7 @@ const PROJECTS = [
         "STM32H743 (Cortex-M7, 480 MHz)"
       ],
       [
-        "Мова",
+        "Language",
         "C + startup ASM"
       ],
       [
@@ -685,18 +685,18 @@ const PROJECTS = [
       "NTP",
       "Google Sheets"
     ],
-    "path": "`D:\\My_project\\CrossZeroDetector`",
+    "path": "",
     "platform": "Arduino C++ / ESP32 (Heltec WiFi LoRa 32 V2)",
     "paired": "webHz (#5)",
     "github": "",
-    "description": "Embedded пристрій для точного вимірювання частоти мережі 50 Гц методом підрахунку переходів через нуль. Відправляє виміри до Google Sheets, відображає на OLED.",
+    "description": "Embedded device for precise 50 Hz grid frequency measurement via zero-crossing counting. Sends measurements to Google Sheets, displays on OLED.",
     "features": [
-      "Interrupt-based (IRAM_ATTR handleInterrupt) — 50 фронтів = 1 цикл; frequency = 50.0 * 1e6 / duration",
-      "SSD1306 OLED — real-time частота з точністю 4 знаки після коми",
-      "NTP синхронізація (NTPClient + WiFiUDP) — UNIX timestamp для кожного виміру",
-      "Фільтрація 45–55 Гц; накопичення за 10-секундне вікно",
-      "Google Sheets POST JSON (ArduinoJson) до Apps Script кожні 10 секунд",
-      "Heltec V2 специфіка — Vext/RST управління живленням OLED"
+      "Interrupt-based (IRAM_ATTR handleInterrupt) — 50 edges = 1 cycle; frequency = 50.0 * 1e6 / duration",
+      "SSD1306 OLED — real-time frequency to 4 decimal places",
+      "NTP synchronization (NTPClient + WiFiUDP) — UNIX timestamp for each measurement",
+      "Filter 45–55 Hz; accumulate over 10-second window",
+      "Google Sheets POST JSON (ArduinoJson) to Apps Script every 10 seconds",
+      "Heltec V2 specific — Vext/RST control OLED power"
     ],
     "stack": [
       [
@@ -749,18 +749,18 @@ const PROJECTS = [
       "CLI",
       "argparse"
     ],
-    "path": "`D:\\WORK_PROJECTS\\Git_Keeper`",
+    "path": "",
     "platform": "Python 3 / CLI",
     "paired": null,
     "github": "",
-    "description": "CLI-інструмент для автоматичного збереження git diff snapshots у .diff файлах. Запускається регулярно і зберігає лише нові зміни, уникаючи дублікатів за SHA-256.",
+    "description": "CLI tool for automatic git diff snapshot saving in .diff files. Runs regularly and stores only new changes, avoiding SHA-256 duplicates.",
     "features": [
       "GitPython — repo.is_dirty(), repo.git.diff(None, name_only=True)",
-      "SHA-256 deduplication — sha256(diff_content); дублікати не зберігаються",
-      "Hash store persistence — plain-text файл хешів; завантаження/оновлення",
+      "SHA-256 deduplication — sha256(diff_content); duplicates not stored",
+      "Hash store persistence — plain-text hash file; load/update",
       "Timestamped output dirs — changes_YYYYMMDD_HHMMSS/",
-      "Multi-file — кожен dirty файл → окремий .diff у batch-директорії",
-      "argparse CLI — repo path, output path, hash store; polling/daemon режим"
+      "Multi-file — each dirty file → separate .diff in batch directory",
+      "argparse CLI — repo path, output path, hash store; polling/daemon mode"
     ],
     "stack": [
       [
@@ -768,7 +768,7 @@ const PROJECTS = [
         "---"
       ],
       [
-        "Мова",
+        "Language",
         "Python 3"
       ],
       [
@@ -811,20 +811,20 @@ const PROJECTS = [
       "SoundTouch",
       "DirectShow"
     ],
-    "path": "`D:\\WORK_PROJECTS\\bandora`",
+    "path": "",
     "platform": "C++ + MFC / Win32 + C# installer",
     "paired": null,
     "github": "",
-    "description": "Повнофункціональний MIDI секвенсор та music compositing застосунок (JAMMER Professional) з нотним записом, VST плагінами та audio recording.",
+    "description": "Full-featured MIDI sequencer and music composition application (JAMMER Professional) with notation, VST plugins, and audio recording.",
     "features": [
       "MIDI engine — I/O, real-time playback, SysEx, channel mode messages",
-      "32-track Sequencer (Sequencer32) — piano roll + нотний редактор",
-      "Audio capture — WAV та MP3 через DirectShow/WASAPI + Lame/GoGo encoder",
+      "32-track Sequencer (Sequencer32) — piano roll + score editor",
+      "Audio capture — WAV and MP3 via DirectShow/WASAPI + Lame/GoGo encoder",
       "Score notation editor (ScoreEdit) — WYSIWYG: measures, staves, clef, time/key signatures",
-      "VST Host (VSTHost/) — завантаження та виконання VST 2.x плагінів",
-      "SoundTouch — time-stretching та pitch-shifting у реальному часі",
-      "Multi-language UI (LanguageManager, .idm) — динамічна зміна мови без перезапуску",
-      "C# installer custom actions (InstallStep/UninstallStep) через Inno Setup"
+      "VST Host (VSTHost/) — load and run VST 2.x plugins",
+      "SoundTouch — real-time time-stretching and pitch-shifting",
+      "Multi-language UI (LanguageManager, .idm) — dynamic language switch without restart",
+      "C# installer custom actions (InstallStep/UninstallStep) via Inno Setup"
     ],
     "stack": [
       [
@@ -832,7 +832,7 @@ const PROJECTS = [
         "---"
       ],
       [
-        "Мова",
+        "Language",
         "C++ (MSVC) + C#"
       ],
       [
@@ -883,19 +883,19 @@ const PROJECTS = [
       "Touchscreen",
       "Flash"
     ],
-    "path": "`D:\\WORK_PROJECTS\\hmitouchscreenold`",
+    "path": "",
     "platform": "Embedded C / PIC24FJ64GB002 / MPLAB XC16",
     "paired": null,
     "github": "",
-    "description": "Standalone HMI для управління промисловим шприцевим насосом серії ASI 500 через TFT35 сенсорний дисплей по Modbus RTU.",
+    "description": "Standalone HMI for controlling ASI 500 industrial syringe pump via TFT35 touchscreen display over Modbus RTU.",
     "features": [
-      "TFT35 SPI дисплей (TFT35_SPI.c) — ініціалізація, backlight, текст/примітиви",
-      "Touchscreen калібрація (touchscreen.c) — persistent у internal flash",
+      "TFT35 SPI display (TFT35_SPI.c) — initialization, backlight, text/primitives",
+      "Touchscreen calibration (touchscreen.c) — persistent in internal flash",
       "TFTUI (TFTUI.h) — TextBox, SelectFont, SetBackground/Foreground, center-aligned",
-      "Modbus master (SerialModbus.c) — FC 0x03/0x10, CRC16, timeout 300 мс",
-      "Poll/update state machine — differential update тільки при змінах регістрів",
-      "WSoD mitigation — TFT35_Enable() кожні 3 с",
-      "UI BreakHook — callback під час перерисовки для Modbus polling без блокування"
+      "Modbus master (SerialModbus.c) — FC 0x03/0x10, CRC16, timeout 300 ms",
+      "Poll/update state machine — differential update only on register changes",
+      "WSoD mitigation — TFT35_Enable() every 3 seconds",
+      "UI BreakHook — callback during repaint for non-blocking Modbus polling"
     ],
     "stack": [
       [
@@ -907,7 +907,7 @@ const PROJECTS = [
         "PIC24FJ64GB002"
       ],
       [
-        "Мова",
+        "Language",
         "C (XC16 compiler)"
       ],
       [
@@ -953,20 +953,20 @@ const PROJECTS = [
       "Drag & Drop",
       "WYSIWYG"
     ],
-    "path": "`D:\\WORK_PROJECTS\\drag_drop_html_editor`",
+    "path": "",
     "platform": "C++ + Qt5 Widgets / Windows (CMake)",
     "paired": null,
     "github": "",
-    "description": "WYSIWYG редактор HTML для TFT дисплеїв: drag-and-drop елементів на канвасі з синхронним редагуванням HTML-коду.",
+    "description": "WYSIWYG HTML editor for TFT displays: drag-and-drop elements on canvas with synchronized HTML editing.",
     "features": [
-      "Dual-view editing — canvas (drag/resize) ↔ code (HTML); двостороння синхронізація",
-      "Drag-and-drop palette — текст, кнопка, зображення, лінія → канвас з (x, y)",
+      "Dual-view editing — canvas (drag/resize) ↔ code (HTML); bidirectional sync",
+      "Drag-and-drop palette — text, button, image, line → canvas with (x, y)",
       "Element management — select/move/resize/copy/paste/duplicate/delete",
-      "Property panel — position, size, text, color, font обраного елемента",
+      "Property panel — position, size, text, color, font of selected element",
       "Undo/Redo (QUndoStack, DocumentStateCommand) — Command pattern",
-      "Grid — конфігурована сітка; snap-to-grid при переміщенні",
-      "Font management — кастомні шрифти, Font Editor, system fonts menu",
-      "HTML parser (model/htmlparser.h) — parsing у внутрішню document model"
+      "Grid — configurable grid; snap-to-grid on move",
+      "Font management — custom fonts, Font Editor, system fonts menu",
+      "HTML parser (model/htmlparser.h) — parse into internal document model"
     ],
     "stack": [
       [
@@ -974,7 +974,7 @@ const PROJECTS = [
         "---"
       ],
       [
-        "Мова",
+        "Language",
         "C++17"
       ],
       [
@@ -1017,19 +1017,19 @@ const PROJECTS = [
       "Kiosk",
       "Inno Setup"
     ],
-    "path": "`D:\\WORK_PROJECTS\\UI-App`",
+    "path": "",
     "platform": "C++ + Qt6 + QML / Windows embedded",
     "paired": null,
     "github": "",
-    "description": "Повнофункціональний industrial HMI для кабелезачисного верстату. Touchscreen UI на Qt Quick/QML з Modbus зв'язком, управлінням рецептами та діагностикою.",
+    "description": "Full-featured industrial HMI for cable stripping machine. Qt Quick/QML touchscreen UI with Modbus communication, recipe management, and diagnostics.",
     "features": [
       "DeviceDataManager — 50+ Q_PROPERTY: machineState, pressure, barometer, LED strips, service counters",
-      "Modbus async queue (QModbusClient) з priority queue та статистикою успішності",
-      "Barcode scanner — serial port або HID keyboard emulation через eventFilter",
-      "Recipe engine (RecipeManager, ProductionDatabase) — CRUD у SQLite",
+      "Modbus async queue (QModbusClient) with priority queue and success statistics",
+      "Barcode scanner — serial port or HID keyboard emulation via eventFilter",
+      "Recipe engine (RecipeManager, ProductionDatabase) — CRUD in SQLite",
       "Multi-axis config A1–A4 — corrections, offsets, PID enable",
-      "Blade replacement wizard — guided покроковий процес",
-      "USB detection (UsbManager) — WMI COM-об'єкт для arrival/removal",
+      "Blade replacement wizard — guided step-by-step process",
+      "USB detection (UsbManager) — WMI COM object for arrival/removal",
       "Kiosk mode — Windows Registry Shell key; Qt Virtual Keyboard",
       "Release pipeline — Inno Setup + rcedit + signtool + PFX; i18n Qt Linguist"
     ],
@@ -1039,7 +1039,7 @@ const PROJECTS = [
         "---"
       ],
       [
-        "Мова",
+        "Language",
         "C++17"
       ],
       [
@@ -1088,16 +1088,16 @@ const PROJECTS = [
       "QModbusServer",
       "Testing tool"
     ],
-    "path": "`D:\\WORK_PROJECTS\\ModbusEmulator`",
+    "path": "",
     "platform": "C++ + Qt6 + QML / Windows",
     "paired": null,
     "github": "",
-    "description": "Desktop для емуляції Modbus RTU/TCP slave пристрою — тестування master-застосунків (HMIApp, HPLC Pump) без реального обладнання.",
+    "description": "Desktop for emulating Modbus RTU/TCP slave device — test master applications (HMIApp, HPLC Pump) without real hardware.",
     "features": [
-      "QModbusServer — FC 0x03/0x10, генерація відповідей",
+      "QModbusServer — FC 0x03/0x10, generate responses",
       "ModbusDataStore — register bank: bulk init, per-address R/W, notifications",
-      "QML UI — конфігурація порту/slave-ID, real-time таблиця регістрів, Start/Stop",
-      "LogHandler — структурований лог запитів/відповідей із timestamp",
+      "QML UI — port/slave-ID configuration, real-time register table, Start/Stop",
+      "LogHandler — structured request/response log with timestamp",
       "CMakePresets — debug/release profiles"
     ],
     "stack": [
@@ -1106,7 +1106,7 @@ const PROJECTS = [
         "---"
       ],
       [
-        "Мова",
+        "Language",
         "C++17"
       ],
       [
@@ -1144,20 +1144,20 @@ const PROJECTS = [
       "Qt Test",
       "Charts"
     ],
-    "path": "`D:\\WORK_PROJECTS\\hplcpump`",
+    "path": "",
     "platform": "C++ + Qt6 + QML / Windows",
     "paired": null,
     "github": "",
-    "description": "Desktop управління HPLC шприцевим насосом через Modbus RTU: параметри потоку, автоматизовані методи, моніторинг тиску та витрати.",
+    "description": "HPLC syringe pump control via Modbus RTU: flow parameters, automated methods, pressure and flow monitoring.",
     "features": [
       "PumpManager — 30+ Q_PROPERTY: flowRate, syringeA/BVolume, pressures, sequencerStep, faultCode",
-      "Modbus async priority queue — readHolding/readInput/writeSingle/writeMultipleAsync; статистика",
-      "Auto-reconnect з налаштовуваним інтервалом",
+      "Modbus async priority queue — readHolding/readInput/writeSingle/writeMultipleAsync; statistics",
+      "Auto-reconnect with configurable interval",
       "Flow Method Manager — sequence steps: flowRate, composition, duration, volume",
-      "Flowmeter calibration (FlowMeterCalibrationManager) — guided процедура",
+      "Flowmeter calibration (FlowMeterCalibrationManager) — guided procedure",
       "Setpoints R/W — flowRateSetpoint, pmin/pmax, fillFlowRate, flushFlowRate",
-      "8 клапанів (valve1–8), 2 реле; homed/filling pump A/B",
-      "Real-time charting (HPLCChart.qml) — тиск/витрата",
+      "8 valves (valve1–8), 2 relays; homed/filling pump A/B",
+      "Real-time charting (HPLCChart.qml) — pressure/flow",
       "Qt Test + CTest unit tests"
     ],
     "stack": [
@@ -1166,7 +1166,7 @@ const PROJECTS = [
         "---"
       ],
       [
-        "Мова",
+        "Language",
         "C++17"
       ],
       [
@@ -1213,18 +1213,18 @@ const PROJECTS = [
       "MusicXML",
       "vcpkg"
     ],
-    "path": "`D:\\WORK_PROJECTS\\scanscore_for_vol`",
+    "path": "",
     "platform": "C++ + Qt5 + OpenCV + Tesseract / Windows + macOS",
     "paired": null,
     "github": "",
-    "description": "Кросплатформний застосунок для оптичного розпізнавання музичних нот (OMR — Optical Music Recognition) зі сканованих нотних сторінок.",
+    "description": "Cross-platform application for optical music recognition (OMR) from scanned sheet music pages.",
     "features": [
-      "OCR (Tesseract + Leptonica) — розпізнавання символів нотного письма",
+      "OCR (Tesseract + Leptonica) — recognize music notation symbols",
       "Image preprocessing (OpenCV) — grayscale, threshold, morphological, staff line detection/removal",
       "ML classification (Armadillo + OpenBLAS) — noteheads, stems, flags, rests, clefs",
       "Qt5 GUI — scan view, results panel",
-      "MIDI/notation output — MusicXML або MIDI",
-      "Cross-platform — vcpkg; Windows (x64) + macOS; AddressSanitizer у debug"
+      "MIDI/notation output — MusicXML or MIDI",
+      "Cross-platform — vcpkg; Windows (x64) + macOS; AddressSanitizer in debug"
     ],
     "stack": [
       [
@@ -1232,7 +1232,7 @@ const PROJECTS = [
         "---"
       ],
       [
-        "Мова",
+        "Language",
         "C++11"
       ],
       [
@@ -1283,19 +1283,19 @@ const PROJECTS = [
       "SoundTouch",
       "CD Burn"
     ],
-    "path": "`D:\\WORK_PROJECTS\\forte_new`",
+    "path": "",
     "platform": "C++ + MFC / Windows (MSVC, v140 toolset)",
     "paired": null,
     "github": "",
-    "description": "Повнофункціональний music notation editor (аналог Finale/Sibelius) з MIDI, audio recording, VST та CD burning.",
+    "description": "Full-featured music notation editor (Finale/Sibelius-class) with MIDI, audio recording, VST, and CD burning.",
     "features": [
       "Score editor — WYSIWYG: measures, staves, clef, time/key signatures",
       "MIDI playback/recording (Sequencer32, piano roll)",
-      "Audio capture (AudioCapture2MP3/WaveDlg) — WAV та MP3 через Lame/GoGo",
+      "Audio capture (AudioCapture2MP3/WaveDlg) — WAV and MP3 via Lame/GoGo",
       "Audio CD burn (MCAudioBurnCtrl/Drive)",
-      "VST Host (VSTHost/) — VST 2.x плагіни",
-      "SoundTouch — time-stretch та pitch-shift",
-      "Multi-language (LanguageManager) — .idm файли, без перезапуску",
+      "VST Host (VSTHost/) — VST 2.x plugins",
+      "SoundTouch — time-stretch and pitch-shift",
+      "Multi-language (LanguageManager) — .idm files, no restart",
       "Undo history (CUNDOHISTORY), online updater (CUpdater)"
     ],
     "stack": [
@@ -1304,7 +1304,7 @@ const PROJECTS = [
         "---"
       ],
       [
-        "Мова",
+        "Language",
         "C++ (MSVC)"
       ],
       [
@@ -1353,15 +1353,15 @@ const PROJECTS = [
       "DLL plugins",
       "Legacy"
     ],
-    "path": "`D:\\WORK_PROJECTS\\onyx`",
+    "path": "",
     "platform": "C/C++ / Windows (MSVC legacy)",
     "paired": null,
     "github": "",
-    "description": "Legacy desktop-застосунок із plugin-архітектурою. Multimedia або productivity tool з розширюваною системою DLL-плагінів.",
+    "description": "Legacy desktop application with plugin architecture. Multimedia or productivity tool with extensible DLL plugin system.",
     "features": [
-      "Plugin architecture (Plugins/) — DLL-плагіни, динамічне завантаження",
-      "Application modules (Apps/) — підзастосунки у рамках одного процесу",
-      "Core library (src/) — shared логіка між Apps та Plugins",
+      "Plugin architecture (Plugins/) — DLL plugins, dynamic loading",
+      "Application modules (Apps/) — sub-applications within single process",
+      "Core library (src/) — shared logic between Apps and Plugins",
       "Legacy VS2005 solution"
     ],
     "stack": [
@@ -1370,7 +1370,7 @@ const PROJECTS = [
         "---"
       ],
       [
-        "Мова",
+        "Language",
         "C/C++"
       ],
       [
@@ -1408,19 +1408,19 @@ const PROJECTS = [
       "watchdog",
       "pytest"
     ],
-    "path": "`D:\\ai_memory_system`",
+    "path": "",
     "platform": "Python 3",
     "paired": null,
     "github": "",
-    "description": "CLI-утиліта для ведення семантичної пам'яті AI-асистента: збереження технічних рішень, помилок, залежностей між сесіями.",
+    "description": "CLI utility for maintaining semantic memory of AI assistant: store technical decisions, errors, dependencies across sessions.",
     "features": [
       "MemoryEngine (core/engine.py) — add_memory(payload), session_summary()",
       "Structured records — type, description, cause, fix, files[], decisions[], tags[], depends_on[]",
       "Project-scoped storage — data/projects/{slug}/",
-      "Tag system — довільні теги + авто project:{slug}; фільтрація при пошуку",
-      "Semantic search (опціонально, sentence-transformers) — векторний пошук",
-      "File watcher (опціонально, watchdog) — автовідстеження змін",
-      "JSON CLI output — всі операції повертають JSON",
+      "Tag system — arbitrary tags + auto project:{slug}; filter on search",
+      "Semantic search (optional, sentence-transformers) — vector search",
+      "File watcher (optional, watchdog) — auto-track changes",
+      "JSON CLI output — all operations return JSON",
       "pytest test suite"
     ],
     "stack": [
@@ -1429,7 +1429,7 @@ const PROJECTS = [
         "---"
       ],
       [
-        "Мова",
+        "Language",
         "Python 3"
       ],
       [
