@@ -18,12 +18,12 @@ Firmware high-speed ADC пристрою на STM32H743 (Cortex-M7, 480 MHz). З
 - Phase analysis (phase_a.c, phase_b.c) — двоканальний фазовий аналіз
 - USB CDC binary protocol (usb_protocol.h) — відповідь на команди FastAcqWinApp
 
-## Технологічний стек
+## Tech Stack
 
-| Компонент | Технологія |
+| Component | Technology |
 |---|---|
 | MCU | STM32H743 (Cortex-M7, 480 MHz) |
-| Мова | C + startup ASM |
+| Language | C + startup ASM |
 | HAL | STM32 HAL / CMSIS |
 | Peripherals | DCMI, DMA, SDRAM (FMC), DAC, USB FS |
 | Build | CMake + arm-none-eabi-gcc, Ninja |
@@ -31,13 +31,13 @@ Firmware high-speed ADC пристрою на STM32H743 (Cortex-M7, 480 MHz). З
 
 ## Медіа
 
-### Фото
-<!-- Розмістіть фотографії у папці foto/ -->
-<!-- Потім вкажіть шляхи у media.foto в assets/js/data.js -->
+### Photos
+<!-- Place photos in foto/ folder -->
+<!-- Then specify paths in media.foto in assets/js/data.js -->
 
-### Відео
-<!-- Розмістіть відеофайли у папці video/ -->
-<!-- Потім вкажіть шляхи у media.video в assets/js/data.js -->
+### Videos
+<!-- Place videos in video/ folder -->
+<!-- Then specify paths in media.video in assets/js/data.js -->
 
 ## Нотатки
 

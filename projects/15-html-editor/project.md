@@ -19,11 +19,11 @@ WYSIWYG редактор HTML для TFT дисплеїв: drag-and-drop еле�
 - Font management — кастомні шрифти, Font Editor, system fonts menu
 - HTML parser (model/htmlparser.h) — parsing у внутрішню document model
 
-## Технологічний стек
+## Tech Stack
 
-| Компонент | Технологія |
+| Component | Technology |
 |---|---|
-| Мова | C++17 |
+| Language | C++17 |
 | UI | Qt5 (Widgets, QMainWindow) |
 | Patterns | Command (QUndoStack), MVC |
 | Build | CMake, windeployqt |
@@ -31,13 +31,13 @@ WYSIWYG редактор HTML для TFT дисплеїв: drag-and-drop еле�
 
 ## Медіа
 
-### Фото
-<!-- Розмістіть фотографії у папці foto/ -->
-<!-- Потім вкажіть шляхи у media.foto в assets/js/data.js -->
+### Photos
+<!-- Place photos in foto/ folder -->
+<!-- Then specify paths in media.foto in assets/js/data.js -->
 
-### Відео
-<!-- Розмістіть відеофайли у папці video/ -->
-<!-- Потім вкажіть шляхи у media.video в assets/js/data.js -->
+### Videos
+<!-- Place videos in video/ folder -->
+<!-- Then specify paths in media.video in assets/js/data.js -->
 
 ## Нотатки
 

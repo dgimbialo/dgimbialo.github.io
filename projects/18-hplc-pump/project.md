@@ -20,11 +20,11 @@ Desktop управління HPLC шприцевим насосом через M
 - Real-time charting (HPLCChart.qml) — тиск/витрата
 - Qt Test + CTest unit tests
 
-## Технологічний стек
+## Tech Stack
 
-| Компонент | Технологія |
+| Component | Technology |
 |---|---|
-| Мова | C++17 |
+| Language | C++17 |
 | UI | Qt6 Quick/QML |
 | Communication | QModbusClient (SerialBus RTU) |
 | Testing | Qt Test + CTest |
@@ -33,13 +33,13 @@ Desktop управління HPLC шприцевим насосом через M
 
 ## Медіа
 
-### Фото
-<!-- Розмістіть фотографії у папці foto/ -->
-<!-- Потім вкажіть шляхи у media.foto в assets/js/data.js -->
+### Photos
+<!-- Place photos in foto/ folder -->
+<!-- Then specify paths in media.foto in assets/js/data.js -->
 
-### Відео
-<!-- Розмістіть відеофайли у папці video/ -->
-<!-- Потім вкажіть шляхи у media.video в assets/js/data.js -->
+### Videos
+<!-- Place videos in video/ folder -->
+<!-- Then specify paths in media.video in assets/js/data.js -->
 
 ## Нотатки
 

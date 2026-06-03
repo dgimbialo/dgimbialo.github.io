@@ -16,14 +16,14 @@
 - Score notation editor (ScoreEdit) — WYSIWYG: measures, staves, clef, time/key signatures
 - VST Host (VSTHost/) — завантаження та виконання VST 2.x плагінів
 - SoundTouch — time-stretching та pitch-shifting у реальному часі
-- Multi-language UI (LanguageManager, .idm) — динамічна зміна мови без перезапуску
+- Multi-language UI (LanguageManager, .idm) — dynamic language switch without restart
 - C# installer custom actions (InstallStep/UninstallStep) через Inno Setup
 
-## Технологічний стек
+## Tech Stack
 
-| Компонент | Технологія |
+| Component | Technology |
 |---|---|
-| Мова | C++ (MSVC) + C# |
+| Language | C++ (MSVC) + C# |
 | UI | MFC (Dynamic) |
 | MIDI | WinMM, DirectMusic |
 | Audio | DirectShow, WASAPI, Lame/GoGo |
@@ -33,13 +33,13 @@
 
 ## Медіа
 
-### Фото
-<!-- Розмістіть фотографії у папці foto/ -->
-<!-- Потім вкажіть шляхи у media.foto в assets/js/data.js -->
+### Photos
+<!-- Place photos in foto/ folder -->
+<!-- Then specify paths in media.foto in assets/js/data.js -->
 
-### Відео
-<!-- Розмістіть відеофайли у папці video/ -->
-<!-- Потім вкажіть шляхи у media.video в assets/js/data.js -->
+### Videos
+<!-- Place videos in video/ folder -->
+<!-- Then specify paths in media.video in assets/js/data.js -->
 
 ## Нотатки
 

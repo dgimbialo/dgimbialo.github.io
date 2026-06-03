@@ -19,11 +19,11 @@ Windows desktop для real-time прийому та аналізу сигнал
 - WaterfallView — spectrogram у псевдокольорі
 - CommandPanel — COM combo, Start/Stop, Set Freq/Samples, Ping, Mode, Trigger, PC/Device mode
 
-## Технологічний стек
+## Tech Stack
 
-| Компонент | Технологія |
+| Component | Technology |
 |---|---|
-| Мова | C++17 |
+| Language | C++17 |
 | UI | MFC (CWnd custom panels, GDI double-buffer) |
 | Communication | Win32 COM port API, binary protocol |
 | DSP | Radix-2 FFT, windowing functions |
@@ -31,13 +31,13 @@ Windows desktop для real-time прийому та аналізу сигнал
 
 ## Медіа
 
-### Фото
-<!-- Розмістіть фотографії у папці foto/ -->
-<!-- Потім вкажіть шляхи у media.foto в assets/js/data.js -->
+### Photos
+<!-- Place photos in foto/ folder -->
+<!-- Then specify paths in media.foto in assets/js/data.js -->
 
-### Відео
-<!-- Розмістіть відеофайли у папці video/ -->
-<!-- Потім вкажіть шляхи у media.video в assets/js/data.js -->
+### Videos
+<!-- Place videos in video/ folder -->
+<!-- Then specify paths in media.video in assets/js/data.js -->
 
 ## Нотатки
 

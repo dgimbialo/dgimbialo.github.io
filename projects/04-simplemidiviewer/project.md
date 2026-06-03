@@ -15,24 +15,24 @@ Desktop Windows-застосунок для відкриття, парсингу
 - MFC MDI GUI — MainFrame, ScoreView, меню Open/Save/Export
 - CMake build з precompiled headers
 
-## Технологічний стек
+## Tech Stack
 
-| Компонент | Технологія |
+| Component | Technology |
 |---|---|
-| Мова | C++17 |
+| Language | C++17 |
 | UI | MFC (MDI) |
 | MIDI | Власний SMF parser |
 | Build | CMake + MSVC |
 
 ## Медіа
 
-### Фото
-<!-- Розмістіть фотографії у папці foto/ -->
-<!-- Потім вкажіть шляхи у media.foto в assets/js/data.js -->
+### Photos
+<!-- Place photos in foto/ folder -->
+<!-- Then specify paths in media.foto in assets/js/data.js -->
 
-### Відео
-<!-- Розмістіть відеофайли у папці video/ -->
-<!-- Потім вкажіть шляхи у media.video в assets/js/data.js -->
+### Videos
+<!-- Place videos in video/ folder -->
+<!-- Then specify paths in media.video in assets/js/data.js -->
 
 ## Нотатки
 

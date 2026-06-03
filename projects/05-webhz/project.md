@@ -19,11 +19,11 @@
 - Auth middleware checker.py — Flask session
 - Custom exceptions — ConnectionError, CredentialsError, SQLError
 
-## Технологічний стек
+## Tech Stack
 
-| Компонент | Технологія |
+| Component | Technology |
 |---|---|
-| Мова | Python 3 |
+| Language | Python 3 |
 | Framework | Flask |
 | Templating | Jinja2 |
 | Database | MySQL (mysql-connector-python) |
@@ -31,13 +31,13 @@
 
 ## Медіа
 
-### Фото
-<!-- Розмістіть фотографії у папці foto/ -->
-<!-- Потім вкажіть шляхи у media.foto в assets/js/data.js -->
+### Photos
+<!-- Place photos in foto/ folder -->
+<!-- Then specify paths in media.foto in assets/js/data.js -->
 
-### Відео
-<!-- Розмістіть відеофайли у папці video/ -->
-<!-- Потім вкажіть шляхи у media.video в assets/js/data.js -->
+### Videos
+<!-- Place videos in video/ folder -->
+<!-- Then specify paths in media.video in assets/js/data.js -->
 
 ## Нотатки
 

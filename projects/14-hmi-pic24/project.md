@@ -18,12 +18,12 @@ Standalone HMI для управління промисловим шприцев
 - WSoD mitigation — TFT35_Enable() кожні 3 с
 - UI BreakHook — callback під час перерисовки для Modbus polling без блокування
 
-## Технологічний стек
+## Tech Stack
 
-| Компонент | Технологія |
+| Component | Technology |
 |---|---|
 | MCU | PIC24FJ64GB002 |
-| Мова | C (XC16 compiler) |
+| Language | C (XC16 compiler) |
 | Display | TFT35 SPI |
 | Touch | Resistive touchscreen + calibration |
 | Protocol | Modbus RTU (Serial) |
@@ -32,13 +32,13 @@ Standalone HMI для управління промисловим шприцев
 
 ## Медіа
 
-### Фото
-<!-- Розмістіть фотографії у папці foto/ -->
-<!-- Потім вкажіть шляхи у media.foto в assets/js/data.js -->
+### Photos
+<!-- Place photos in foto/ folder -->
+<!-- Then specify paths in media.foto in assets/js/data.js -->
 
-### Відео
-<!-- Розмістіть відеофайли у папці video/ -->
-<!-- Потім вкажіть шляхи у media.video в assets/js/data.js -->
+### Videos
+<!-- Place videos in video/ folder -->
+<!-- Then specify paths in media.video in assets/js/data.js -->
 
 ## Нотатки
 

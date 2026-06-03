@@ -19,11 +19,11 @@
 - Multi-language (LanguageManager) — .idm файли, без перезапуску
 - Undo history (CUNDOHISTORY), online updater (CUpdater)
 
-## Технологічний стек
+## Tech Stack
 
-| Компонент | Технологія |
+| Component | Technology |
 |---|---|
-| Мова | C++ (MSVC) |
+| Language | C++ (MSVC) |
 | UI | MFC (Dynamic), Win32 |
 | MIDI | WinMM, DirectMusic |
 | Audio | DirectShow, WASAPI, Lame, GoGo |
@@ -33,13 +33,13 @@
 
 ## Медіа
 
-### Фото
-<!-- Розмістіть фотографії у папці foto/ -->
-<!-- Потім вкажіть шляхи у media.foto в assets/js/data.js -->
+### Photos
+<!-- Place photos in foto/ folder -->
+<!-- Then specify paths in media.foto in assets/js/data.js -->
 
-### Відео
-<!-- Розмістіть відеофайли у папці video/ -->
-<!-- Потім вкажіть шляхи у media.video в assets/js/data.js -->
+### Videos
+<!-- Place videos in video/ folder -->
+<!-- Then specify paths in media.video in assets/js/data.js -->
 
 ## Нотатки
 

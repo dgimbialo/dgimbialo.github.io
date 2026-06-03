@@ -11,17 +11,17 @@ CLI-інструмент для автоматичного збереження 
 ## Ключові функції
 
 - GitPython — repo.is_dirty(), repo.git.diff(None, name_only=True)
-- SHA-256 deduplication — sha256(diff_content); дублікати не зберігаються
+- SHA-256 deduplication — sha256(diff_content); duplicates not stored
 - Hash store persistence — plain-text файл хешів; завантаження/оновлення
 - Timestamped output dirs — changes_YYYYMMDD_HHMMSS/
 - Multi-file — кожен dirty файл → окремий .diff у batch-директорії
 - argparse CLI — repo path, output path, hash store; polling/daemon режим
 
-## Технологічний стек
+## Tech Stack
 
-| Компонент | Технологія |
+| Component | Technology |
 |---|---|
-| Мова | Python 3 |
+| Language | Python 3 |
 | Git | GitPython |
 | Hashing | hashlib (SHA-256) |
 | CLI | argparse |
@@ -29,13 +29,13 @@ CLI-інструмент для автоматичного збереження 
 
 ## Медіа
 
-### Фото
-<!-- Розмістіть фотографії у папці foto/ -->
-<!-- Потім вкажіть шляхи у media.foto в assets/js/data.js -->
+### Photos
+<!-- Place photos in foto/ folder -->
+<!-- Then specify paths in media.foto in assets/js/data.js -->
 
-### Відео
-<!-- Розмістіть відеофайли у папці video/ -->
-<!-- Потім вкажіть шляхи у media.video в assets/js/data.js -->
+### Videos
+<!-- Place videos in video/ folder -->
+<!-- Then specify paths in media.video in assets/js/data.js -->
 
 ## Нотатки
 

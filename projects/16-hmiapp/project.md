@@ -20,11 +20,11 @@
 - Kiosk mode — Windows Registry Shell key; Qt Virtual Keyboard
 - Release pipeline — Inno Setup + rcedit + signtool + PFX; i18n Qt Linguist
 
-## Технологічний стек
+## Tech Stack
 
-| Компонент | Технологія |
+| Component | Technology |
 |---|---|
-| Мова | C++17 |
+| Language | C++17 |
 | UI | Qt6 Quick/QML, Qt Virtual Keyboard |
 | Database | Qt SQL (SQLite) |
 | Communication | QModbusClient (SerialBus), QSerialPort |
@@ -34,13 +34,13 @@
 
 ## Медіа
 
-### Фото
-<!-- Розмістіть фотографії у папці foto/ -->
-<!-- Потім вкажіть шляхи у media.foto в assets/js/data.js -->
+### Photos
+<!-- Place photos in foto/ folder -->
+<!-- Then specify paths in media.foto in assets/js/data.js -->
 
-### Відео
-<!-- Розмістіть відеофайли у папці video/ -->
-<!-- Потім вкажіть шляхи у media.video в assets/js/data.js -->
+### Videos
+<!-- Place videos in video/ folder -->
+<!-- Then specify paths in media.video in assets/js/data.js -->
 
 ## Нотатки
 

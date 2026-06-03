@@ -17,23 +17,23 @@
 - Мульти-формат експорту — CSV, TXT, HTML
 - Statistics line — лічильник connected/free пінів
 
-## Технологічний стек
+## Tech Stack
 
-| Компонент | Технологія |
+| Component | Technology |
 |---|---|
-| Мова | EAGLE ULP (C-like DSL) |
-| Платформа | Autodesk EAGLE / Fusion 360 Electronics |
+| Language | EAGLE ULP (C-like DSL) |
+| Platform | Autodesk EAGLE / Fusion 360 Electronics |
 | Output | HTML, CSV, TXT |
 
 ## Медіа
 
-### Фото
-<!-- Розмістіть фотографії у папці foto/ -->
-<!-- Потім вкажіть шляхи у media.foto в assets/js/data.js -->
+### Photos
+<!-- Place photos in foto/ folder -->
+<!-- Then specify paths in media.foto in assets/js/data.js -->
 
-### Відео
-<!-- Розмістіть відеофайли у папці video/ -->
-<!-- Потім вкажіть шляхи у media.video в assets/js/data.js -->
+### Videos
+<!-- Place videos in video/ folder -->
+<!-- Then specify paths in media.video in assets/js/data.js -->
 
 ## Нотатки
 

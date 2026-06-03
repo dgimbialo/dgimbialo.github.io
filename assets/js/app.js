@@ -181,7 +181,7 @@ function renderProjectDetail(p) {
     `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join('');
   const pairedHtml = p.paired ? `
     <div class="paired-notice">
-      <strong>Парна система:</strong> ${esc(p.paired)}
+      <strong>Paired System:</strong> ${esc(p.paired)}
     </div>` : '';
   const githubHtml = p.github ? `
     <a href="${esc(p.github)}" target="_blank" rel="noopener" class="hero-link" style="margin-top:8px">
@@ -195,9 +195,9 @@ function renderProjectDetail(p) {
   if (!hasFoto && !hasVideo) {
     mediaHtml = `
       <div class="media-placeholder">
-        <p>📷 Додайте фото у <code>projects/${esc(p.slug)}/foto/</code></p>
-        <p style="margin-top:8px">🎥 Додайте відео у <code>projects/${esc(p.slug)}/video/</code></p>
-        <p style="margin-top:12px;font-size:.8rem">Потім вкажіть шляхи у полі <code>media</code> в <strong>assets/js/data.js</strong></p>
+        <p>📷 Add photos to <code>projects/${esc(p.slug)}/foto/</code></p>
+        <p style="margin-top:8px">🎥 Add videos to <code>projects/${esc(p.slug)}/video/</code></p>
+        <p style="margin-top:12px;font-size:.8rem">Then specify paths in the <code>media</code> field in <strong>assets/js/data.js</strong></p>
       </div>`;
   } else {
     const fotoItems = (p.media.foto || []).map(src =>
@@ -228,34 +228,34 @@ function renderProjectDetail(p) {
       <div class="project-detail-grid">
         <div class="detail-left">
           <div class="detail-card">
-            <h2>Призначення</h2>
+            <h2>Purpose</h2>
             <p>${esc(p.description)}</p>
           </div>
           <div class="detail-card">
-            <h2>Ключові функції</h2>
+            <h2>Key Features</h2>
             <div class="features-list">${feats}</div>
           </div>
           <div class="detail-card">
-            <h2>📷 Медіа</h2>
+            <h2>📷 Media</h2>
             ${mediaHtml}
           </div>
         </div>
         <div class="detail-right">
           <div class="detail-card">
-            <h2>Технологічний стек</h2>
+            <h2>Tech Stack</h2>
             <table class="stack-table">
               <tbody>${stackRows}</tbody>
             </table>
           </div>
           <div class="detail-card">
-            <h2>Шлях до проекту</h2>
+            <h2>Project Path</h2>
             <div class="path-box">
               ${p.path && (p.path.startsWith('http://') || p.path.startsWith('https://'))
                 ? `<a href="${esc(p.path)}" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:none;font-weight:500">${esc(p.path)} ↗</a>`
                 : `<code>${esc(p.path)}</code>`}
             </div>
             <div style="margin-top:8px;font-size:.82rem;color:var(--muted)">
-              Платформа: ${esc(p.platform)}
+              Platform: ${esc(p.platform)}
             </div>
           </div>
           ${pairedHtml}

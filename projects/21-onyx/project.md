@@ -15,24 +15,24 @@ Legacy desktop-застосунок із plugin-архітектурою. Multim
 - Core library (src/) — shared логіка між Apps та Plugins
 - Legacy VS2005 solution
 
-## Технологічний стек
+## Tech Stack
 
-| Компонент | Технологія |
+| Component | Technology |
 |---|---|
-| Мова | C/C++ |
+| Language | C/C++ |
 | UI | Win32 / MFC |
 | Architecture | Plugin-based (DLL) |
 | Build | Visual Studio legacy (.sln) |
 
 ## Медіа
 
-### Фото
-<!-- Розмістіть фотографії у папці foto/ -->
-<!-- Потім вкажіть шляхи у media.foto в assets/js/data.js -->
+### Photos
+<!-- Place photos in foto/ folder -->
+<!-- Then specify paths in media.foto in assets/js/data.js -->
 
-### Відео
-<!-- Розмістіть відеофайли у папці video/ -->
-<!-- Потім вкажіть шляхи у media.video в assets/js/data.js -->
+### Videos
+<!-- Place videos in video/ folder -->
+<!-- Then specify paths in media.video in assets/js/data.js -->
 
 ## Нотатки
 

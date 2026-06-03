@@ -17,9 +17,9 @@ Firmware контролера насосу для автоматичної та 
 - LCD UI (LiquidCrystal 16×2) — режим, рівень, стан помилок
 - Централізований custom_pins.h для GPIO маппінгу
 
-## Технологічний стек
+## Tech Stack
 
-| Компонент | Технологія |
+| Component | Technology |
 |---|---|
 | Platform | Arduino Mega 2560 |
 | Framework | Arduino C/C++ |
@@ -28,13 +28,13 @@ Firmware контролера насосу для автоматичної та 
 
 ## Медіа
 
-### Фото
-<!-- Розмістіть фотографії у папці foto/ -->
-<!-- Потім вкажіть шляхи у media.foto в assets/js/data.js -->
+### Photos
+<!-- Place photos in foto/ folder -->
+<!-- Then specify paths in media.foto in assets/js/data.js -->
 
-### Відео
-<!-- Розмістіть відеофайли у папці video/ -->
-<!-- Потім вкажіть шляхи у media.video в assets/js/data.js -->
+### Videos
+<!-- Place videos in video/ folder -->
+<!-- Then specify paths in media.video in assets/js/data.js -->
 
 ## Нотатки
 

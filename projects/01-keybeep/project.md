@@ -19,26 +19,26 @@ Lightweight Windows tray-програма для аудіального підт
 - Self-installer — setup.exe витягує KeyBeep.exe до %LOCALAPPDATA%\KeyBeep\ і додає в autostart
 - Thread safety — хук постить WM_USER+10 і повертається; відтворення у worker thread
 
-## Технологічний стек
+## Tech Stack
 
-| Компонент | Технологія |
+| Component | Technology |
 |---|---|
-| Мова | C++ (MSVC) |
+| Language | C++ (MSVC) |
 | GUI | Win32 API, SystemTray, Keyboard hooks |
-| Аудіо | WinMM (MIDI Out) |
+| Audio | WinMM (MIDI Out) |
 | Persistence | Windows Registry |
 | Build | batch build.bat |
-| Розмір | ~80 KB, нульові залежності |
+| Size | ~80 KB, нульові залежності |
 
 ## Медіа
 
-### Фото
-<!-- Розмістіть фотографії у папці foto/ -->
-<!-- Потім вкажіть шляхи у media.foto в assets/js/data.js -->
+### Photos
+<!-- Place photos in foto/ folder -->
+<!-- Then specify paths in media.foto in assets/js/data.js -->
 
-### Відео
-<!-- Розмістіть відеофайли у папці video/ -->
-<!-- Потім вкажіть шляхи у media.video в assets/js/data.js -->
+### Videos
+<!-- Place videos in video/ folder -->
+<!-- Then specify paths in media.video in assets/js/data.js -->
 
 ## Нотатки
 

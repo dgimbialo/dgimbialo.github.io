@@ -6,24 +6,24 @@
 
 ## Призначення
 
-CLI-утиліта для ведення семантичної пам'яті AI-асистента: збереження технічних рішень, помилок, залежностей між сесіями.
+CLI utility for maintaining semantic memory of AI assistant: store technical decisions, errors, dependencies across sessions.
 
 ## Ключові функції
 
 - MemoryEngine (core/engine.py) — add_memory(payload), session_summary()
 - Structured records — type, description, cause, fix, files[], decisions[], tags[], depends_on[]
 - Project-scoped storage — data/projects/{slug}/
-- Tag system — довільні теги + авто project:{slug}; фільтрація при пошуку
+- Tag system — arbitrary tags + auto project:{slug}; filter on search
 - Semantic search (опціонально, sentence-transformers) — векторний пошук
-- File watcher (опціонально, watchdog) — автовідстеження змін
+- File watcher (optional, watchdog) — auto-track changes
 - JSON CLI output — всі операції повертають JSON
 - pytest test suite
 
-## Технологічний стек
+## Tech Stack
 
-| Компонент | Технологія |
+| Component | Technology |
 |---|---|
-| Мова | Python 3 |
+| Language | Python 3 |
 | CLI | argparse |
 | Storage | JSON files (flat-file DB) |
 | Search | sentence-transformers (optional) |
@@ -32,13 +32,13 @@ CLI-утиліта для ведення семантичної пам'яті AI
 
 ## Медіа
 
-### Фото
-<!-- Розмістіть фотографії у папці foto/ -->
-<!-- Потім вкажіть шляхи у media.foto в assets/js/data.js -->
+### Photos
+<!-- Place photos in foto/ folder -->
+<!-- Then specify paths in media.foto in assets/js/data.js -->
 
-### Відео
-<!-- Розмістіть відеофайли у папці video/ -->
-<!-- Потім вкажіть шляхи у media.video в assets/js/data.js -->
+### Videos
+<!-- Place videos in video/ folder -->
+<!-- Then specify paths in media.video in assets/js/data.js -->
 
 ## Нотатки
 
