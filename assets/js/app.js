@@ -250,9 +250,9 @@ function renderProjectDetail(p) {
           <div class="detail-card">
             <h2>Project Path</h2>
             <div class="path-box">
-              ${p.path && (p.path.startsWith('http://') || p.path.startsWith('https://'))
-                ? `<a href="${esc(p.path)}" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:none;font-weight:500">${esc(p.path)} ↗</a>`
-                : `<code>${esc(p.path)}</code>`}
+              ${p.github
+                ? `<a href="${esc(p.github)}" target="_blank" rel="noopener" style="display:inline-block;padding:8px 16px;background:var(--primary);color:white;border-radius:4px;text-decoration:none;font-weight:500">Go to project ↗</a>`
+                : `<div style="color:var(--muted);font-style:italic">Protected by commercial secret</div>`}
             </div>
             <div style="margin-top:8px;font-size:.82rem;color:var(--muted)">
               Platform: ${esc(p.platform)}
