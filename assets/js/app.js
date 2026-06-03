@@ -248,14 +248,9 @@ function renderProjectDetail(p) {
             </table>
           </div>
           <div class="detail-card">
-            <h2>Project Path</h2>
-            <div class="path-box">
-              ${p.github
-                ? `<a href="${esc(p.github)}" target="_blank" rel="noopener" style="display:inline-block;padding:8px 16px;background:var(--primary);color:white;border-radius:4px;text-decoration:none;font-weight:500">Go to project ↗</a>`
-                : `<div style="color:var(--muted);font-style:italic">Non-Disclosure Agreement (NDA)</div>`}
-            </div>
-            <div style="margin-top:8px;font-size:.82rem;color:var(--muted)">
-              Platform: ${esc(p.platform)}
+            <h2>Platform</h2>
+            <div style="font-size:.95rem;color:var(--text)">
+              ${esc(p.platform)}
             </div>
           </div>
           ${pairedHtml}
