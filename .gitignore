@@ -47,23 +47,23 @@ yarn-debug.log*
 yarn-error.log*
 package-lock.json
 
-# Generated data
-assets/js/data.js
+# Generated data (only ignored on main branch)
+# assets/js/data.js - excluded from production build
 
-# Python scripts (build tools)
-rebuild_from_md.py
-format_markdown_links.py
+# Development tools and scripts (tracked in dev branch)
+# rebuild_from_md.py
+# format_markdown_links.py
+
+# Development utilities (tracked in dev branch)
+# generate_projects_tech_report.ps1
+# quick_tech_audit.ps1
+# scan_projects_tech.ps1
+
+# Technical reports (tracked in dev branch)
+# projects_technology_audit.md
+# projects_tech_scan.json
+# project's_list.txt
+
+# Build artifacts
 *.lock
-
-# PowerShell scripts (maintenance/audit tools)
-generate_projects_tech_report.ps1
-quick_tech_audit.ps1
-scan_projects_tech.ps1
-
-# Project reports and audits
-projects_technology_audit.md
-projects_tech_scan.json
-project's_list.txt
-
-# Project-specific
 .rebuild_from_md.lock
