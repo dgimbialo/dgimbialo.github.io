@@ -183,6 +183,10 @@ function renderProjectDetail(p) {
     <div class="paired-notice">
       <strong>Paired System:</strong> ${esc(p.paired)}
     </div>` : '';
+  const websiteHtml = p.path && (p.path.startsWith('http://') || p.path.startsWith('https://')) ? `
+    <a href="${esc(p.path)}" target="_blank" rel="noopener" class="hero-link" style="margin-top:8px">
+      Go to Site →
+    </a>` : '';
   const githubHtml = p.github ? `
     <a href="${esc(p.github)}" target="_blank" rel="noopener" class="hero-link" style="margin-top:8px">
       GitHub →
@@ -252,6 +256,7 @@ function renderProjectDetail(p) {
             <div style="font-size:.95rem;color:var(--text)">
               ${esc(p.platform)}
             </div>
+            ${websiteHtml}
           </div>
           ${pairedHtml}
           ${githubHtml}
