@@ -1,0 +1,69 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Generated data
+assets/js/data.js
+
+# Python scripts (build tools)
+rebuild_from_md.py
+format_markdown_links.py
+*.lock
+
+# PowerShell scripts (maintenance/audit tools)
+generate_projects_tech_report.ps1
+quick_tech_audit.ps1
+scan_projects_tech.ps1
+
+# Project reports and audits
+projects_technology_audit.md
+projects_tech_scan.json
+project's_list.txt
+
+# Project-specific
+.rebuild_from_md.lock

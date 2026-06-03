@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Taras Pavlyk — Embedded &amp; Desktop Software Engineer">
+  <meta property="og:title" content="Taras Pavlyk — Portfolio">
+  <meta property="og:description" content="Embedded systems, industrial HMI, desktop C++/Qt, Arduino, STM32, Python">
+  <title>Taras Pavlyk — Portfolio</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="index">
+
+  <nav class="nav" id="main-nav"></nav>
+
+  <!-- Hero / Profile -->
+  <section class="hero" id="hero"></section>
+
+  <!-- About -->
+  <div class="container section">
+    <h2 class="section-title">About</h2>
+    <p class="hero-summary" id="about-text"></p>
+  </div>
+
+  <!-- Skills -->
+  <div class="container section">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid" id="skills-grid"></div>
+  </div>
+
+  <!-- Projects -->
+  <div class="container section" id="projects">
+    <h2 class="section-title">Projects (22)</h2>
+    <div class="filters" id="project-filters"></div>
+    <div class="projects-grid" id="projects-grid"></div>
+  </div>
+
+  <footer class="footer" id="main-footer"></footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    // Render about text after data loaded
+    document.getElementById('about-text').textContent = PROFILE.summary;
+  </script>
+</body>
+</html>
