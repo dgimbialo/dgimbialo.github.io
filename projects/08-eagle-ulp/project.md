@@ -1,21 +1,21 @@
 # EAGLE ULP Pin Analyzer
 
-**Підзаголовок:** Schematic pin-connection analysis script  
-**Шлях:** `D:\My_project\eagle-upl-scripts`  
-**Платформа:** EAGLE ULP / Autodesk EAGLE
+**Subtitle:** Schematic pin-connection analysis script
+**Path:** `D:\My_project\eagle-upl-scripts`
+**Platform:** EAGLE ULP / Autodesk EAGLE
 
-## Призначення
+## Purpose
 
-Скрипт-аналізатор для EAGLE Schematic Editor: аналізує які піни Source компонента з'єднані з Target, а які вільні (N/C).
+Script analyzer for EAGLE Schematic Editor: analyzes which pins of the Source component are connected to the Target and which are free (N/C).
 
-## Ключові функції
+## Key features
 
-- Автозбір компонентів — schematic(SCH) { SCH.parts(P) } — name + value список
-- Аналіз netlist — для кожного піна Source пошук net-з'єднань із Target
-- Фільтрація та сортування — All/Connected/Free N/C; 7 критеріїв сортування
-- HTML-рендеринг у EAGLE viewer з кольоровим маркуванням (зелений/сірий)
-- Мульти-формат експорту — CSV, TXT, HTML
-- Statistics line — лічильник connected/free пінів
+- Autoassembly of components — schematic(SCH) { SCH.parts(P) } — name + value list
+- Netlist analysis — for each Source pin, search for net connections with Target
+- Filtering and sorting — All/Connected/Free N/C; 7 sorting criteria
+- HTML rendering in EAGLE viewer with color marking (green/gray)
+- Multi-format export — CSV, TXT, HTML
+- Statistics line — counter of connected/free pins
 
 ## Tech Stack
 
@@ -25,7 +25,7 @@
 | Platform | Autodesk EAGLE / Fusion 360 Electronics |
 | Output | HTML, CSV, TXT |
 
-## Медіа
+## Media
 
 ### Photos
 <!-- Place photos in foto/ folder -->
@@ -35,6 +35,6 @@
 <!-- Place videos in video/ folder -->
 <!-- Then specify paths in media.video in assets/js/data.js -->
 
-## Нотатки
+## Notes
 
-<!-- Додаткові нотатки, посилання, скріншоти, версії -->
+<!-- Additional notes, links, screenshots, versions -->

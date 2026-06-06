@@ -1,19 +1,19 @@
 # SimpleMidiViewer
 
-**Підзаголовок:** MIDI file parser & score renderer  
-**Шлях:** `D:\My_project\SimpleMidiViwer`  
-**Платформа:** C++17 + MFC + CMake / Windows
+**Subtitle:** MIDI file parser & score renderer
+**Path:** `D:\My_project\SimpleMidiViwer`
+**Platform:** C++17 + MFC + CMake / Windows
 
-## Призначення
+## Purpose
 
-Desktop Windows-застосунок для відкриття, парсингу та візуалізації MIDI-файлів у вигляді нотних рядків.
+Desktop Windows application for opening, parsing and visualizing MIDI files in the form of music strings.
 
-## Ключові функції
+## Key features
 
 - MIDI parser — SMF: header/track chunks, VLQ decoding, note on/off, meta, SysEx
-- Score rendering — відображення нот у стандартних нотних лінійках з масштабуванням
-- MFC MDI GUI — MainFrame, ScoreView, меню Open/Save/Export
-- CMake build з precompiled headers
+- Score rendering — display of notes in standard staves with scaling
+- MFC MDI GUI — MainFrame, ScoreView, Open/Save/Export menu
+- CMake build with precompiled headers
 
 ## Tech Stack
 
@@ -21,10 +21,10 @@ Desktop Windows-застосунок для відкриття, парсингу
 |---|---|
 | Language | C++17 |
 | UI | MFC (MDI) |
-| MIDI | Власний SMF parser |
+| MIDI | Own SMF parser |
 | Build | CMake + MSVC |
 
-## Медіа
+## Media
 
 ### Photos
 <!-- Place photos in foto/ folder -->
@@ -34,6 +34,6 @@ Desktop Windows-застосунок для відкриття, парсингу
 <!-- Place videos in video/ folder -->
 <!-- Then specify paths in media.video in assets/js/data.js -->
 
-## Нотатки
+## Notes
 
-<!-- Додаткові нотатки, посилання, скріншоти, версії -->
+<!-- Additional notes, links, screenshots, versions -->

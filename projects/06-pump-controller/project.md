@@ -1,21 +1,21 @@
 # Pump Controller Arduino
 
-**Підзаголовок:** 3-sensor liquid level controller  
-**Шлях:** `D:\My_project\Pump_Controller_MEGA_2560`  
-**Платформа:** Arduino C/C++ / Arduino Mega 2560
+**Subtitle:** 3-sensor liquid level controller
+**Path:** `D:\My_project\Pump_Controller_MEGA_2560`
+**Platform:** Arduino C/C++ / Arduino Mega 2560
 
-## Призначення
+## Purpose
 
-Firmware контролера насосу для автоматичної та ручної подачі рідини з 3-сенсорною системою визначення рівня.
+Pump controller firmware for automatic and manual liquid supply with 3-sensor level detection system.
 
-## Ключові функції
+## Key features
 
-- 3-сенсорна система — LOW/MIDDLE/HIGH рівень; управління реле насосу
-- Автоматичний режим — управління за рівнем рідини
-- Ручний режим — override через кнопки з індикацією на LCD
-- Error state detection — аварійні ситуації (відсутність/помилка сенсора)
-- LCD UI (LiquidCrystal 16×2) — режим, рівень, стан помилок
-- Централізований custom_pins.h для GPIO маппінгу
+- 3-sensor system — LOW/MIDDLE/HIGH level; pump relay control
+- Automatic mode — control by liquid level
+- Manual mode — override via buttons with LCD display
+- Error state detection — emergency situations (absence/error of the sensor)
+- LCD UI (LiquidCrystal 16×2) — mode, level, error status
+- Centralized custom_pins.h for GPIO mapping
 
 ## Tech Stack
 
@@ -26,7 +26,7 @@ Firmware контролера насосу для автоматичної та 
 | Display | LiquidCrystal 16×2 |
 | Build | Arduino IDE |
 
-## Медіа
+## Media
 
 ### Photos
 <!-- Place photos in foto/ folder -->
@@ -36,6 +36,6 @@ Firmware контролера насосу для автоматичної та 
 <!-- Place videos in video/ folder -->
 <!-- Then specify paths in media.video in assets/js/data.js -->
 
-## Нотатки
+## Notes
 
-<!-- Додаткові нотатки, посилання, скріншоти, версії -->
+<!-- Additional notes, links, screenshots, versions -->

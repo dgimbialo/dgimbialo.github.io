@@ -1,21 +1,21 @@
 # webHz
 
-**Підзаголовок:** Grid frequency monitoring web server  
-**Шлях:** `D:\My_project\webHz`  
-**Платформа:** Python + Flask + MySQL
-**Парна система:** CrossZeroDetector (#11)
+**Subtitle:** Grid frequency monitoring web server
+**Path:** `D:\My_project\webHz`
+**Platform:** Python + Flask + MySQL
+**Pair System:** CrossZeroDetector (#11)
 
-## Призначення
+## Purpose
 
-Веб-сервер для моніторингу та логування даних частоти мережі 50 Гц. Отримує дані від CrossZeroDetector (ESP32) і надає адмін-інтерфейс.
+Web server for monitoring and logging 50 Hz network frequency data. Receives data from the CrossZeroDetector (ESP32) and provides an admin interface.
 
-## Ключові функції
+## Key features
 
-- REST API /frequency_data — повертає JSON з поточним значенням частоти
-- Jinja2 web-форма /entry для введення параметрів
-- Адмін-сторінка /admin — захищена @check_logged_in
-- Перегляд логу /viewlog — таблиця MySQL: phrase, letters, ip, browser, result
-- MySQL через UseDatabase context manager (DBcm.py) — exception-safe
+- REST API /frequency_data — returns JSON with the current frequency value
+- Jinja2 web-form /entry for entering parameters
+- The admin page /admin is protected by @check_logged_in
+- View log /viewlog — MySQL table: phrase, letters, ip, browser, result
+- MySQL through UseDatabase context manager (DBcm.py) — exception-safe
 - Auth middleware checker.py — Flask session
 - Custom exceptions — ConnectionError, CredentialsError, SQLError
 
@@ -29,7 +29,7 @@
 | Database | MySQL (mysql-connector-python) |
 | Auth | Flask session |
 
-## Медіа
+## Media
 
 ### Photos
 <!-- Place photos in foto/ folder -->
@@ -39,6 +39,6 @@
 <!-- Place videos in video/ folder -->
 <!-- Then specify paths in media.video in assets/js/data.js -->
 
-## Нотатки
+## Notes
 
-<!-- Додаткові нотатки, посилання, скріншоти, версії -->
+<!-- Additional notes, links, screenshots, versions -->

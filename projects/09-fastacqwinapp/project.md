@@ -1,22 +1,22 @@
 # FastAcqWinApp
 
-**Підзаголовок:** Real-time signal acquisition & FFT analysis  
-**Шлях:** `D:\My_project\FastAcqWinApp`  
-**Платформа:** C++ + MFC / Windows (MSVC, x64)
-**Парна система:** STM32H7 Firmware (#10)
+**Subtitle:** Real-time signal acquisition & FFT analysis
+**Path:** `D:\My_project\FastAcqWinApp`
+**Platform:** C++ + MFC / Windows (MSVC, x64)
+**Pair System:** STM32H7 Firmware (#10)
 
-## Призначення
+## Purpose
 
-Windows desktop для real-time прийому та аналізу сигналів від STM32H7 ADC-пристрою через USB CDC. Режими: FFT-on-device та PC-side FFT (RAW samples + локальна обробка).
+Windows desktop for real-time reception and analysis of signals from STM32H7 ADC device via USB CDC. Modes: FFT-on-device and PC-side FFT (RAW samples + local processing).
 
-## Ключові функції
+## Key features
 
-- SerialWorker — background thread: Win32 COM API, ReadFile loop, CRC бінарний протокол
+- SerialWorker — background thread: Win32 COM API, ReadFile loop, CRC binary protocol
 - ChirpStore — CRITICAL_SECTION ring buffer 200 chirp frames: Push/GetLatest/GetAt
-- LocalFft — Radix-2 Cooley-Tukey FFT до 16384 точок; Rectangular/Hann/Hamming/Blackman вікна
+- LocalFft — Radix-2 Cooley-Tukey FFT up to 16384 points; Rectangular/Hann/Hamming/Blackman windows
 - WaveformView — GDI zoom/pan (X+/X−/Y+/Y− + mousewheel + scrollbars)
-- SpectrumView — лінійна/логарифмічна АЧХ з cursor overlay
-- WaterfallView — spectrogram у псевдокольорі
+- SpectrumView — linear/logarithmic frequency response with cursor overlay
+- WaterfallView — spectrogram in pseudo-color
 - CommandPanel — COM combo, Start/Stop, Set Freq/Samples, Ping, Mode, Trigger, PC/Device mode
 
 ## Tech Stack
@@ -29,7 +29,7 @@ Windows desktop для real-time прийому та аналізу сигнал
 | DSP | Radix-2 FFT, windowing functions |
 | Build | VS2022, FastAcq.sln, x64 |
 
-## Медіа
+## Media
 
 ### Photos
 <!-- Place photos in foto/ folder -->
@@ -39,6 +39,6 @@ Windows desktop для real-time прийому та аналізу сигнал
 <!-- Place videos in video/ folder -->
 <!-- Then specify paths in media.video in assets/js/data.js -->
 
-## Нотатки
+## Notes
 
-<!-- Додаткові нотатки, посилання, скріншоти, версії -->
+<!-- Additional notes, links, screenshots, versions -->

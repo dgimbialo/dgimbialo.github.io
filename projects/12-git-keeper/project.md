@@ -1,21 +1,21 @@
 # Git Change Keeper
 
-**Підзаголовок:** Automatic git diff snapshot with SHA-256 dedup  
-**Шлях:** `D:\WORK_PROJECTS\Git_Keeper`  
-**Платформа:** Python 3 / CLI
+**Subtitle:** Automatic git diff snapshot with SHA-256 dedup
+**Path:** `D:\WORK_PROJECTS\Git_Keeper`
+**Platform:** Python 3 / CLI
 
-## Призначення
+## Purpose
 
-CLI-інструмент для автоматичного збереження git diff snapshots у .diff файлах. Запускається регулярно і зберігає лише нові зміни, уникаючи дублікатів за SHA-256.
+CLI tool for automatically saving git diff snapshots in .diff files. Runs regularly and saves only new changes, avoiding SHA-256 duplicates.
 
-## Ключові функції
+## Key features
 
 - GitPython — repo.is_dirty(), repo.git.diff(None, name_only=True)
 - SHA-256 deduplication — sha256(diff_content); duplicates not stored
-- Hash store persistence — plain-text файл хешів; завантаження/оновлення
+- Hash store persistence — plain-text file of hashes; download/update
 - Timestamped output dirs — changes_YYYYMMDD_HHMMSS/
-- Multi-file — кожен dirty файл → окремий .diff у batch-директорії
-- argparse CLI — repo path, output path, hash store; polling/daemon режим
+- Multi-file — each dirty file → a separate .diff in the batch directory
+- argparse CLI — repo path, output path, hash store; polling/daemon mode
 
 ## Tech Stack
 
@@ -27,7 +27,7 @@ CLI-інструмент для автоматичного збереження 
 | CLI | argparse |
 | Storage | Flat files (.diff + hash store) |
 
-## Медіа
+## Media
 
 ### Photos
 <!-- Place photos in foto/ folder -->
@@ -37,6 +37,6 @@ CLI-інструмент для автоматичного збереження 
 <!-- Place videos in video/ folder -->
 <!-- Then specify paths in media.video in assets/js/data.js -->
 
-## Нотатки
+## Notes
 
-<!-- Додаткові нотатки, посилання, скріншоти, версії -->
+<!-- Additional notes, links, screenshots, versions -->

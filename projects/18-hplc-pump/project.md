@@ -1,23 +1,23 @@
 # HPLC Syringe Pump
 
-**Підзаголовок:** HPLC pump desktop control via Modbus RTU  
-**Шлях:** `D:\WORK_PROJECTS\hplcpump`  
-**Платформа:** C++ + Qt6 + QML / Windows
+**Subtitle:** HPLC pump desktop control via Modbus RTU
+**Path:** `D:\WORK_PROJECTS\hplcpump`
+**Platform:** C++ + Qt6 + QML / Windows
 
-## Призначення
+## Purpose
 
-Desktop управління HPLC шприцевим насосом через Modbus RTU: параметри потоку, автоматизовані методи, моніторинг тиску та витрати.
+Desktop control of an HPLC syringe pump via Modbus RTU: flow parameters, automated methods, pressure and flow monitoring.
 
-## Ключові функції
+## Key features
 
 - PumpManager — 30+ Q_PROPERTY: flowRate, syringeA/BVolume, pressures, sequencerStep, faultCode
-- Modbus async priority queue — readHolding/readInput/writeSingle/writeMultipleAsync; статистика
-- Auto-reconnect з налаштовуваним інтервалом
+- Modbus async priority queue — readHolding/readInput/writeSingle/writeMultipleAsync; statistics
+- Auto-reconnect with adjustable interval
 - Flow Method Manager — sequence steps: flowRate, composition, duration, volume
-- Flowmeter calibration (FlowMeterCalibrationManager) — guided процедура
+- Flowmeter calibration (FlowMeterCalibrationManager) — guided procedure
 - Setpoints R/W — flowRateSetpoint, pmin/pmax, fillFlowRate, flushFlowRate
-- 8 клапанів (valve1–8), 2 реле; homed/filling pump A/B
-- Real-time charting (HPLCChart.qml) — тиск/витрата
+- 8 valves (valve1–8), 2 relays; homed/filling pump A/B
+- Real-time charting (HPLCChart.qml) — pressure/flow
 - Qt Test + CTest unit tests
 
 ## Tech Stack
@@ -31,7 +31,7 @@ Desktop управління HPLC шприцевим насосом через M
 | Build | CMake 3.16+, Ninja |
 | Deployment | windeployqt, Inno Setup, signtool |
 
-## Медіа
+## Media
 
 ### Photos
 <!-- Place photos in foto/ folder -->
@@ -41,6 +41,6 @@ Desktop управління HPLC шприцевим насосом через M
 <!-- Place videos in video/ folder -->
 <!-- Then specify paths in media.video in assets/js/data.js -->
 
-## Нотатки
+## Notes
 
-<!-- Додаткові нотатки, посилання, скріншоти, версії -->
+<!-- Additional notes, links, screenshots, versions -->

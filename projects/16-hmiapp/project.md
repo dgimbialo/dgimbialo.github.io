@@ -1,22 +1,22 @@
 # HMIApp — Industrial HMI
 
-**Підзаголовок:** Cable stripping machine Qt6 touchscreen HMI  
-**Шлях:** `D:\WORK_PROJECTS\UI-App`  
-**Платформа:** C++ + Qt6 + QML / Windows embedded
+**Subtitle:** Cable stripping machine Qt6 touchscreen HMI
+**Path:** `D:\WORK_PROJECTS\UI-App`
+**Platform:** C++ + Qt6 + QML / Windows embedded
 
-## Призначення
+## Purpose
 
-Повнофункціональний industrial HMI для кабелезачисного верстату. Touchscreen UI на Qt Quick/QML з Modbus зв'язком, управлінням рецептами та діагностикою.
+Full-featured industrial HMI for a cable stripping machine. Touchscreen UI on Qt Quick/QML with Modbus communication, recipe management and diagnostics.
 
-## Ключові функції
+## Key features
 
 - DeviceDataManager — 50+ Q_PROPERTY: machineState, pressure, barometer, LED strips, service counters
-- Modbus async queue (QModbusClient) з priority queue та статистикою успішності
-- Barcode scanner — serial port або HID keyboard emulation через eventFilter
-- Recipe engine (RecipeManager, ProductionDatabase) — CRUD у SQLite
+- Modbus async queue (QModbusClient) with priority queue and success statistics
+- Barcode scanner — serial port or HID keyboard emulation via eventFilter
+- Recipe engine (RecipeManager, ProductionDatabase) — CRUD in SQLite
 - Multi-axis config A1–A4 — corrections, offsets, PID enable
-- Blade replacement wizard — guided покроковий процес
-- USB detection (UsbManager) — WMI COM-об'єкт для arrival/removal
+- Blade replacement wizard — guided step-by-step process
+- USB detection (UsbManager) — WMI COM object for arrival/removal
 - Kiosk mode — Windows Registry Shell key; Qt Virtual Keyboard
 - Release pipeline — Inno Setup + rcedit + signtool + PFX; i18n Qt Linguist
 
@@ -32,7 +32,7 @@
 | Deployment | windeployqt, Inno Setup, rcedit, signtool |
 | Target | Windows 10 embedded (kiosk mode) |
 
-## Медіа
+## Media
 
 ### Photos
 <!-- Place photos in foto/ folder -->
@@ -42,6 +42,6 @@
 <!-- Place videos in video/ folder -->
 <!-- Then specify paths in media.video in assets/js/data.js -->
 
-## Нотатки
+## Notes
 
-<!-- Додаткові нотатки, посилання, скріншоти, версії -->
+<!-- Additional notes, links, screenshots, versions -->

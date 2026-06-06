@@ -1,23 +1,23 @@
 # Bandora / JAMMER Professional
 
-**Підзаголовок:** Professional MIDI sequencer & music compositor  
-**Шлях:** `D:\WORK_PROJECTS\bandora`  
-**Платформа:** C++ + MFC / Win32 + C# installer
+**Subtitle:** Professional MIDI sequencer & music compositor
+**Path:** `D:\WORK_PROJECTS\bandora`
+**Platform:** C++ + MFC / Win32 + C# installer
 
-## Призначення
+## Purpose
 
-Повнофункціональний MIDI секвенсор та music compositing застосунок (JAMMER Professional) з нотним записом, VST плагінами та audio recording.
+Full-featured MIDI sequencer and music compositing application (JAMMER Professional) with notation, VST plug-ins and audio recording.
 
-## Ключові функції
+## Key features
 
 - MIDI engine — I/O, real-time playback, SysEx, channel mode messages
-- 32-track Sequencer (Sequencer32) — piano roll + нотний редактор
-- Audio capture — WAV та MP3 через DirectShow/WASAPI + Lame/GoGo encoder
+- 32-track Sequencer (Sequencer32) — piano roll + sheet music editor
+- Audio capture — WAV and MP3 via DirectShow/WASAPI + Lame/GoGo encoder
 - Score notation editor (ScoreEdit) — WYSIWYG: measures, staves, clef, time/key signatures
-- VST Host (VSTHost/) — завантаження та виконання VST 2.x плагінів
-- SoundTouch — time-stretching та pitch-shifting у реальному часі
+- VST Host (VSTHost/) — download and run VST 2.x plug-ins
+- SoundTouch — time-stretching and pitch-shifting in real time
 - Multi-language UI (LanguageManager, .idm) — dynamic language switch without restart
-- C# installer custom actions (InstallStep/UninstallStep) через Inno Setup
+- C# installer custom actions (InstallStep/UninstallStep) via Inno Setup
 
 ## Tech Stack
 
@@ -31,7 +31,7 @@
 | Installer | Inno Setup + C# Custom Actions |
 | Build | VS2022, Bandora.sln |
 
-## Медіа
+## Media
 
 ### Photos
 <!-- Place photos in foto/ folder -->
@@ -41,6 +41,6 @@
 <!-- Place videos in video/ folder -->
 <!-- Then specify paths in media.video in assets/js/data.js -->
 
-## Нотатки
+## Notes
 
-<!-- Додаткові нотатки, посилання, скріншоти, версії -->
+<!-- Additional notes, links, screenshots, versions -->

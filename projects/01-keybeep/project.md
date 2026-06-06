@@ -1,23 +1,23 @@
 # KeyBeep
 
-**Підзаголовок:** Windows hotkey audio feedback tray app  
-**Шлях:** `D:\My_project\chenge_lang`  
-**Платформа:** C++ / Win32 API / Windows
+**Subtitle:** Windows hotkey audio feedback tray app
+**Path:** `D:\My_project\chenge_lang`
+**Platform:** C++ / Win32 API / Windows
 **GitHub:** [dgimbialo/KeyBeep](https://github.com/dgimbialo/KeyBeep)
 
-## Призначення
+## Purpose
 
-Lightweight Windows tray-програма для аудіального підтвердження перемикання мови або будь-якого hotkey. Вирішує проблему відсутності зворотного зв'язку при пропущеному натисканні клавіші перемикання мови.
+Lightweight Windows tray program for audio confirmation of language switching or any hotkey. Solves the problem of no feedback when a key is pressed.
 
-## Ключові функції
+## Key features
 
-- Глобальний хук клавіатури (WH_KEYBOARD_LL) — перехоплення hotkey по всій системі незалежно від активного вікна
-- MIDI-аудіо через WinMM — постійно відкритий HMIDIOUT handle, обходить затримку WASAPI
-- 7 типів звуків — 4 MIDI тони (Low/Mid/High/Double Beep) + 3 системних Windows звуки
-- Системний трей (Shell_NotifyIcon) — мінімалістичний UI; налаштування подвійним кліком
-- Конфігурація у реєстрі HKCU\Software\KeyBeep — VK-код, modifiers, тип звуку; зберігаються після перезавантаження
-- Self-installer — setup.exe витягує KeyBeep.exe до %LOCALAPPDATA%\KeyBeep\ і додає в autostart
-- Thread safety — хук постить WM_USER+10 і повертається; відтворення у worker thread
+- Global keyboard hook (WH_KEYBOARD_LL) — hotkey interception throughout the system regardless of the active window
+- MIDI audio via WinMM — always open HMIDIOUT handle, bypasses WASAPI delay
+- 4 types of sounds — 4 MIDI tones (Low/Mid/High/Double Beep)
+- System tray (Shell_NotifyIcon) — minimalistic UI; double-click settings
+- Configuration in the HKCU\Software\KeyBeep registry — VK code, modifiers, sound type; persist after reboot
+- Self-installer — setup.exe extracts KeyBeep.exe to %LOCALAPPDATA%\KeyBeep\ and adds it to autostart
+- Thread safety — the hook posts WM_USER+10 and returns; playback in worker thread
 
 ## Tech Stack
 
@@ -28,9 +28,9 @@ Lightweight Windows tray-програма для аудіального підт
 | Audio | WinMM (MIDI Out) |
 | Persistence | Windows Registry |
 | Build | batch build.bat |
-| Size | ~80 KB, нульові залежності |
+| Size | 180 KB, zero dependencies |
 
-## Медіа
+## Media
 
 ### Photos
 <!-- Place photos in foto/ folder -->
@@ -40,6 +40,5 @@ Lightweight Windows tray-програма для аудіального підт
 <!-- Place videos in video/ folder -->
 <!-- Then specify paths in media.video in assets/js/data.js -->
 
-## Нотатки
-
-<!-- Додаткові нотатки, посилання, скріншоти, версії -->
+## Notes
+<!-- Additional notes, links, screenshots, versions -->

@@ -167,6 +167,113 @@ function initProject() {
   renderProjectDetail(project);
 }
 
+function isYouTubeUrl(value) {
+  try {
+    const url = new URL(value, window.location.origin);
+    return /^(www\.)?(youtube\.com|youtu\.be)$/i.test(url.hostname) || url.hostname.endsWith('youtube.com') || url.hostname === 'youtu.be';
+  } catch {
+    return false;
+  }
+}
+
+function getYouTubeEmbedUrl(value) {
+  try {
+    const url = new URL(value, window.location.origin);
+    let videoId = '';
+
+    if (url.hostname === 'youtu.be') {
+      videoId = url.pathname.replace('/', '');
+    } else if (url.hostname.includes('youtube.com')) {
+      const pathParts = url.pathname.split('/');
+      if (pathParts[1] === 'embed' && pathParts[2]) {
+        videoId = pathParts[2];
+      } else {
+        videoId = url.searchParams.get('v') || '';
+      }
+    }
+
+    if (!videoId) return '';
+
+    const origin = encodeURIComponent(window.location.origin || 'http://localhost');
+    return `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1&fs=1&controls=1&enablejsapi=1&origin=${origin}`;
+  } catch {
+    return '';
+  }
+}
+
+function initFotoGallery(root) {
+  if (!root) return;
+  const photos = (root.dataset.photos || '').split('|').filter(Boolean);
+  if (photos.length === 0) return;
+
+  const mainImage = root.querySelector('.foto-main');
+  const counter = root.querySelector('.foto-counter');
+  const thumbs = root.querySelectorAll('.foto-thumb');
+  const lightbox = root.querySelector('.foto-lightbox');
+  const lightboxImage = root.querySelector('.foto-lightbox-image');
+  let current = 0;
+
+  function update(index) {
+    current = (index + photos.length) % photos.length;
+    if (mainImage) mainImage.src = photos[current];
+    if (counter) counter.textContent = `${current + 1} / ${photos.length}`;
+    if (lightboxImage) lightboxImage.src = photos[current];
+    thumbs.forEach((thumb, i) => thumb.classList.toggle('active', i === current));
+  }
+
+  root.querySelector('.foto-prev')?.addEventListener('click', () => update(current - 1));
+  root.querySelector('.foto-next')?.addEventListener('click', () => update(current + 1));
+  root.querySelector('.foto-lightbox-prev')?.addEventListener('click', () => update(current - 1));
+  root.querySelector('.foto-lightbox-next')?.addEventListener('click', () => update(current + 1));
+  function openLightbox() {
+    if (!lightbox || !lightboxImage) return;
+    lightboxImage.src = photos[current];
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  root.querySelector('.foto-fullscreen')?.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    openLightbox();
+  });
+  root.querySelector('.foto-lightbox-close')?.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    closeLightbox();
+  });
+  lightbox?.addEventListener('click', (event) => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+  document.addEventListener('keydown', (event) => {
+    if (lightbox && lightbox.classList.contains('is-open')) {
+      if (event.key === 'Escape') {
+        closeLightbox();
+      } else if (event.key === 'ArrowRight') {
+        update(current + 1);
+        lightboxImage.src = photos[current];
+      } else if (event.key === 'ArrowLeft') {
+        update(current - 1);
+        lightboxImage.src = photos[current];
+      }
+    }
+  });
+
+  thumbs.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => update(index));
+  });
+
+  update(0);
+}
+
 function renderProjectDetail(p) {
   const el = document.getElementById('project-content');
   if (!el) return;
@@ -192,24 +299,48 @@ function renderProjectDetail(p) {
       GitHub →
     </a>` : '';
 
-  // media
-  let mediaHtml = '';
   const hasFoto  = p.media && p.media.foto  && p.media.foto.length  > 0;
   const hasVideo = p.media && p.media.video && p.media.video.length > 0;
-  if (!hasFoto && !hasVideo) {
-    mediaHtml = `
-      <div class="media-placeholder">
-        <p>📷 Add photos to <code>projects/${esc(p.slug)}/foto/</code></p>
-        <p style="margin-top:8px">🎥 Add videos to <code>projects/${esc(p.slug)}/video/</code></p>
-        <p style="margin-top:12px;font-size:.8rem">Then specify paths in the <code>media</code> field in <strong>assets/js/data.js</strong></p>
-      </div>`;
-  } else {
-    const fotoItems = (p.media.foto || []).map(src =>
-      `<div class="media-item"><img src="${esc(src)}" alt="photo" loading="lazy"></div>`).join('');
-    const videoItems = (p.media.video || []).map(src =>
-      `<div class="media-item"><video src="${esc(src)}" controls></video></div>`).join('');
-    mediaHtml = `<div class="media-gallery">${fotoItems}${videoItems}</div>`;
-  }
+  const hasNotes = typeof p.notes === 'string' && p.notes.trim().length > 0;
+  const notesHtml = hasNotes ? `
+    <div class="detail-card">
+      <h2>Notes</h2>
+      <p>${esc(p.notes)}</p>
+    </div>` : '';
+  const videoHtml = (p.media.video || []).map(src => {
+    const embedUrl = isYouTubeUrl(src) ? getYouTubeEmbedUrl(src) : '';
+    if (embedUrl) {
+      return `<div class="media-item"><iframe src="${esc(embedUrl)}" title="Project video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="eager" referrerpolicy="origin"></iframe></div>`;
+    }
+    return `<div class="media-item"><video src="${esc(src)}" controls></video></div>`;
+  }).join('');
+
+  const fotoHtml = hasFoto ? `
+    <div class="foto-gallery" data-photos="${esc((p.media.foto || []).join('|'))}" data-foto-gallery>
+      <div class="foto-stage-card">
+        <img class="foto-main" src="${esc((p.media.foto || [])[0])}" alt="Project photo" loading="lazy">
+        <div class="foto-toolbar">
+          <button type="button" class="foto-nav-btn foto-prev">← Prev</button>
+          <span class="foto-counter">1 / ${esc(String((p.media.foto || []).length))}</span>
+          <button type="button" class="foto-nav-btn foto-next">Next →</button>
+          <button type="button" class="foto-fullscreen">Open fullscreen</button>
+        </div>
+      </div>
+      <div class="foto-thumbs">
+        ${(p.media.foto || []).map((src, index) => `
+          <button type="button" class="foto-thumb${index === 0 ? ' active' : ''}" data-index="${index}">
+            <img src="${esc(src)}" alt="Project photo ${index + 1}" loading="lazy">
+          </button>`).join('')}
+      </div>
+      <div class="foto-lightbox">
+        <button type="button" class="foto-lightbox-close" aria-label="Close fullscreen">×</button>
+        <button type="button" class="foto-lightbox-prev" aria-label="Previous photo">←</button>
+        <button type="button" class="foto-lightbox-next" aria-label="Next photo">→</button>
+        <div class="foto-lightbox-frame">
+          <img class="foto-lightbox-image" src="${esc((p.media.foto || [])[0])}" alt="Fullscreen project photo">
+        </div>
+      </div>
+    </div>` : '';
 
   el.innerHTML = `
     <div class="page-back">
@@ -239,10 +370,16 @@ function renderProjectDetail(p) {
             <h2>Key Features</h2>
             <div class="features-list">${feats}</div>
           </div>
-          <div class="detail-card">
-            <h2>📷 Media</h2>
-            ${mediaHtml}
-          </div>
+          ${hasVideo ? `
+            <div class="detail-card">
+              <h2>Video</h2>
+              <div class="video-gallery">${videoHtml}</div>
+            </div>` : ''}
+          ${hasFoto ? `
+            <div class="detail-card">
+              <h2>Foto</h2>
+              ${fotoHtml}
+            </div>` : ''}
         </div>
         <div class="detail-right">
           <div class="detail-card">
@@ -258,11 +395,15 @@ function renderProjectDetail(p) {
             </div>
             ${websiteHtml}
           </div>
+          ${notesHtml}
           ${pairedHtml}
           ${githubHtml}
         </div>
       </div>
     </div>`;
+
+  const gallery = document.querySelector('[data-foto-gallery]');
+  if (gallery) initFotoGallery(gallery);
 }
 
 // ── FOOTER ───────────────────────────────────────────────────────────────────

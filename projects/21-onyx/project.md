@@ -1,18 +1,18 @@
 # Onyx
 
-**Підзаголовок:** Plugin-based multimedia desktop application  
-**Шлях:** `D:\WORK_PROJECTS\onyx`  
-**Платформа:** C/C++ / Windows (MSVC legacy)
+**Subtitle:** Plugin-based multimedia desktop application
+**Path:** `D:\WORK_PROJECTS\onyx`
+**Platform:** C/C++ / Windows (MSVC legacy)
 
-## Призначення
+## Purpose
 
-Legacy desktop-застосунок із plugin-архітектурою. Multimedia або productivity tool з розширюваною системою DLL-плагінів.
+Legacy desktop application with plugin architecture. Multimedia or productivity tool with an extensible system of DLL plugins.
 
-## Ключові функції
+## Key features
 
-- Plugin architecture (Plugins/) — DLL-плагіни, динамічне завантаження
-- Application modules (Apps/) — підзастосунки у рамках одного процесу
-- Core library (src/) — shared логіка між Apps та Plugins
+- Plugin architecture (Plugins/) — DLL plugins, dynamic loading
+- Application modules (Apps/) — sub-applications within one process
+- Core library (src/) — shared logic between Apps and Plugins
 - Legacy VS2005 solution
 
 ## Tech Stack
@@ -24,7 +24,7 @@ Legacy desktop-застосунок із plugin-архітектурою. Multim
 | Architecture | Plugin-based (DLL) |
 | Build | Visual Studio legacy (.sln) |
 
-## Медіа
+## Media
 
 ### Photos
 <!-- Place photos in foto/ folder -->
@@ -34,6 +34,6 @@ Legacy desktop-застосунок із plugin-архітектурою. Multim
 <!-- Place videos in video/ folder -->
 <!-- Then specify paths in media.video in assets/js/data.js -->
 
-## Нотатки
+## Notes
 
-<!-- Додаткові нотатки, посилання, скріншоти, версії -->
+<!-- Additional notes, links, screenshots, versions -->

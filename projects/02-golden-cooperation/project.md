@@ -1,33 +1,33 @@
 # Golden Cooperation
 
-**Підзаголовок:** Corporate website for solar EPC contractor  
-**Шлях:** [https://www.golden-cooperation.com/](https://www.golden-cooperation.com/)
-**Платформа:** HTML/CSS/JS + Cloudflare Pages
+**Subtitle:** Corporate website for solar EPC contractor
+**Path:** [https://www.golden-cooperation.com/](https://www.golden-cooperation.com/)
+**Platform:** HTML/CSS/JS + Cloudflare Pages
 
-## Призначення
+## Purpose
 
-Корпоративний сайт EPC-підрядника з будівництва сонячних електростанцій (Photovoltaik) для ринків Германія / Польща / Австрія / Бельгія / Нідерланди.
+Corporate site of the EPC contractor for the construction of solar power plants (Photovoltaik) for the markets Germany / Poland / Austria / Belgium / Netherlands.
 
-## Ключові функції
+## Key features
 
-- Мультимовна локалізація (i18n) — 4 мови: DE/PL/UK/EN; зміна без перезавантаження
-- SEO-оптимізація — hreflang, OpenGraph, Twitter Card, JSON-LD Organization + ProfessionalService, GA4
-- Адаптивний дизайн — responsive CSS для мобільних та десктоп
-- Деплой на Cloudflare Pages через Wrangler CLI — zero-config edge hosting
-- Image processing pipeline — Sharp для оптимізації фото проектів (7.4 MW+)
-- Sitemap / robots.txt для коректної індексації
+- Multilingual localization (i18n) — 4 languages: DE/PL/UK/EN; change without rebooting
+- SEO optimization — hreflang, OpenGraph, Twitter Card, JSON-LD Organization + ProfessionalService, GA4
+- Responsive design — responsive CSS for mobile and desktop
+- Deployment on Cloudflare Pages via Wrangler CLI — zero-config edge hosting
+- Image processing pipeline — Sharp for optimization of photo projects (7.4 MW+)
+- Sitemap / robots.txt for correct indexing
 
 ## Tech Stack
 
 | Component | Technology |
 |---|---|
 | Frontend | HTML5, CSS3, vanilla JS |
-| i18n | Власна система через locales/ JSON |
+| i18n | Own system via locales/ JSON |
 | Hosting | Cloudflare Pages (Wrangler) |
 | Build | npm, Sharp |
 | Analytics | Google Analytics 4 |
 
-## Медіа
+## Media
 
 ### Photos
 <!-- Place photos in foto/ folder -->
@@ -37,6 +37,6 @@
 <!-- Place videos in video/ folder -->
 <!-- Then specify paths in media.video in assets/js/data.js -->
 
-## Нотатки
+## Notes
 
-<!-- Додаткові нотатки, посилання, скріншоти, версії -->
+<!-- Additional notes, links, screenshots, versions -->

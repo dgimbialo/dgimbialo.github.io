@@ -1,19 +1,19 @@
 # ModbusEmulator
 
-**Підзаголовок:** Modbus RTU/TCP slave emulator for testing  
-**Шлях:** `D:\WORK_PROJECTS\ModbusEmulator`  
-**Платформа:** C++ + Qt6 + QML / Windows
+**Subtitle:** Modbus RTU/TCP slave emulator for testing
+**Path:** `D:\WORK_PROJECTS\ModbusEmulator`
+**Platform:** C++ + Qt6 + QML / Windows
 
-## Призначення
+## Purpose
 
-Desktop для емуляції Modbus RTU/TCP slave пристрою — тестування master-застосунків (HMIApp, HPLC Pump) без реального обладнання.
+Desktop for emulating Modbus RTU/TCP slave devices — testing master applications (HMIApp, HPLC Pump) without real hardware.
 
-## Ключові функції
+## Key features
 
-- QModbusServer — FC 0x03/0x10, генерація відповідей
+- QModbusServer — FC 0x03/0x10, response generation
 - ModbusDataStore — register bank: bulk init, per-address R/W, notifications
-- QML UI — конфігурація порту/slave-ID, real-time таблиця регістрів, Start/Stop
-- LogHandler — структурований лог запитів/відповідей із timestamp
+- QML UI — port/slave-ID configuration, real-time register table, Start/Stop
+- LogHandler — a structured log of requests/responses with a timestamp
 - CMakePresets — debug/release profiles
 
 ## Tech Stack
@@ -25,7 +25,7 @@ Desktop для емуляції Modbus RTU/TCP slave пристрою — тес
 | Protocol | Qt Modbus (QModbusServer, SerialBus) |
 | Build | CMake 3.16+, Ninja |
 
-## Медіа
+## Media
 
 ### Photos
 <!-- Place photos in foto/ folder -->
@@ -35,6 +35,6 @@ Desktop для емуляції Modbus RTU/TCP slave пристрою — тес
 <!-- Place videos in video/ folder -->
 <!-- Then specify paths in media.video in assets/js/data.js -->
 
-## Нотатки
+## Notes
 
-<!-- Додаткові нотатки, посилання, скріншоти, версії -->
+<!-- Additional notes, links, screenshots, versions -->

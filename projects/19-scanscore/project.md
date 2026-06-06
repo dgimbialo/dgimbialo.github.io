@@ -1,21 +1,21 @@
 # ScanScore (OMR)
 
-**Підзаголовок:** Optical Music Recognition from scanned sheets  
-**Шлях:** `D:\WORK_PROJECTS\scanscore_for_vol`  
-**Платформа:** C++ + Qt5 + OpenCV + Tesseract / Windows + macOS
+**Subtitle:** Optical Music Recognition from scanned sheets
+**Path:** `D:\WORK_PROJECTS\scanscore_for_vol`
+**Platform:** C++ + Qt5 + OpenCV + Tesseract / Windows + macOS
 
-## Призначення
+## Purpose
 
-Кросплатформний застосунок для оптичного розпізнавання музичних нот (OMR — Optical Music Recognition) зі сканованих нотних сторінок.
+Cross-platform application for optical music recognition (OMR — Optical Music Recognition) from scanned sheet music.
 
-## Ключові функції
+## Key features
 
-- OCR (Tesseract + Leptonica) — розпізнавання символів нотного письма
+- OCR (Tesseract + Leptonica) — recognition of musical notation symbols
 - Image preprocessing (OpenCV) — grayscale, threshold, morphological, staff line detection/removal
 - ML classification (Armadillo + OpenBLAS) — noteheads, stems, flags, rests, clefs
 - Qt5 GUI — scan view, results panel
-- MIDI/notation output — MusicXML або MIDI
-- Cross-platform — vcpkg; Windows (x64) + macOS; AddressSanitizer у debug
+- MIDI/notation output — MusicXML or MIDI
+- Cross-platform — vcpkg; Windows (x64) + macOS; AddressSanitizer in debug
 
 ## Tech Stack
 
@@ -29,7 +29,7 @@
 | Packages | vcpkg |
 | Build | CMake, Windows + macOS |
 
-## Медіа
+## Media
 
 ### Photos
 <!-- Place photos in foto/ folder -->
@@ -39,6 +39,6 @@
 <!-- Place videos in video/ folder -->
 <!-- Then specify paths in media.video in assets/js/data.js -->
 
-## Нотатки
+## Notes
 
-<!-- Додаткові нотатки, посилання, скріншоти, версії -->
+<!-- Additional notes, links, screenshots, versions -->

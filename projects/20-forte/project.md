@@ -1,22 +1,22 @@
 # Forte / Genesis Notation
 
-**Підзаголовок:** Full-featured music notation editor (Finale-class)  
-**Шлях:** `D:\WORK_PROJECTS\forte_new`  
-**Платформа:** C++ + MFC / Windows (MSVC, v140 toolset)
+**Subtitle:** Full-featured music notation editor (Finale-class)
+**Path:** `D:\WORK_PROJECTS\forte_new`
+**Platform:** C++ + MFC / Windows (MSVC, v140 toolset)
 
-## Призначення
+## Purpose
 
-Повнофункціональний music notation editor (аналог Finale/Sibelius) з MIDI, audio recording, VST та CD burning.
+Full-featured music notation editor (similar to Finale/Sibelius) with MIDI, audio recording, VST and CD burning.
 
-## Ключові функції
+## Key features
 
 - Score editor — WYSIWYG: measures, staves, clef, time/key signatures
 - MIDI playback/recording (Sequencer32, piano roll)
-- Audio capture (AudioCapture2MP3/WaveDlg) — WAV та MP3 через Lame/GoGo
+- Audio capture (AudioCapture2MP3/WaveDlg) — WAV and MP3 via Lame/GoGo
 - Audio CD burn (MCAudioBurnCtrl/Drive)
-- VST Host (VSTHost/) — VST 2.x плагіни
-- SoundTouch — time-stretch та pitch-shift
-- Multi-language (LanguageManager) — .idm файли, без перезапуску
+- VST Host (VSTHost/) — VST 2.x plug-ins
+- SoundTouch — time-stretch and pitch-shift
+- Multi-language (LanguageManager) — .idm files, without restart
 - Undo history (CUNDOHISTORY), online updater (CUpdater)
 
 ## Tech Stack
@@ -31,7 +31,7 @@
 | DSP | SoundTouch |
 | Build | VS (v140 toolset), Genesis.sln |
 
-## Медіа
+## Media
 
 ### Photos
 <!-- Place photos in foto/ folder -->
@@ -41,6 +41,6 @@
 <!-- Place videos in video/ folder -->
 <!-- Then specify paths in media.video in assets/js/data.js -->
 
-## Нотатки
+## Notes
 
-<!-- Додаткові нотатки, посилання, скріншоти, версії -->
+<!-- Additional notes, links, screenshots, versions -->
