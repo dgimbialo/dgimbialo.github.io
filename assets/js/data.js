@@ -464,12 +464,12 @@ const PROJECTS = [
     "platform": "Arduino C/C++ / ATmega",
     "paired": null,
     "github": "",
-    "description": "Standalone Controller Firmware for Solar Collector System: Controls the fan/pump based on the temperature difference between the collector and the room.",
+    "description": "Standalone Controller Firmware for Solar Collector System: Controls the fan based on the temperature difference between the collector and the room.",
     "features": [
       "Two-sensor system DS18B20 (OneWire) — HomeThermometer + CollectorThermometer; check of 2 devices at start",
       "3 modes — OFF / COOL / HEAT based on temperature difference + manual mode",
       "EEPROM persistence — nSetTemp and nManualMode are restored after shutdown",
-      "Interrupt-driven buttons — attachInterrupt pin 2; debounce 100 ms; Temp Down / Mode / Temp Up",
+      "Interrupt-driven buttons —  debounce 100 ms; Temp Down / Mode / Temp Up",
       "LCD UI (LiquidCrystal 16×2) — both temperatures, mode, set temperature"
     ],
     "stack": [
@@ -806,7 +806,7 @@ const PROJECTS = [
     "id": "bandora",
     "slug": "13-bandora",
     "number": "13",
-    "title": "Bandora / JAMMER Professional",
+    "title": "JAMMER Professional",
     "subtitle": "Professional MIDI sequencer & music compositor",
     "category": "Desktop / Audio",
     "filterGroup": "audio",
@@ -821,24 +821,22 @@ const PROJECTS = [
       "DirectShow"
     ],
     "path": "",
-    "platform": "C++ + MFC / Win32 + C# installer",
+    "platform": "C++ + MFC / Win32",
     "paired": null,
     "github": "",
-    "description": "Full-featured MIDI sequencer and music compositing application (JAMMER Professional) with notation, VST plug-ins and audio recording.",
+    "description": "Full-featured MIDI sequencer and music compositing application with notation, VST plug-ins and audio recording.",
     "features": [
       "MIDI engine — I/O, real-time playback, SysEx, channel mode messages",
-      "32-track Sequencer (Sequencer32) — piano roll + sheet music editor",
-      "Audio capture — WAV and MP3 via DirectShow/WASAPI + Lame/GoGo encoder",
-      "Score notation editor (ScoreEdit) — WYSIWYG: measures, staves, clef, time/key signatures",
-      "VST Host (VSTHost/) — download and run VST 2.x plug-ins",
-      "SoundTouch — time-stretching and pitch-shifting in real time",
-      "Multi-language UI (LanguageManager, .idm) — dynamic language switch without restart",
-      "C# installer custom actions (InstallStep/UninstallStep) via Inno Setup"
+      "Track Sequencer — piano roll + sheet music editor",
+      "Audio capture — WAV and MP3 via DirectShow/WASAPI",
+      "Score notation editor — measures, staves, clef, time/key signatures",
+      "VST Host — download and run VST 2.x plug-ins",
+      "Multi-language UI — dynamic language switch without restart"
     ],
     "stack": [
       [
         "Language",
-        "C++ (MSVC) + C#"
+        "C++ (MSVC)"
       ],
       [
         "UI",
@@ -850,7 +848,7 @@ const PROJECTS = [
       ],
       [
         "Audio",
-        "DirectShow, WASAPI, Lame/GoGo"
+        "DirectShow, WASAPI"
       ],
       [
         "VST",
@@ -858,11 +856,11 @@ const PROJECTS = [
       ],
       [
         "Installer",
-        "Inno Setup + C# Custom Actions"
+        "Inno Setup"
       ],
       [
         "Build",
-        "VS2022, Bandora.sln"
+        "VS2022"
       ]
     ],
     "media": {
@@ -890,23 +888,23 @@ const PROJECTS = [
       "Flash"
     ],
     "path": "",
-    "platform": "Embedded C / PIC24FJ64GB002 / MPLAB XC16",
+    "platform": "Embedded C / PIC24 / MPLAB XC16",
     "paired": null,
     "github": "",
-    "description": "Standalone HMI for controlling an industrial syringe pump of the ASI 500 series via a TFT35 touch display via Modbus RTU.",
+    "description": "Standalone HMI for controlling an industrial syringe pump via a TFT35 touch display via Modbus RTU.",
     "features": [
-      "TFT35 SPI display (TFT35_SPI.c) — initialization, backlight, text/primitives",
-      "Touchscreen calibration (touchscreen.c) — persistent in internal flash",
-      "TFTUI (TFTUI.h) — TextBox, SelectFont, SetBackground/Foreground, center-aligned",
-      "Modbus master (SerialModbus.c) — FC 0x03/0x10, CRC16, timeout 300 ms",
+      "TFT35 SPI display — initialization, backlight, text/primitives",
+      "Touchscreen calibration — persistent in internal flash",
+      "TFTUI — TextBox, SelectFont, SetBackground/Foreground, center-aligned",
+      "Modbus master",
       "Poll/update state machine — differential update only when registers are changed",
-      "WSoD mitigation — TFT35_Enable() every 3 s",
-      "UI BreakHook — callback during redraw for Modbus polling without blocking"
+      "UI BreakHook — callback during redraw for Modbus polling without blocking",
+      "Bootloader"
     ],
     "stack": [
       [
         "MCU",
-        "PIC24FJ64GB002"
+        "PIC24"
       ],
       [
         "Language",
@@ -1023,15 +1021,14 @@ const PROJECTS = [
     "github": "",
     "description": "Full-featured industrial HMI for a cable stripping machine. Touchscreen UI on Qt Quick/QML with Modbus communication, recipe management and diagnostics.",
     "features": [
-      "DeviceDataManager — 50+ Q_PROPERTY: machineState, pressure, barometer, LED strips, service counters",
-      "Modbus async queue (QModbusClient) with priority queue and success statistics",
+      "Modbus async queue with priority queue and success statistics",
       "Barcode scanner — serial port or HID keyboard emulation via eventFilter",
-      "Recipe engine (RecipeManager, ProductionDatabase) — CRUD in SQLite",
-      "Multi-axis config A1–A4 — corrections, offsets, PID enable",
-      "Blade replacement wizard — guided step-by-step process",
-      "USB detection (UsbManager) — WMI COM object for arrival/removal",
-      "Kiosk mode — Windows Registry Shell key; Qt Virtual Keyboard",
-      "Release pipeline — Inno Setup + rcedit + signtool + PFX; i18n Qt Linguist"
+      "Recipe engine — CRUD in SQLite",
+      "Multi-axis config — corrections, offsets",
+      "Details replacement wizard — guided step-by-step process",
+      "USB detection — WMI COM object for arrival/removal",
+      "Kiosk mode — Windows Registry Shell key;",
+      "Release pipeline — Inno Setup + rcedit + signtool + PFX; i18n"
     ],
     "stack": [
       [
@@ -1040,15 +1037,15 @@ const PROJECTS = [
       ],
       [
         "UI",
-        "Qt6 Quick/QML, Qt Virtual Keyboard"
+        "Qt6 Quick/QML"
       ],
       [
         "Database",
-        "Qt SQL (SQLite)"
+        "SQLite"
       ],
       [
         "Communication",
-        "QModbusClient (SerialBus), QSerialPort"
+        "ModbusClient, SerialPort"
       ],
       [
         "Build",
@@ -1056,7 +1053,7 @@ const PROJECTS = [
       ],
       [
         "Deployment",
-        "windeployqt, Inno Setup, rcedit, signtool"
+        "Inno Setup, rcedit, signtool"
       ],
       [
         "Target",
@@ -1142,17 +1139,13 @@ const PROJECTS = [
     "platform": "C++ + Qt6 + QML / Windows",
     "paired": null,
     "github": "",
-    "description": "Desktop control of an HPLC syringe pump via Modbus RTU: flow parameters, automated methods, pressure and flow monitoring.",
+    "description": "Desktop control of an HPLC syringe pump via Modbus RTU: flow,  pressure and flow monitoring.",
     "features": [
-      "PumpManager — 30+ Q_PROPERTY: flowRate, syringeA/BVolume, pressures, sequencerStep, faultCode",
-      "Modbus async priority queue — readHolding/readInput/writeSingle/writeMultipleAsync; statistics",
+      "Modbus async priority queue",
       "Auto-reconnect with adjustable interval",
-      "Flow Method Manager — sequence steps: flowRate, composition, duration, volume",
-      "Flowmeter calibration (FlowMeterCalibrationManager) — guided procedure",
-      "Setpoints R/W — flowRateSetpoint, pmin/pmax, fillFlowRate, flushFlowRate",
-      "8 valves (valve1–8), 2 relays; homed/filling pump A/B",
-      "Real-time charting (HPLCChart.qml) — pressure/flow",
-      "Qt Test + CTest unit tests"
+      "Flow Method Manager",
+      "Calibration — guided procedure",
+      "Custom real-time charting"
     ],
     "stack": [
       [
@@ -1165,11 +1158,7 @@ const PROJECTS = [
       ],
       [
         "Communication",
-        "QModbusClient (SerialBus RTU)"
-      ],
-      [
-        "Testing",
-        "Qt Test + CTest"
+        "SerialBus RTU"
       ],
       [
         "Build",
@@ -1177,7 +1166,7 @@ const PROJECTS = [
       ],
       [
         "Deployment",
-        "windeployqt, Inno Setup, signtool"
+        "Inno Setup, signtool"
       ]
     ],
     "media": {
@@ -1205,17 +1194,16 @@ const PROJECTS = [
       "vcpkg"
     ],
     "path": "",
-    "platform": "C++ + Qt5 + OpenCV + Tesseract / Windows + macOS",
+    "platform": "C++ Qt5 / Windows + macOS",
     "paired": null,
     "github": "",
     "description": "Cross-platform application for optical music recognition (OMR — Optical Music Recognition) from scanned sheet music.",
     "features": [
-      "OCR (Tesseract + Leptonica) — recognition of musical notation symbols",
-      "Image preprocessing (OpenCV) — grayscale, threshold, morphological, staff line detection/removal",
-      "ML classification (Armadillo + OpenBLAS) — noteheads, stems, flags, rests, clefs",
+      "OCR — recognition of musical notation symbols",
+      "Image preprocessing — grayscale, threshold, morphological, staff line detection/removal",
       "Qt5 GUI — scan view, results panel",
       "MIDI/notation output — MusicXML or MIDI",
-      "Cross-platform — vcpkg; Windows (x64) + macOS; AddressSanitizer in debug"
+      "Cross-platform — vcpkg; Windows (x64) + macOS;"
     ],
     "stack": [
       [
@@ -1227,16 +1215,8 @@ const PROJECTS = [
         "Qt5 (Widgets, Multimedia, Pdf)"
       ],
       [
-        "OCR",
-        "Tesseract + Leptonica"
-      ],
-      [
         "Image",
         "OpenCV (imgproc, core)"
-      ],
-      [
-        "Math/ML",
-        "Armadillo + OpenBLAS"
       ],
       [
         "Packages",
@@ -1257,8 +1237,8 @@ const PROJECTS = [
     "id": "forte",
     "slug": "20-forte",
     "number": "20",
-    "title": "Forte / Genesis Notation",
-    "subtitle": "Full-featured music notation editor (Finale-class)",
+    "title": "Forte Notation",
+    "subtitle": "Full-featured music notation editor",
     "category": "Desktop / Audio",
     "filterGroup": "audio",
     "color": "#880e4f",
@@ -1272,19 +1252,17 @@ const PROJECTS = [
       "CD Burn"
     ],
     "path": "",
-    "platform": "C++ + MFC / Windows (MSVC, v140 toolset)",
+    "platform": "C++ + MFC / Windows (MSVC)",
     "paired": null,
     "github": "",
-    "description": "Full-featured music notation editor (similar to Finale/Sibelius) with MIDI, audio recording, VST and CD burning.",
+    "description": "Full-featured music notation editor with MIDI recording, VST.",
     "features": [
-      "Score editor — WYSIWYG: measures, staves, clef, time/key signatures",
-      "MIDI playback/recording (Sequencer32, piano roll)",
-      "Audio capture (AudioCapture2MP3/WaveDlg) — WAV and MP3 via Lame/GoGo",
-      "Audio CD burn (MCAudioBurnCtrl/Drive)",
-      "VST Host (VSTHost/) — VST 2.x plug-ins",
-      "SoundTouch — time-stretch and pitch-shift",
-      "Multi-language (LanguageManager) — .idm files, without restart",
-      "Undo history (CUNDOHISTORY), online updater (CUpdater)"
+      "Score editor — measures, staves, clef, time/key signatures",
+      "MIDI playback/recording",
+      "Audio capture — MIDI",
+      "VST Host — VST 2.x plug-ins",
+      "Multi-language — without restart",
+      "Undo history, online updater"
     ],
     "stack": [
       [
@@ -1301,19 +1279,15 @@ const PROJECTS = [
       ],
       [
         "Audio",
-        "DirectShow, WASAPI, Lame, GoGo"
+        "DirectShow, WASAPI"
       ],
       [
         "VST",
         "VST 2.x host"
       ],
       [
-        "DSP",
-        "SoundTouch"
-      ],
-      [
         "Build",
-        "VS (v140 toolset), Genesis.sln"
+        "VS"
       ]
     ],
     "media": {
@@ -1344,10 +1318,10 @@ const PROJECTS = [
     "github": "",
     "description": "Legacy desktop application with plugin architecture. Multimedia or productivity tool with an extensible system of DLL plugins.",
     "features": [
-      "Plugin architecture (Plugins/) — DLL plugins, dynamic loading",
-      "Application modules (Apps/) — sub-applications within one process",
-      "Core library (src/) — shared logic between Apps and Plugins",
-      "Legacy VS2005 solution"
+      "Plugin architecture — DLL plugins, dynamic loading",
+      "Application modules — sub-applications within one process",
+      "Shared logic between Apps and Plugins",
+      "Legacy solution"
     ],
     "stack": [
       [

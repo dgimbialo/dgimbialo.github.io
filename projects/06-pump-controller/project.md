@@ -1,7 +1,7 @@
 # Pump Controller Arduino
 
 **Subtitle:** 3-sensor liquid level controller
-**Path:** `D:\My_project\Pump_Controller_MEGA_2560`
+**Path:** 
 **Platform:** Arduino C/C++ / Arduino Mega 2560
 
 ## Purpose

@@ -1,19 +1,19 @@
 # COMUS Temp Controller
 
 **Subtitle:** Solar collector thermal management firmware
-**Path:** `D:\My_project\COMUS_ACTUAL`
+**Path:** 
 **Platform:** Arduino C/C++ / ATmega
 
 ## Purpose
 
-Standalone Controller Firmware for Solar Collector System: Controls the fan/pump based on the temperature difference between the collector and the room.
+Standalone Controller Firmware for Solar Collector System: Controls the fan based on the temperature difference between the collector and the room.
 
 ## Key features
 
 - Two-sensor system DS18B20 (OneWire) — HomeThermometer + CollectorThermometer; check of 2 devices at start
 - 3 modes — OFF / COOL / HEAT based on temperature difference + manual mode
 - EEPROM persistence — nSetTemp and nManualMode are restored after shutdown
-- Interrupt-driven buttons — attachInterrupt pin 2; debounce 100 ms; Temp Down / Mode / Temp Up
+- Interrupt-driven buttons —  debounce 100 ms; Temp Down / Mode / Temp Up
 - LCD UI (LiquidCrystal 16×2) — both temperatures, mode, set temperature
 
 ## Tech Stack

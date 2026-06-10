@@ -1,7 +1,7 @@
 # Onyx
 
 **Subtitle:** Plugin-based multimedia desktop application
-**Path:** `D:\WORK_PROJECTS\onyx`
+**Path:** 
 **Platform:** C/C++ / Windows (MSVC legacy)
 
 ## Purpose
@@ -10,10 +10,10 @@ Legacy desktop application with plugin architecture. Multimedia or productivity 
 
 ## Key features
 
-- Plugin architecture (Plugins/) — DLL plugins, dynamic loading
-- Application modules (Apps/) — sub-applications within one process
-- Core library (src/) — shared logic between Apps and Plugins
-- Legacy VS2005 solution
+- Plugin architecture — DLL plugins, dynamic loading
+- Application modules — sub-applications within one process
+- Shared logic between Apps and Plugins
+- Legacy solution
 
 ## Tech Stack
 
