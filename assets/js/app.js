@@ -37,8 +37,20 @@ function renderNav(activePage) {
 // ── INDEX PAGE ───────────────────────────────────────────────────────────────
 function initIndex() {
   renderHero();
+  renderAbout();
   renderSkills();
   renderProjectsSection();
+}
+
+function renderAbout() {
+  const el = document.getElementById('about-content');
+  if (!el) return;
+  const paras = (Array.isArray(PROFILE.about) && PROFILE.about.length)
+    ? PROFILE.about
+    : [PROFILE.summary];
+  el.innerHTML = paras
+    .map((t, i) => `<p${i === 0 ? ' class="about-lead"' : ''}>${esc(t)}</p>`)
+    .join('');
 }
 
 function renderHero() {
@@ -51,6 +63,7 @@ function renderHero() {
         <img src="assets/images/avatar.svg" alt="${esc(p.name)}" width="120" height="120">
       </div>
       <div class="hero-info">
+        <div class="hero-eyebrow">Portfolio</div>
         <h1 class="hero-name">${esc(p.name)}</h1>
         <div class="hero-title">${esc(p.title)}</div>
         <div class="hero-location">
@@ -60,17 +73,17 @@ function renderHero() {
           ${esc(p.location)}
         </div>
         <div class="hero-links">
-          <a href="${esc(p.linkedin)}" target="_blank" rel="noopener" class="hero-link filled">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
-            LinkedIn
-          </a>
-          <a href="${esc(p.github)}" target="_blank" rel="noopener" class="hero-link">
+          <a href="${esc(p.github)}" target="_blank" rel="noopener" class="hero-link filled">
             <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
             </svg>
             GitHub
+          </a>
+          <a href="${esc(p.linkedin)}" target="_blank" rel="noopener" class="hero-link">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            LinkedIn
           </a>
           ${p.email ? `<a href="mailto:${esc(p.email)}" class="hero-link">✉ ${esc(p.email)}</a>` : ''}
         </div>
@@ -91,8 +104,59 @@ function renderSkills() {
 }
 
 function renderProjectsSection() {
+  renderMarquee();
   renderFilters();
   renderProjectCards('all');
+  initViewToggle();
+}
+
+// Build the auto-scrolling 2-row flow view (default).
+function renderMarquee() {
+  const el = document.getElementById('projects-marquee');
+  if (!el) return;
+  // Split into two rows; each row scrolls in the opposite direction.
+  const mid = Math.ceil(PROJECTS.length / 2);
+  const rowA = PROJECTS.slice(0, mid);
+  const rowB = PROJECTS.slice(mid);
+  // Duplicate each row's cards so the translateX(-50%) loop is seamless.
+  const track = list => `<div class="mq-track">${list.map(marqueeCard).join('')}${list.map(marqueeCard).join('')}</div>`;
+  el.innerHTML = `
+    <div class="mq-row mq-row--left">${track(rowA)}</div>
+    <div class="mq-row mq-row--right">${track(rowB)}</div>`;
+}
+
+function marqueeCard(p) {
+  const color = categoryColor(p.filterGroup);
+  const tags = p.tags.slice(0, 3).map(t => `<span class="tag">${esc(t)}</span>`).join('');
+  return `
+    <a href="project.html?id=${esc(p.id)}" class="mq-card" style="--accent:${color}">
+      <div class="mq-card-top">
+        <span class="mq-num">#${esc(p.number)}</span>
+        <span class="mq-cat">${esc(p.category)}</span>
+      </div>
+      <h3>${esc(p.title)}</h3>
+      <p>${esc(p.subtitle)}</p>
+      <div class="mq-tags">${tags}</div>
+    </a>`;
+}
+
+// Toggle between the flow (marquee) view and the full grid view.
+function initViewToggle() {
+  const btn      = document.getElementById('view-toggle');
+  const marquee  = document.getElementById('projects-marquee');
+  const filters  = document.getElementById('project-filters');
+  const grid     = document.getElementById('projects-grid');
+  if (!btn || !marquee || !filters || !grid) return;
+
+  let gridMode = false;
+  btn.addEventListener('click', () => {
+    gridMode = !gridMode;
+    marquee.classList.toggle('hidden', gridMode);
+    filters.classList.toggle('hidden', !gridMode);
+    grid.classList.toggle('hidden', !gridMode);
+    btn.classList.toggle('is-grid', gridMode);
+    btn.textContent = gridMode ? 'Flow view' : 'All projects';
+  });
 }
 
 function renderFilters() {
@@ -211,12 +275,16 @@ function initFotoGallery(root) {
   const thumbs = root.querySelectorAll('.foto-thumb');
   const lightbox = root.querySelector('.foto-lightbox');
   const lightboxImage = root.querySelector('.foto-lightbox-image');
+  const lightboxCounter = root.querySelector('.foto-lightbox-counter');
+  const detailCard = root.closest('.detail-card');
   let current = 0;
 
   function update(index) {
     current = (index + photos.length) % photos.length;
     if (mainImage) mainImage.src = photos[current];
-    if (counter) counter.textContent = `${current + 1} / ${photos.length}`;
+    const label = `${current + 1} / ${photos.length}`;
+    if (counter) counter.textContent = label;
+    if (lightboxCounter) lightboxCounter.textContent = label;
     if (lightboxImage) lightboxImage.src = photos[current];
     thumbs.forEach((thumb, i) => thumb.classList.toggle('active', i === current));
   }
@@ -238,7 +306,8 @@ function initFotoGallery(root) {
     document.body.style.overflow = '';
   }
 
-  root.querySelector('.foto-fullscreen')?.addEventListener('click', (event) => {
+  const fullscreenBtn = detailCard?.querySelector('.foto-fullscreen') || root.querySelector('.foto-fullscreen');
+  fullscreenBtn?.addEventListener('click', (event) => {
     event.preventDefault();
     event.stopPropagation();
     openLightbox();
@@ -286,26 +355,33 @@ function renderProjectDetail(p) {
     </div>`).join('');
   const stackRows = p.stack.map(r =>
     `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join('');
-  const pairedHtml = p.paired ? `
-    <div class="paired-notice">
-      <strong>Paired System:</strong> ${esc(p.paired)}
-    </div>` : '';
-  const websiteHtml = p.path && (p.path.startsWith('http://') || p.path.startsWith('https://')) ? `
-    <a href="${esc(p.path)}" target="_blank" rel="noopener" class="hero-link" style="margin-top:8px">
+  const pairedHtml = (() => {
+    if (!p.paired) return '';
+    const m = p.paired.match(/#(\d+)/);
+    const pairedProject = m ? PROJECTS.find(x => parseInt(x.number) === parseInt(m[1])) : null;
+    const inner = pairedProject
+      ? `<a href="project.html?id=${esc(pairedProject.id)}">${esc(p.paired)}</a>`
+      : esc(p.paired);
+    return `<div class="paired-notice"><strong>Paired System:</strong> ${inner}</div>`;
+  })();
+  const websiteBtn = p.path && (p.path.startsWith('http://') || p.path.startsWith('https://')) ? `
+    <a href="${esc(p.path)}" target="_blank" rel="noopener" class="project-link-btn project-link-btn--site">
       Go to Site →
     </a>` : '';
-  const githubHtml = p.github ? `
-    <a href="${esc(p.github)}" target="_blank" rel="noopener" class="hero-link" style="margin-top:8px">
+  const githubBtn = p.github ? `
+    <a href="${esc(p.github)}" target="_blank" rel="noopener" class="project-link-btn project-link-btn--github">
       GitHub →
     </a>` : '';
+  const linksHtml = (websiteBtn || githubBtn) ? `
+    <div class="project-links">${websiteBtn}${githubBtn}</div>` : '';
 
   const hasFoto  = p.media && p.media.foto  && p.media.foto.length  > 0;
   const hasVideo = p.media && p.media.video && p.media.video.length > 0;
-  const hasNotes = typeof p.notes === 'string' && p.notes.trim().length > 0;
-  const notesHtml = hasNotes ? `
+  const notesText = typeof p.notes === 'string' ? p.notes.trim() : '';
+  const notesHtml = notesText ? `
     <div class="detail-card">
       <h2>Notes</h2>
-      <p>${esc(p.notes)}</p>
+      <p>${esc(notesText)}</p>
     </div>` : '';
   const videoHtml = (p.media.video || []).map(src => {
     const embedUrl = isYouTubeUrl(src) ? getYouTubeEmbedUrl(src) : '';
@@ -320,10 +396,11 @@ function renderProjectDetail(p) {
       <div class="foto-stage-card">
         <img class="foto-main" src="${esc((p.media.foto || [])[0])}" alt="Project photo" loading="lazy">
         <div class="foto-toolbar">
-          <button type="button" class="foto-nav-btn foto-prev">← Prev</button>
-          <span class="foto-counter">1 / ${esc(String((p.media.foto || []).length))}</span>
-          <button type="button" class="foto-nav-btn foto-next">Next →</button>
-          <button type="button" class="foto-fullscreen">Open fullscreen</button>
+          <div class="foto-nav-group">
+            <button type="button" class="foto-nav-btn foto-prev">← Prev</button>
+            <span class="foto-counter">1 / ${esc(String((p.media.foto || []).length))}</span>
+            <button type="button" class="foto-nav-btn foto-next">Next →</button>
+          </div>
         </div>
       </div>
       <div class="foto-thumbs">
@@ -338,6 +415,7 @@ function renderProjectDetail(p) {
         <button type="button" class="foto-lightbox-next" aria-label="Next photo">→</button>
         <div class="foto-lightbox-frame">
           <img class="foto-lightbox-image" src="${esc((p.media.foto || [])[0])}" alt="Fullscreen project photo">
+          <span class="foto-lightbox-counter">1 / ${esc(String((p.media.foto || []).length))}</span>
         </div>
       </div>
     </div>` : '';
@@ -377,7 +455,10 @@ function renderProjectDetail(p) {
             </div>` : ''}
           ${hasFoto ? `
             <div class="detail-card">
-              <h2>Foto</h2>
+              <div class="detail-card-head">
+                <h2>Foto</h2>
+                <button type="button" class="foto-fullscreen">Open fullscreen</button>
+              </div>
               ${fotoHtml}
             </div>` : ''}
         </div>
@@ -393,11 +474,10 @@ function renderProjectDetail(p) {
             <div style="font-size:.95rem;color:var(--text)">
               ${esc(p.platform)}
             </div>
-            ${websiteHtml}
           </div>
+          ${linksHtml}
           ${notesHtml}
           ${pairedHtml}
-          ${githubHtml}
         </div>
       </div>
     </div>`;

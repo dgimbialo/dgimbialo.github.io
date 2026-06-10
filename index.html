@@ -7,6 +7,9 @@
   <meta property="og:title" content="Taras Pavlyk — Portfolio">
   <meta property="og:description" content="Embedded systems, industrial HMI, desktop C++/Qt, Arduino, STM32, Python">
   <title>Taras Pavlyk — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body data-page="index">
@@ -17,9 +20,9 @@
   <section class="hero" id="hero"></section>
 
   <!-- About -->
-  <div class="container section">
+  <div class="container section" id="about">
     <h2 class="section-title">About</h2>
-    <p class="hero-summary" id="about-text"></p>
+    <div class="about-content" id="about-content"></div>
   </div>
 
   <!-- Skills -->
@@ -30,18 +33,18 @@
 
   <!-- Projects -->
   <div class="container section" id="projects">
-    <h2 class="section-title">Projects (22)</h2>
-    <div class="filters" id="project-filters"></div>
-    <div class="projects-grid" id="projects-grid"></div>
+    <div class="projects-head">
+      <h2 class="section-title">Projects <span class="count">22</span></h2>
+      <button class="view-toggle" id="view-toggle">All projects</button>
+    </div>
+    <div class="projects-marquee" id="projects-marquee"></div>
+    <div class="filters hidden" id="project-filters"></div>
+    <div class="projects-grid hidden" id="projects-grid"></div>
   </div>
 
   <footer class="footer" id="main-footer"></footer>
 
   <script src="assets/js/data.js"></script>
-  <script src="assets/js/app.js?v=2"></script>
-  <script>
-    // Render about text after data loaded
-    document.getElementById('about-text').textContent = PROFILE.summary;
-  </script>
+  <script src="assets/js/app.js?v=3"></script>
 </body>
 </html>

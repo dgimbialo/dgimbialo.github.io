@@ -6,7 +6,12 @@ const PROFILE = {
   "linkedin": "https://www.linkedin.com/in/taras-pavlyk-861b84123/",
   "github": "https://github.com/dgimbialo",
   "email": "",
-  "summary": "Experienced software engineer with deep expertise in embedded systems, industrial automation, and desktop application development. Designed and built real-time control systems (STM32, PIC24, Arduino, ESP32), professional industrial HMI interfaces (Qt6/QML, MFC/Win32), signal acquisition & FFT analysis tools, and commercial music software (JAMMER Professional, Forte Genesis). Comfortable across the full stack ΓÇö from bare-metal firmware to cross-platform desktop GUI and web deployments.",
+  "summary": "Software engineer specialising in embedded systems, industrial automation, and desktop applications — building reliable products from the firmware up to the user interface.",
+  "about": [
+    "I build systems where hardware meets software. My main focus is embedded development and industrial automation — the real-time firmware and control logic that keeps physical devices running reliably, around the clock.",
+    "On top of that low-level work, I design the desktop tools that operators and engineers actually use day to day: instrument control, signal acquisition and analysis, and professional HMI panels for industrial equipment.",
+    "I've also shipped commercial desktop software beyond the industrial world, including music notation and arrangement applications. Across every project my goal stays the same — turn complex hardware into something dependable and genuinely easy to work with."
+  ],
   "skills": [
     {
       "category": "Embedded Systems",
@@ -314,59 +319,76 @@ const PROJECTS = [
     "id": "webhz",
     "slug": "05-webhz",
     "number": "05",
-    "title": "webHz",
-    "subtitle": "Grid frequency monitoring web server",
-    "category": "Web / Python",
+    "title": "Power Grid Frequency Monitor",
+    "subtitle": "Real-time AC grid frequency dashboard — ESP32 → Supabase → GitHub Pages",
+    "category": "Web / Static",
     "filterGroup": "web",
     "color": "#00796b",
     "tags": [
-      "Python",
-      "Flask",
-      "MySQL",
-      "Jinja2",
-      "REST API"
+      "JavaScript",
+      "Chart.js",
+      "Supabase",
+      "GitHub Pages",
+      "PWA",
+      "i18n"
     ],
-    "path": "",
-    "platform": "Python + Flask + MySQL",
+    "path": "https://dgimbialo.github.io/webHz",
+    "platform": "Vanilla JS + Chart.js 4.4.0 + Supabase REST API + GitHub Pages",
     "paired": "CrossZeroDetector (#11)",
-    "github": "",
-    "description": "Web server for monitoring and logging 50 Hz network frequency data. Receives data from the CrossZeroDetector (ESP32) and provides an admin interface.",
+    "github": "https://github.com/dgimbialo/webHz.github.io",
+    "description": "Fully serverless real-time dashboard that visualises power grid frequency. An ESP32 measures zero-crossing frequency every second and writes directly to Supabase — the browser reads via REST API with a publishable anon key. No server, no backend code. Hosted for free on GitHub Pages as a pure static site.",
     "features": [
-      "REST API /frequency_data — returns JSON with the current frequency value",
-      "Jinja2 web-form /entry for entering parameters",
-      "The admin page /admin is protected by @check_logged_in",
-      "View log /viewlog — MySQL table: phrase, letters, ip, browser, result",
-      "MySQL through UseDatabase context manager (DBcm.py) — exception-safe",
-      "Auth middleware checker.py — Flask session",
-      "Custom exceptions — ConnectionError, CredentialsError, SQLError"
+      "Real-time polling every 2 s via Supabase REST API (read-only anon key)",
+      "Smart drip queue — live mode: 1 point/s animation; backlog: instant flush",
+      "Null injection for gaps > 12 s — visible breaks instead of connecting lines",
+      "Viewport anchoring — live data scrolls to now; historical anchors to last point",
+      "Auto Y-scale always keeps 50.000 Hz nominal line in view",
+      "Data Age indicator — X:YY min format; turns red when data is older than 2 min",
+      "Range buttons 1 min – 48 h; user selection preserved (no auto-override)",
+      "EN / UA full i18n — units, labels, range buttons, badges",
+      "CSV export of all visible data points",
+      "PWA-ready: site.webmanifest, theme-color, standalone display",
+      "Security: CSP meta tag, X-Content-Type-Options, Referrer-Policy, security.txt"
     ],
     "stack": [
       [
         "Language",
-        "Python 3"
+        "Vanilla JS (ES2020), HTML5, CSS3"
       ],
       [
-        "Framework",
-        "Flask"
-      ],
-      [
-        "Templating",
-        "Jinja2"
+        "Charts",
+        "Chart.js 4.4.0 + chartjs-adapter-date-fns + chartjs-plugin-zoom"
       ],
       [
         "Database",
-        "MySQL (mysql-connector-python)"
+        "Supabase (PostgreSQL + PostgREST + RLS)"
       ],
       [
-        "Auth",
-        "Flask session"
+        "Hosting",
+        "GitHub Pages (static, CDN, HTTPS)"
+      ],
+      [
+        "Fonts",
+        "Orbitron + Inter (Google Fonts)"
+      ],
+      [
+        "i18n",
+        "Custom EN/UA translation module"
+      ],
+      [
+        "PWA",
+        "site.webmanifest + theme-color"
       ]
     ],
     "media": {
-      "foto": [],
+      "foto": [
+        "projects/05-webhz/foto/Foto_1.png",
+        "projects/05-webhz/foto/Foto_2.png",
+        "projects/05-webhz/foto/Foto_3.JPG"
+      ],
       "video": []
     },
-    "notes": ""
+    "notes": "Service-role key lives only in ESP32 firmware."
   },
   {
     "id": "pump-controller",
@@ -654,7 +676,7 @@ const PROJECTS = [
     "slug": "11-crosszero",
     "number": "11",
     "title": "CrossZeroDetector",
-    "subtitle": "ESP32 grid frequency meter via zero-crossing",
+    "subtitle": "Interrupt-driven AC power-grid frequency meter · Heltec WiFi LoRa 32 V2 → Supabase",
     "category": "Embedded / ESP32",
     "filterGroup": "embedded",
     "color": "#e65100",
@@ -662,22 +684,26 @@ const PROJECTS = [
       "ESP32",
       "Arduino",
       "PlatformIO",
-      "OLED",
+      "FreeRTOS",
+      "Supabase",
       "NTP",
-      "Google Sheets"
+      "OLED"
     ],
     "path": "",
-    "platform": "Arduino C++ / ESP32 (Heltec WiFi LoRa 32 V2)",
+    "platform": "Arduino C++ / ESP32 (Heltec WiFi LoRa 32 V2) + FreeRTOS",
     "paired": "webHz (#5)",
-    "github": "",
-    "description": "Embedded device for accurate measurement of 50 Hz network frequency by counting zero crossings. Sends measurements to Google Sheets, displays on OLED.",
+    "github": "https://github.com/dgimbialo/CrossZeroDetector",
+    "description": "Firmware for measuring the frequency of the AC power grid (nominal 50 Hz) using zero-crossing detection. Timestamps each sample via NTP with DST awareness, and batches them to Supabase over HTTPS every 5s. FreeRTOS runs the sender on Core 0 and the ISR + sampling loop on Core 1.",
     "features": [
-      "Interrupt-based (IRAM_ATTR handleInterrupt) — 50 edges = 1 cycle; frequency = 50.0 * 1e6 / duration",
-      "SSD1306 OLED — real-time frequency with 4 decimal places",
-      "NTP synchronization (NTPClient + WiFiUDP) — UNIX timestamp for each measurement",
-      "Filtering 45–55 Hz; accumulation in a 10-second window",
-      "Google Sheets POST JSON (ArduinoJson) to Apps Script every 10 seconds",
-      "Heltec V2 specification — Vext/RST OLED power management"
+      "Hardware interrupt (IRAM_ATTR) on GPIO 13 with 15 ms noise filter (> 66 Hz ignored)",
+      "Sanity check: only records samples in range 45–55 Hz",
+      "1-second sampling interval; batches up to 60 samples sent every 5 s",
+      "FreeRTOS dual-core: senderTask on Core 0, ISR + loop on Core 1 with portMUX mutex",
+      "3-attempt HTTP retry with 2 s delay on Supabase POST failure",
+      "ISO 8601 timestamps with ms precision and Kyiv DST (UTC+2/+3) computed from NTP",
+      "NTP re-sync every 60 s for drift-free timestamps",
+      "SSD1306 OLED 128x64 — frequency (4 decimal places), time, Wi-Fi & DB status",
+      "Auto Wi-Fi reconnect on link loss"
     ],
     "stack": [
       [
@@ -685,28 +711,36 @@ const PROJECTS = [
         "ESP32 (Heltec WiFi LoRa 32 V2)"
       ],
       [
-        "Framework",
-        "PlatformIO + Arduino"
+        "Build",
+        "PlatformIO + Arduino framework"
       ],
       [
-        "Display",
-        "SSD1306Wire (OLED 128×64)"
-      ],
-      [
-        "Time",
-        "NTPClient (pool.ntp.org)"
-      ],
-      [
-        "Serialization",
-        "ArduinoJson"
+        "RTOS",
+        "FreeRTOS (built-in ESP-IDF)"
       ],
       [
         "Cloud",
-        "Google Apps Script HTTP endpoint"
+        "Supabase REST API (PostgreSQL + PostgREST)"
+      ],
+      [
+        "Serialization",
+        "ArduinoJson 7.2.1"
+      ],
+      [
+        "Time",
+        "NTPClient 3.2.1 (pool.ntp.org) + custom Kyiv DST"
+      ],
+      [
+        "Display",
+        "Heltec_LoRa_OLED / SSD1306Wire (128x64)"
       ]
     ],
     "media": {
-      "foto": [],
+      "foto": [
+        "projects/11-crosszero/foto/foto_1.JPG",
+        "projects/11-crosszero/foto/foto_2.JPG",
+        "projects/11-crosszero/foto/Foto_3.png"
+      ],
       "video": []
     },
     "notes": ""
