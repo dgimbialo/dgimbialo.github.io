@@ -1,6 +1,7 @@
 # HMI Touchscreen (PIC24)
 
 **Subtitle:** Syringe pump HMI — TFT35 + Modbus RTU
+**Tags:** PIC24, C, XC16, Modbus RTU, TFT35, Touchscreen, Flash
 **Path:** 
 **Platform:** Embedded C / PIC24 / MPLAB XC16
 

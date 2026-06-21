@@ -1,6 +1,7 @@
 # Power Grid Frequency Monitor
 
 **Subtitle:** Real-time AC grid frequency dashboard — ESP32 → Supabase → GitHub Pages
+**Tags:** JavaScript, Chart.js, Supabase, GitHub Pages, PWA, i18n
 **Path:** https://dgimbialo.github.io/webHz
 **Platform:** Vanilla JS + Chart.js 4.4.0 + Supabase REST API + GitHub Pages
 **GitHub:** https://github.com/dgimbialo/webHz.github.io

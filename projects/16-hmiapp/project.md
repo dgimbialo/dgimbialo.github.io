@@ -1,6 +1,7 @@
 # HMIApp — Industrial HMI
 
 **Subtitle:** Cable stripping machine Qt6 touchscreen HMI
+**Tags:** C++17, Qt6, QML, Modbus RTU, SQLite, Kiosk, Inno Setup
 **Path:** 
 **Platform:** C++ + Qt6 + QML / Windows embedded
 

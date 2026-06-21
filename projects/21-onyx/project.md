@@ -1,6 +1,7 @@
 # Onyx
 
 **Subtitle:** Plugin-based multimedia desktop application
+**Tags:** C/C++, Win32, MFC, DLL plugins, Legacy
 **Path:** 
 **Platform:** C/C++ / Windows (MSVC legacy)
 

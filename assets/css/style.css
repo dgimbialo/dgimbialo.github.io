@@ -277,10 +277,10 @@ img { max-width: 100%; display: block; }
 }
 
 .mq-card {
-  flex: 0 0 300px; width: 300px;
+  flex: 0 0 360px; width: 360px;
   background: linear-gradient(180deg, var(--card-2), var(--card));
   border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 18px 18px 16px;
+  padding: 22px 22px 19px;
   display: flex; flex-direction: column; gap: 8px;
   text-decoration: none; color: var(--text);
   position: relative; overflow: hidden;
@@ -300,21 +300,21 @@ img { max-width: 100%; display: block; }
   display: flex; align-items: center; justify-content: space-between; gap: 8px;
 }
 .mq-num {
-  font-family: 'Orbitron', sans-serif; font-size: .72rem; font-weight: 700;
+  font-family: 'Orbitron', sans-serif; font-size: .86rem; font-weight: 700;
   color: var(--muted);
 }
 .mq-cat {
-  font-size: .68rem; font-weight: 700; letter-spacing: .4px;
-  padding: 3px 9px; border-radius: 999px;
+  font-size: .82rem; font-weight: 700; letter-spacing: .4px;
+  padding: 4px 11px; border-radius: 999px;
   color: var(--accent, var(--neon));
   border: 1px solid color-mix(in srgb, var(--accent, var(--neon)) 45%, transparent);
   background: color-mix(in srgb, var(--accent, var(--neon)) 10%, transparent);
 }
 .mq-card h3 {
-  font-size: 1.02rem; font-weight: 700; line-height: 1.25;
+  font-size: 1.22rem; font-weight: 700; line-height: 1.25;
 }
 .mq-card p {
-  font-size: .82rem; color: var(--muted);
+  font-size: .98rem; color: var(--muted);
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
   overflow: hidden; min-height: 2.1em;
 }
@@ -428,16 +428,16 @@ img { max-width: 100%; display: block; }
 .detail-card p { color: var(--muted); font-size: .95rem; }
 .features-list { display: flex; flex-direction: column; gap: 10px; }
 .feature-item {
-  display: flex; gap: 12px; align-items: flex-start;
+  display: flex; gap: 12px; align-items: center;
   font-size: .92rem; padding: 9px 0; border-bottom: 1px solid var(--border-soft);
 }
 .feature-item:last-child { border-bottom: none; }
 .feature-bullet {
-  width: 22px; height: 22px; border-radius: 7px;
+  width: 33px; height: 33px; border-radius: 10px;
   background: rgba(0,204,255,.14); color: var(--neon);
   border: 1px solid var(--neon-dim);
   display: flex; align-items: center; justify-content: center;
-  font-size: .7rem; font-weight: 800; flex-shrink: 0; margin-top: 1px;
+  font-size: 1.05rem; font-weight: 800; flex-shrink: 0;
 }
 .stack-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
 .stack-table td { padding: 9px 10px; border-bottom: 1px solid var(--border-soft); color: var(--text); }
@@ -475,6 +475,56 @@ img { max-width: 100%; display: block; }
 .project-link-btn--github:hover {
   background: rgba(0,204,255,.22); box-shadow: var(--glow-cyan);
   transform: translateY(-2px); text-decoration: none; color: var(--neon);
+}
+
+/* Prominent full-width "Go to Site" call-to-action with an animated,
+   attention-grabbing background that smoothly shifts colour. */
+.project-cta-site {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; box-sizing: border-box;
+  min-height: 88px; padding: 26px 28px;
+  border-radius: 16px;
+  font-size: 1.5rem; font-weight: 800; letter-spacing: .4px;
+  color: #05050c; text-align: center;
+  background: linear-gradient(120deg, #00ccff, #6a5cff, #ff4fd8, #00ffc8, #00ccff);
+  background-size: 300% 300%;
+  animation: ctaShift 4s ease-in-out infinite, ctaGlow 1s ease-in-out infinite alternate;
+  text-decoration: none;
+}
+.project-cta-site:hover {
+  color: #05050c; text-decoration: none;
+  transform: translateY(-2px);
+}
+@keyframes ctaShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes ctaGlow {
+  from { box-shadow: 0 0 14px rgba(0,204,255,.35); }
+  to   { box-shadow: 0 0 34px rgba(255,79,216,.65); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-cta-site { animation: none; }
+}
+
+/* Notes & contribution lists — keep links short and text inside the card. */
+.notes-list, .contribution-list {
+  margin: 0; padding-left: 18px;
+  display: flex; flex-direction: column; gap: 8px;
+  color: var(--muted); font-size: .95rem;
+}
+.notes-list li, .contribution-list li { overflow-wrap: anywhere; }
+.notes-link { color: var(--neon); font-weight: 600; }
+.notes-link:hover { text-decoration: underline; }
+
+/* Never let content spill outside its card. */
+.detail-card { overflow-wrap: anywhere; word-break: break-word; }
+.detail-right { min-width: 0; }
+
+/* Larger tag chips on the project detail page (1.5×). */
+.project-hero .tag {
+  font-size: 1.08rem; padding: 5px 15px;
 }
 .paired-notice {
   background: rgba(149,133,201,.08); border: 1px solid rgba(149,133,201,.4);
@@ -605,7 +655,7 @@ img { max-width: 100%; display: block; }
   .detail-right { order: -1; }
   .projects-grid { grid-template-columns: 1fr; }
   .nav-links a { padding: 6px 10px; font-size: .82rem; }
-  .mq-card { flex-basis: 260px; width: 260px; }
+  .mq-card { flex-basis: 312px; width: 312px; }
 }
 @media (max-width: 480px) {
   .hero-name { font-size: 1.65rem; }

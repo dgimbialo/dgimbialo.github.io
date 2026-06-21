@@ -1,6 +1,7 @@
 # Drag & Drop HTML Editor
 
 **Subtitle:** WYSIWYG HTML editor for TFT display design
+**Tags:** C++17, Qt5, QUndoStack, CMake, Drag & Drop, WYSIWYG
 **Path:** `D:\WORK_PROJECTS\drag_drop_html_editor`
 **Platform:** C++ + Qt5 Widgets / Windows (CMake)
 

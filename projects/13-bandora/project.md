@@ -1,6 +1,7 @@
 # JAMMER Professional
 
 **Subtitle:** Professional MIDI sequencer & music compositor
+**Tags:** C++, MFC, MIDI, WinMM, VST 2.x, SoundTouch, DirectShow
 **Path:** 
 **Platform:** C++ + MFC / Win32
 

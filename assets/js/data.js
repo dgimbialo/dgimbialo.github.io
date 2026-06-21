@@ -1194,16 +1194,29 @@ const PROJECTS = [
       "vcpkg"
     ],
     "path": "",
-    "platform": "C++ Qt5 / Windows + macOS",
+    "platform": "C++ / Qt5 / Windows + macOS",
     "paired": null,
     "github": "",
-    "description": "Cross-platform application for optical music recognition (OMR — Optical Music Recognition) from scanned sheet music.",
+    "contribution": [
+      "Bug fixing across the OMR recognition pipeline, score editor and export modules",
+      "Implemented new features in Scan mode and the Score-mode notation editor",
+      "Improved existing behaviour of playback, transpose and MusicXML/MIDI export",
+      "Refined UI dialogs, error handling and cross-platform (Windows/macOS) builds"
+    ],
+    "description": "Cross-platform commercial OMR (Optical Music Recognition) application (Melody / Ensemble / Professional editions) published by Lugert Verlag GmbH. Ingests raster images (JPEG, PNG, TIFF) and multi-page PDFs, runs a symbol-detection pipeline to extract standard Western music notation, and produces an editable score document. The document can be played back, transposed, corrected in a built-in notation editor (Score mode), and exported as MusicXML or MIDI for downstream tools (Sibelius, Finale, Dorico, MuseScore, DAWs). Shipped as a licensed installer for Windows (8+) and macOS (10.12 Sierra+); 1-year license key with HTTPS activation.",
     "features": [
-      "OCR — recognition of musical notation symbols",
-      "Image preprocessing — grayscale, threshold, morphological, staff line detection/removal",
-      "Qt5 GUI — scan view, results panel",
-      "MIDI/notation output — MusicXML or MIDI",
-      "Cross-platform — vcpkg; Windows (x64) + macOS;"
+      "**Image ingestion pipeline** — accepts JPEG, PNG, TIFF, BMP; multi-page PDF import with per-page selection; advanced scan dialog (DPI, contrast, binarization threshold, page format); recommended 300–600 dpi for optimal recognition accuracy",
+      "**Image preprocessing** — grayscale conversion, adaptive binarization (Otsu / custom threshold), morphological ops (erosion/dilation) for noise removal, deskew / perspective correction, staff-line detection and removal prior to symbol classification",
+      "**OMR engine** — symbol classifier for: noteheads (filled/open), stems, beams, flags, augmentation dots, rests (whole–64th), accidentals, clefs, key/time signatures, barlines, ties, slurs, articulations, dynamics, lyric text, chord symbols; improved recognition engine in v3",
+      "**Score document model** — internal tree: Page → System → Staff → Measure → Voice → NoteEvent; unlimited pages/bars; polyphonic voices with independent stem direction; instrument name auto-detection",
+      "**Scan mode** — two-panel layout: original image viewer (zoom/pan, page navigation) + recognized score view; inline correction toolbar; element properties menus for each symbol type; new context menu (v3) for quick access to editing options; configurable keyboard shortcuts",
+      "**Score mode (v3+)** — full notation editor integrated in the same app; add/remove measures and sections; add/reorder instrument tracks; change voice assignments; system and page break control; voice excerpt export; repeats, voltas, segno/coda handled in playback",
+      "**Playback engine** — Qt Multimedia backend; per-track mixer (volume, pan, instrument sound, mute/solo); metronome; adjustable playback speed (% of BPM) for practice; loop region selection",
+      "**Transpose** — full score or per-staff transposition by interval or target key; Bb / Eb transposing instrument conversion; immediate playback of transposed result; print and export of transposed score",
+      "**Export pipeline** — MusicXML 3.x writer; MIDI type-1 multi-track writer; PDF page export; MP3 audio export; interoperable with FORTE, Sibelius, Finale, Dorico, MuseScore, Capella, Notion; DAW import via MIDI (Ableton, Logic, Cubase, FL Studio, ProTools)",
+      "**ScanScore Capture mobile companion** — iOS/Android app for scanning pages with a smartphone camera; QR code pairing (QR displayed in desktop Options dialog) for secure device link without account login",
+      "**Online updater** — HTTPS manifest check on startup; free updates delivered throughout the license period",
+      "**License system** — 1-year time-limited serial key; HTTPS activation against Lugert license server; QR-code pairing for mobile; no automatic renewal; saved projects remain accessible after expiry"
     ],
     "stack": [
       [
@@ -1211,33 +1224,72 @@ const PROJECTS = [
         "C++11"
       ],
       [
-        "UI",
-        "Qt5 (Widgets, Multimedia, Pdf)"
+        "UI framework",
+        "Qt5 (QWidgets)"
       ],
       [
-        "Image",
-        "OpenCV (imgproc, core)"
+        "Multimedia / playback",
+        "Qt5 Multimedia (QMediaPlayer, QAudioOutput)"
       ],
       [
-        "Packages",
+        "PDF rendering",
+        "Qt5 Pdf module / Poppler"
+      ],
+      [
+        "Image processing",
+        "OpenCV (`imgproc`, `core`) — binarization, morphology, deskew, staff removal"
+      ],
+      [
+        "OMR engine",
+        "Custom symbol classifier (trained on printed music font datasets)"
+      ],
+      [
+        "MusicXML I/O",
+        "Custom writer / QXmlStreamReader parser (MusicXML 3.x)"
+      ],
+      [
+        "MIDI export",
+        "Custom MIDI type-1 file writer"
+      ],
+      [
+        "Audio export",
+        "MP3 encoding (bundled encoder)"
+      ],
+      [
+        "Package manager",
         "vcpkg"
       ],
       [
-        "Build",
-        "CMake, Windows + macOS"
+        "Build system",
+        "CMake"
+      ],
+      [
+        "Target OS",
+        "Windows 8+ (x64), macOS 10.12 Sierra+"
       ]
     ],
     "media": {
-      "foto": [],
-      "video": []
+      "foto": [
+        "projects/19-scanscore/foto/app_main.png",
+        "projects/19-scanscore/foto/app_quartet_score.jpg",
+        "projects/19-scanscore/foto/score_editor.jpg",
+        "projects/19-scanscore/foto/mixer.png",
+        "projects/19-scanscore/foto/transpose_dialog.jpg",
+        "projects/19-scanscore/foto/time_signature_dialog.jpg",
+        "projects/19-scanscore/foto/options_qr.png"
+      ],
+      "video": [
+        "https://youtu.be/7I0dLa9V3qA",
+        "https://youtu.be/HmflRwd80_E"
+      ]
     },
-    "notes": ""
+    "notes": "- Product site: https://scan-score.com/en/ - FAQ: https://scan-score.com/en/faq/ - Manual (Scan mode PDF): https://scan-score.com/files/support/manual.pdf - Manual (Score mode PDF): https://scan-score.com/files/support/manual-score.pdf - Editions: Melody ($9/yr, 1 staff) → Ensemble ($39/yr, ≤4 staves) → Professional ($79/yr, unlimited staves) - 14-day full-featured trial; no auto-renewal on 1-year license - v3.0.8 (2024-12-21) — complete rewrite vs. v2: new Score mode, improved recognition engine, 1-year license model - 20,000+ licensed customers"
   },
   {
     "id": "forte",
     "slug": "20-forte",
     "number": "20",
-    "title": "Forte Notation",
+    "title": "FORTE 12",
     "subtitle": "Full-featured music notation editor",
     "category": "Desktop / Audio",
     "filterGroup": "audio",
@@ -1247,22 +1299,35 @@ const PROJECTS = [
       "MFC",
       "MIDI",
       "WinMM",
-      "VST 2.x",
-      "SoundTouch",
-      "CD Burn"
+      "VST 2.x"
     ],
-    "path": "",
+    "path": "https://www.fortenotation.com/en/",
     "platform": "C++ + MFC / Windows (MSVC)",
     "paired": null,
     "github": "",
-    "description": "Full-featured music notation editor with MIDI recording, VST.",
+    "contribution": [
+      "Bug fixing in the MIDI capture/routing pipeline (note-on/off, channel split, quantization)",
+      "Added new notation, layout and score-editor features",
+      "Improved existing playback, mixer and VST 2.x host behaviour",
+      "Reworked BCGSoft Ribbon dialogs, localization and the in-app updater flow"
+    ],
+    "description": "Commercial Windows music notation software (Basic / Home / Premium editions). The core is a score document model with a custom rendering pipeline that lays out staves, measures, noteheads, beams, ties, slurs and all standard engraving elements to GDI. The app integrates a real-time MIDI capture thread (WinMM), a VST 2.x plugin host, an audio render pipeline (DirectShow / WASAPI), and a MusicXML serializer. BCGSoft Ribbon replaces classic MFC menu bar. Distribution is a signed installer with HTTPS-based license activation and an in-app update mechanism.",
     "features": [
-      "Score editor — measures, staves, clef, time/key signatures",
-      "MIDI playback/recording",
-      "Audio capture — MIDI",
-      "VST Host — VST 2.x plug-ins",
-      "Multi-language — without restart",
-      "Undo history, online updater"
+      "Score document model — internal tree, supports all standard clefs, key/time signatures, tuplets, grace notes, multi-measure rests",
+      "Notation elements — noteheads, stems, beams (automatic grouping by time signature), ties, slurs, articulations, dynamics (hairpins, text), fermatas, trills, ornaments, chord symbols, guitar tablature (custom tuning per track), lyrics (16 verses per staff)",
+      "Multi-voice / multi-track — independent voices per staff, up to 32 instrument tracks per system",
+      "Ribbon UI (BCGSoft) — tabbed command bar (Home / Score / Record / Options / Help) built on BCGControlBar Pro, context-sensitive tabs for selection state, custom input palette docked as a side panel",
+      "MIDI live recording — WinMM `midiInOpen` / callback thread captures note-on/off, real-time mode quantizes to selected grid after recording, step-input mode",
+      "MIDI routing & mixing — in-app mixer (track volume, pan, mute/solo, channel assignment), MIDI-IN routing dialog for channel filter, split point (bass/treble clef auto-split), voice-to-track mapping",
+      "MIDI playback — WinMM or DirectMusic backend, General MIDI channel mapping, tempo track with BPM automation, loop and lead-in for recording",
+      "VST 2.x host — scans plugin directories for `*.dll`, instantiates via `VSTPluginMain`, routes audio via ASIO-style float buffers, FORTE Player is a bundled VST instrument with a GM sound library",
+      "Audio export — offline render of the entire score to PCM WAV, MP3 encoding via bundled encoder, uses DirectShow graph or WASAPI exclusive for output device routing",
+      "MusicXML I/O — custom DOM-based parser/writer against MusicXML 3.x schema, import maps `<note>`, `<attributes>`, `<direction>` to internal model, export round-trips to Sibelius, Finale, MuseScore",
+      "Layout engine — staff size scaling (%), margin/indent control, per-page system count, multi-measure rest merging, font overrides for all text element types, live preview in layout dialog",
+      "Print pipeline — GDI+ page renderer, outputs to Windows printer DC or EMF metafile for PDF export",
+      "Online updater — HTTPS manifest check at startup, downloads versioned installer and relaunches with elevation",
+      "License activation — RSA-signed serial key, online activation against license server, offline re-activation via email flow",
+      "Localization — resource DLL per locale; runtime language switch without restart (German, English)"
     ],
     "stack": [
       [
@@ -1270,31 +1335,86 @@ const PROJECTS = [
         "C++ (MSVC)"
       ],
       [
-        "UI",
-        "MFC (Dynamic), Win32"
+        "UI framework",
+        "MFC (SDI/MDI, dynamic dialogs)"
       ],
       [
-        "MIDI",
-        "WinMM, DirectMusic"
+        "Ribbon / toolbar",
+        "BCGControlBar Pro (BCGSoft)"
       ],
       [
-        "Audio",
-        "DirectShow, WASAPI"
+        "MIDI I/O",
+        "WinMM"
+      ],
+      [
+        "MIDI extended",
+        "DirectMusic"
+      ],
+      [
+        "Audio playback",
+        "DirectShow filter graph, WASAPI"
+      ],
+      [
+        "Audio export",
+        "WAV, MP3"
       ],
       [
         "VST",
-        "VST 2.x host"
+        "VST 2.x SDK"
+      ],
+      [
+        "MusicXML",
+        "Custom DOM parser/writer (MusicXML 3.x)"
+      ],
+      [
+        "Score rendering",
+        "GDI / GDI+ (noteheads, beams, curves)"
+      ],
+      [
+        "Print / export",
+        "GDI+ → printer DC / EMF metafile"
+      ],
+      [
+        "Updater",
+        "HTTPS manifest + downloader"
+      ],
+      [
+        "Installer",
+        "Signed NSIS / Inno Setup package"
       ],
       [
         "Build",
-        "VS"
+        "Visual Studio (MSVC), x86 / x64"
+      ],
+      [
+        "Target OS",
+        "Windows 7 / 8 / 10 / 11"
       ]
     ],
     "media": {
-      "foto": [],
-      "video": []
+      "foto": [
+        "projects/20-forte/foto/Foto_1.png",
+        "projects/20-forte/foto/Foto_2.png",
+        "projects/20-forte/foto/Foto_3.png",
+        "projects/20-forte/foto/Foto_4.png",
+        "projects/20-forte/foto/Foto_5.jpg",
+        "projects/20-forte/foto/faq_midi_in.png",
+        "projects/20-forte/foto/faq_midi_out.png",
+        "projects/20-forte/foto/faq_midi_mixer.png",
+        "projects/20-forte/foto/faq_midi_step.png",
+        "projects/20-forte/foto/faq_midi_record_tab.png",
+        "projects/20-forte/foto/faq_midi_quant.png",
+        "projects/20-forte/foto/faq_midi_routing.png",
+        "projects/20-forte/foto/faq_layout_ribbon.png",
+        "projects/20-forte/foto/faq_layout_setup.png",
+        "projects/20-forte/foto/faq_layout_spacing.png",
+        "projects/20-forte/foto/faq_layout_options.png"
+      ],
+      "video": [
+        "https://youtube.com/watch?v=XzOZawpz8q4"
+      ]
     },
-    "notes": ""
+    "notes": "- Online manual FORTE 12: https://www.fortenotation.com/en/manual/FORTE12/Welcome.html"
   },
   {
     "id": "onyx",

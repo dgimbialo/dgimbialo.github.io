@@ -1,6 +1,7 @@
 # KeyBeep
 
 **Subtitle:** Windows hotkey audio feedback tray app
+**Tags:** C++, Win32 API, WinMM, MIDI, Registry
 **Path:** `D:\My_project\chenge_lang`
 **Platform:** C++ / Win32 API / Windows
 **GitHub:** [dgimbialo/KeyBeep](https://github.com/dgimbialo/KeyBeep)

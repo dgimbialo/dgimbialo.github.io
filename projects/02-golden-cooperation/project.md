@@ -1,6 +1,7 @@
 # Golden Cooperation
 
 **Subtitle:** Corporate website for solar EPC contractor
+**Tags:** HTML5, CSS3, JavaScript, Cloudflare Pages, i18n, SEO
 **Path:** [https://www.golden-cooperation.com/](https://www.golden-cooperation.com/)
 **Platform:** HTML/CSS/JS + Cloudflare Pages
 

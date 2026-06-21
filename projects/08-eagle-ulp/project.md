@@ -1,6 +1,7 @@
 # EAGLE ULP Pin Analyzer
 
 **Subtitle:** Schematic pin-connection analysis script
+**Tags:** EAGLE ULP, EDA, Schematic, HTML export, CSV
 **Path:** `D:\My_project\eagle-upl-scripts`
 **Platform:** EAGLE ULP / Autodesk EAGLE
 

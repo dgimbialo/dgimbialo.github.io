@@ -1,6 +1,7 @@
 # FastAcqWinApp
 
 **Subtitle:** Real-time signal acquisition & FFT analysis
+**Tags:** C++17, MFC, FFT, USB CDC, GDI, Spectrogram
 **Path:** `D:\My_project\FastAcqWinApp`
 **Platform:** C++ + MFC / Windows (MSVC, x64)
 **Pair System:** STM32H7 Firmware (#10)

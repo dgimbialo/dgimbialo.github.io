@@ -1,6 +1,7 @@
 # Git Change Keeper
 
 **Subtitle:** Automatic git diff snapshot with SHA-256 dedup
+**Tags:** Python, GitPython, SHA-256, CLI, argparse
 **Path:** `D:\WORK_PROJECTS\Git_Keeper`
 **Platform:** Python 3 / CLI
 

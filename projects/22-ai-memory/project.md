@@ -1,6 +1,7 @@
 # AI Memory System
 
 **Subtitle:** Semantic memory CLI for AI-assisted development
+**Tags:** Python, argparse, JSON, sentence-transformers, watchdog, pytest
 **Path:** `D:\ai_memory_system`
 **Platform:** Python 3
 

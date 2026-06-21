@@ -1,6 +1,7 @@
 # SimpleMidiViewer
 
 **Subtitle:** MIDI file parser & score renderer
+**Tags:** C++17, MFC, MIDI, CMake
 **Path:** `D:\My_project\SimpleMidiViwer`
 **Platform:** C++17 + MFC + CMake / Windows
 

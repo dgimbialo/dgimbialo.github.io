@@ -1,6 +1,7 @@
 # TDS 520A GPIB Desktop
 
 **Subtitle:** Oscilloscope control + mobile web viewer
+**Tags:** C++17, MFC, GPIB, NI-488.2, SCPI, WebSocket
 **Path:** `D:\My_project\TDS_520A_GPIB`
 **Platform:** C++17 + MFC + NI-488.2 / Win64
 

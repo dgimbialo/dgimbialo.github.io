@@ -1,6 +1,7 @@
 # Pump Controller Arduino
 
 **Subtitle:** 3-sensor liquid level controller
+**Tags:** Arduino, C/C++, Mega 2560, LCD, Relay
 **Path:** 
 **Platform:** Arduino C/C++ / Arduino Mega 2560
 

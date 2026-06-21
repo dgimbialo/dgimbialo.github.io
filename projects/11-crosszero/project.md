@@ -1,6 +1,7 @@
 # CrossZeroDetector
 
 **Subtitle:** Interrupt-driven AC power-grid frequency meter · Heltec WiFi LoRa 32 V2 → Supabase
+**Tags:** ESP32, Arduino, PlatformIO, FreeRTOS, Supabase, NTP, OLED
 **Path:**
 **Platform:** Arduino C++ / ESP32 (Heltec WiFi LoRa 32 V2) + FreeRTOS
 **GitHub:** https://github.com/dgimbialo/CrossZeroDetector

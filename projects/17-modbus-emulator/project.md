@@ -1,6 +1,7 @@
 # ModbusEmulator
 
 **Subtitle:** Modbus RTU/TCP slave emulator for testing
+**Tags:** C++17, Qt6, QML, QModbusServer, Testing tool
 **Path:** `D:\WORK_PROJECTS\ModbusEmulator`
 **Platform:** C++ + Qt6 + QML / Windows
 

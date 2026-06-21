@@ -1,6 +1,7 @@
 # HPLC Syringe Pump
 
 **Subtitle:** HPLC pump desktop control via Modbus RTU
+**Tags:** C++17, Qt6, QML, Modbus RTU, Qt Test, Charts
 **Path:** 
 **Platform:** C++ + Qt6 + QML / Windows
 

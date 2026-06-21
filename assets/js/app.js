@@ -5,6 +5,34 @@ function esc(str) {
             .replace(/"/g,'&quot;').replace(/'/g,'&#039;');
 }
 
+// Derive a short, human-friendly label for a bare URL found in Notes.
+function shortLabelFromUrl(url) {
+  const u = url.toLowerCase();
+  if (u.includes('.pdf')) return 'PDF';
+  if (u.includes('faq'))    return 'FAQ';
+  if (u.includes('manual')) return 'Manual';
+  if (u.includes('github')) return 'GitHub';
+  if (u.includes('youtu'))  return 'Video';
+  return 'Web Site';
+}
+
+// Render the Notes string as a list, converting any bare URL into a short link.
+function formatNotes(notesText) {
+  const raw = notesText.trim().replace(/^-\s*/, '');
+  const items = raw.split(/\s+-\s+/).map(s => s.trim()).filter(Boolean);
+  const urlRe = /(https?:\/\/[^\s<]+)/;
+  const lis = items.map(item => {
+    const m = item.match(urlRe);
+    if (!m) return `<li>${esc(item)}</li>`;
+    const url = m[1].replace(/[.,;]+$/, '');
+    let label = item.slice(0, m.index).replace(/[:\-–—\s]+$/, '').trim();
+    if (!label) label = shortLabelFromUrl(url);
+    const after = item.slice(m.index + m[1].length).replace(/^[.,;\s]+/, '').trim();
+    return `<li><a href="${esc(url)}" target="_blank" rel="noopener" class="notes-link">${esc(label)}</a>${after ? ' — ' + esc(after) : ''}</li>`;
+  });
+  return `<ul class="notes-list">${lis.join('')}</ul>`;
+}
+
 function categoryColor(group) {
   const map = {
     embedded: 'var(--c-embedded)',
@@ -39,7 +67,10 @@ function initIndex() {
   renderHero();
   renderAbout();
   renderSkills();
-  renderProjectsSection();
+  // Tags (and other md-defined fields) are sourced from each project.md so the
+  // markdown is the single source of truth across the whole site. Render the
+  // project views once overrides are applied; fall back to data.js on failure.
+  Promise.all(PROJECTS.map(applyMarkdownOverrides)).finally(renderProjectsSection);
 }
 
 function renderAbout() {
@@ -110,19 +141,23 @@ function renderProjectsSection() {
   initViewToggle();
 }
 
-// Build the auto-scrolling 2-row flow view (default).
+// Build the auto-scrolling 3-row flow view (default).
 function renderMarquee() {
   const el = document.getElementById('projects-marquee');
   if (!el) return;
-  // Split into two rows; each row scrolls in the opposite direction.
-  const mid = Math.ceil(PROJECTS.length / 2);
-  const rowA = PROJECTS.slice(0, mid);
-  const rowB = PROJECTS.slice(mid);
+  const ROWS = 3;
+  const per = Math.ceil(PROJECTS.length / ROWS);
   // Duplicate each row's cards so the translateX(-50%) loop is seamless.
   const track = list => `<div class="mq-track">${list.map(marqueeCard).join('')}${list.map(marqueeCard).join('')}</div>`;
-  el.innerHTML = `
-    <div class="mq-row mq-row--left">${track(rowA)}</div>
-    <div class="mq-row mq-row--right">${track(rowB)}</div>`;
+  let html = '';
+  for (let i = 0; i < ROWS; i++) {
+    const slice = PROJECTS.slice(i * per, (i + 1) * per);
+    if (!slice.length) continue;
+    // Alternate scroll direction per row.
+    const dir = i % 2 === 0 ? 'mq-row--left' : 'mq-row--right';
+    html += `<div class="mq-row ${dir}">${track(slice)}</div>`;
+  }
+  el.innerHTML = html;
 }
 
 function marqueeCard(p) {
@@ -228,7 +263,50 @@ function initProject() {
     return;
   }
   document.title = project.title + ' — Taras Pavlyk Portfolio';
-  renderProjectDetail(project);
+  // Content is sourced locally from each project's project.md (single source of
+  // truth). Fall back to the values in data.js if the file can't be read.
+  applyMarkdownOverrides(project).then(() => renderProjectDetail(project));
+}
+
+// Fetch a project's project.md and override fields that are defined there.
+function applyMarkdownOverrides(project) {
+  if (!project.slug) return Promise.resolve();
+  const url = `projects/${project.slug}/project.md`;
+  // Bypass the HTTP cache so edits to project.md show up immediately instead of
+  // serving a stale copy from the browser/CDN.
+  return fetch(url, { cache: 'no-cache' })
+    .then(r => r.ok ? r.text() : '')
+    .then(text => {
+      if (!text) return;
+      const md = parseProjectMarkdown(text);
+      if (md.tags && md.tags.length)                 project.tags = md.tags;
+      if (md.contribution && md.contribution.length) project.contribution = md.contribution;
+    })
+    .catch(() => {});
+}
+
+// Extract structured fields from a project.md file.
+function parseProjectMarkdown(text) {
+  const out = {};
+  const tagsM = text.match(/^\s*\*\*Tags:\*\*\s*(.+)$/m);
+  if (tagsM) out.tags = tagsM[1].split(',').map(t => t.trim()).filter(Boolean);
+  out.contribution = extractMdListSection(text, 'What I Did');
+  return out;
+}
+
+// Collect bullet items under a `## <heading>` section of a markdown document.
+function extractMdListSection(text, heading) {
+  const items = [];
+  let inSection = false;
+  for (const line of text.split(/\r?\n/)) {
+    const h = line.match(/^##\s+(.*)$/);
+    if (h) { inSection = h[1].trim().toLowerCase() === heading.toLowerCase(); continue; }
+    if (inSection) {
+      const m = line.match(/^[-*]\s+(.+)$/);
+      if (m) items.push(m[1].trim());
+    }
+  }
+  return items;
 }
 
 function isYouTubeUrl(value) {
@@ -365,15 +443,15 @@ function renderProjectDetail(p) {
     return `<div class="paired-notice"><strong>Paired System:</strong> ${inner}</div>`;
   })();
   const websiteBtn = p.path && (p.path.startsWith('http://') || p.path.startsWith('https://')) ? `
-    <a href="${esc(p.path)}" target="_blank" rel="noopener" class="project-link-btn project-link-btn--site">
-      Go to Site →
+    <a href="${esc(p.path)}" target="_blank" rel="noopener" class="project-link-btn project-link-btn--site project-cta-site">
+      Go to App Website →
     </a>` : '';
   const githubBtn = p.github ? `
     <a href="${esc(p.github)}" target="_blank" rel="noopener" class="project-link-btn project-link-btn--github">
       GitHub →
     </a>` : '';
-  const linksHtml = (websiteBtn || githubBtn) ? `
-    <div class="project-links">${websiteBtn}${githubBtn}</div>` : '';
+  const githubHtml = githubBtn ? `
+    <div class="project-links">${githubBtn}</div>` : '';
 
   const hasFoto  = p.media && p.media.foto  && p.media.foto.length  > 0;
   const hasVideo = p.media && p.media.video && p.media.video.length > 0;
@@ -381,7 +459,19 @@ function renderProjectDetail(p) {
   const notesHtml = notesText ? `
     <div class="detail-card">
       <h2>Notes</h2>
-      <p>${esc(notesText)}</p>
+      ${formatNotes(notesText)}
+    </div>` : '';
+
+  const contribItems = Array.isArray(p.contribution) ? p.contribution.filter(Boolean) : [];
+  const contribList = contribItems.map((c, i) => `
+    <div class="feature-item">
+      <div class="feature-bullet">${i+1}</div>
+      <span>${esc(c)}</span>
+    </div>`).join('');
+  const contributionHtml = contribItems.length ? `
+    <div class="detail-card">
+      <h2>What I Did</h2>
+      <div class="features-list">${contribList}</div>
     </div>` : '';
   const videoHtml = (p.media.video || []).map(src => {
     const embedUrl = isYouTubeUrl(src) ? getYouTubeEmbedUrl(src) : '';
@@ -444,6 +534,7 @@ function renderProjectDetail(p) {
             <h2>Purpose</h2>
             <p>${esc(p.description)}</p>
           </div>
+          ${contributionHtml}
           <div class="detail-card">
             <h2>Key Features</h2>
             <div class="features-list">${feats}</div>
@@ -463,6 +554,7 @@ function renderProjectDetail(p) {
             </div>` : ''}
         </div>
         <div class="detail-right">
+          ${websiteBtn}
           <div class="detail-card">
             <h2>Tech Stack</h2>
             <table class="stack-table">
@@ -475,8 +567,8 @@ function renderProjectDetail(p) {
               ${esc(p.platform)}
             </div>
           </div>
-          ${linksHtml}
           ${notesHtml}
+          ${githubHtml}
           ${pairedHtml}
         </div>
       </div>

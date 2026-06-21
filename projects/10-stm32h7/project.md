@@ -1,6 +1,7 @@
 # STM32H7 Fast Acquisition
 
 **Subtitle:** High-speed ADC firmware with on-device FFT
+**Tags:** STM32H7, C, HAL, DCMI, DMA, USB CDC, CMake
 **Path:** `D:\My_project\ADC_STM32H7`
 **Platform:** C + ASM / STM32H743 / arm-none-eabi
 **Pair System:** FastAcqWinApp (#9)

@@ -1,6 +1,7 @@
 # COMUS Temp Controller
 
 **Subtitle:** Solar collector thermal management firmware
+**Tags:** Arduino, C/C++, DS18B20, OneWire, EEPROM, LCD
 **Path:** 
 **Platform:** Arduino C/C++ / ATmega
 
