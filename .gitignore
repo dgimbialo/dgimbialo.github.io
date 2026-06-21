@@ -68,3 +68,5 @@ project's_list.txt
 
 # Project-specific
 .rebuild_from_md.lock
+projects/19-scanscore/download_screenshots.ps1
+projects/20-forte/download_screenshots.ps1
