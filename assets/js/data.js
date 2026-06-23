@@ -453,6 +453,7 @@ const PROJECTS = [
     "filterGroup": "embedded",
     "color": "#e65100",
     "tags": [
+      "Commercial",
       "Arduino",
       "C/C++",
       "DS18B20",
@@ -812,6 +813,7 @@ const PROJECTS = [
     "filterGroup": "audio",
     "color": "#880e4f",
     "tags": [
+      "Commercial",
       "C++",
       "MFC",
       "MIDI",
@@ -905,6 +907,7 @@ const PROJECTS = [
     "filterGroup": "embedded",
     "color": "#b71c1c",
     "tags": [
+      "Commercial",
       "PIC24",
       "C",
       "XC16",
@@ -1024,75 +1027,6 @@ const PROJECTS = [
     "notes": ""
   },
   {
-    "id": "hmiapp",
-    "slug": "16-hmiapp",
-    "number": "16",
-    "title": "HMIApp - Industrial HMI",
-    "subtitle": "Cable stripping machine Qt6 touchscreen HMI",
-    "category": "Desktop / Qt / Industrial",
-    "filterGroup": "desktop",
-    "color": "#1565c0",
-    "tags": [
-      "C++17",
-      "Qt6",
-      "QML",
-      "Modbus RTU",
-      "SQLite",
-      "Kiosk",
-      "Inno Setup"
-    ],
-    "path": "",
-    "platform": "C++ + Qt6 + QML / Windows embedded",
-    "paired": null,
-    "github": "",
-    "description": "Commercial, full-featured industrial HMI for a cable stripping machine. Touchscreen UI on Qt Quick/QML with Modbus communication, recipe management and diagnostics.",
-    "features": [
-      "Modbus async queue with priority queue and success statistics",
-      "Barcode scanner - serial port or HID keyboard emulation via eventFilter",
-      "Recipe engine - CRUD in SQLite",
-      "Multi-axis config - corrections, offsets",
-      "Details replacement wizard - guided step-by-step process",
-      "USB detection - WMI COM object for arrival/removal",
-      "Kiosk mode - Windows Registry Shell key;",
-      "Release pipeline - Inno Setup + rcedit + signtool + PFX; i18n"
-    ],
-    "stack": [
-      [
-        "Language",
-        "C++17"
-      ],
-      [
-        "UI",
-        "Qt6 Quick/QML"
-      ],
-      [
-        "Database",
-        "SQLite"
-      ],
-      [
-        "Communication",
-        "ModbusClient, SerialPort"
-      ],
-      [
-        "Build",
-        "CMake 3.16+, Ninja, VS2022"
-      ],
-      [
-        "Deployment",
-        "Inno Setup, rcedit, signtool"
-      ],
-      [
-        "Target",
-        "Windows 10 embedded (kiosk mode)"
-      ]
-    ],
-    "media": {
-      "foto": [],
-      "video": []
-    },
-    "notes": ""
-  },
-  {
     "id": "modbus-emulator",
     "slug": "17-modbus-emulator",
     "number": "17",
@@ -1112,7 +1046,7 @@ const PROJECTS = [
     "platform": "C++ + Qt6 + QML / Windows",
     "paired": null,
     "github": "",
-    "description": "Desktop for emulating Modbus RTU/TCP slave devices - testing master applications (HMIApp, HPLC Pump) without real hardware.",
+    "description": "Desktop for emulating Modbus RTU/TCP slave devices - testing master applications (e.g. HPLC Pump) without real hardware.",
     "features": [
       "QModbusServer - FC 0x03/0x10, response generation",
       "ModbusDataStore - register bank: bulk init, per-address R/W, notifications",
@@ -1154,6 +1088,7 @@ const PROJECTS = [
     "filterGroup": "desktop",
     "color": "#1565c0",
     "tags": [
+      "Commercial",
       "C++17",
       "Qt6",
       "QML",
@@ -1211,13 +1146,12 @@ const PROJECTS = [
     "filterGroup": "desktop",
     "color": "#6a1b9a",
     "tags": [
+      "Commercial",
       "C++11",
       "Qt5",
       "OpenCV",
       "Tesseract",
-      "Armadillo",
-      "MusicXML",
-      "vcpkg"
+      "MusicXML"
     ],
     "path": "https://scan-score.com/en/",
     "platform": "C++/ Qt5/ Windows + macOS",
@@ -1313,11 +1247,15 @@ const PROJECTS = [
     "filterGroup": "audio",
     "color": "#880e4f",
     "tags": [
+      "Commercial",
       "C++",
       "MFC",
+      "BCGSoft",
       "MIDI",
       "WinMM",
-      "VST 2.x"
+      "VST 2.x",
+      "Inno Setup",
+      "MusicXML"
     ],
     "path": "https://www.fortenotation.com/en/",
     "platform": "C++ + MFC/Windows (MSVC)",
@@ -1434,11 +1372,15 @@ const PROJECTS = [
     "filterGroup": "desktop",
     "color": "#1565c0",
     "tags": [
-      "C/C++",
-      "Win32",
+      "Commercial",
+      "C++",
       "MFC",
-      "DLL plugins",
-      "Legacy"
+      "Win32",
+      "MIDI",
+      "BASS",
+      "SoundFont",
+      "VST",
+      "DLL plugins"
     ],
     "path": "http://www.jasminemusic.com/onyx.htm",
     "platform": "C/C++ + MFC/Win32 (MSVC)",

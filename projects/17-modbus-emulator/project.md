@@ -8,7 +8,7 @@
 
 ## Purpose
 
-Desktop for emulating Modbus RTU/TCP slave devices - testing master applications (HMIApp, HPLC Pump) without real hardware.
+Desktop for emulating Modbus RTU/TCP slave devices - testing master applications (e.g. HPLC Pump) without real hardware.
 
 ## Key features
 
