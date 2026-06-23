@@ -93,13 +93,13 @@ const PROJECTS = [
     "github": "https://github.com/dgimbialo/KeyBeep",
     "description": "Lightweight Windows tray program for audio confirmation of language switching or any hotkey. Solves the problem of no feedback when a key is pressed.",
     "features": [
-      "Global keyboard hook (WH_KEYBOARD_LL) — hotkey interception throughout the system regardless of the active window",
-      "MIDI audio via WinMM — always open HMIDIOUT handle, bypasses WASAPI delay",
-      "4 types of sounds — 4 MIDI tones (Low/Mid/High/Double Beep)",
-      "System tray (Shell_NotifyIcon) — minimalistic UI; double-click settings",
-      "Configuration in the HKCU\\Software\\KeyBeep registry — VK code, modifiers, sound type; persist after reboot",
-      "Self-installer — setup.exe extracts KeyBeep.exe to %LOCALAPPDATA%\\KeyBeep\\ and adds it to autostart",
-      "Thread safety — the hook posts WM_USER+10 and returns; playback in worker thread"
+      "Global keyboard hook (WH_KEYBOARD_LL) - hotkey interception throughout the system regardless of the active window",
+      "MIDI audio via WinMM - always open HMIDIOUT handle, bypasses WASAPI delay",
+      "4 types of sounds - 4 MIDI tones (Low/Mid/High/Double Beep)",
+      "System tray (Shell_NotifyIcon) - minimalistic UI; double-click settings",
+      "Configuration in the HKCU\\Software\\KeyBeep registry - VK code, modifiers, sound type; persist after reboot",
+      "Self-installer - setup.exe extracts KeyBeep.exe to %LOCALAPPDATA%\\KeyBeep\\ and adds it to autostart",
+      "Thread safety - the hook posts WM_USER+10 and returns; playback in worker thread"
     ],
     "stack": [
       [
@@ -156,11 +156,11 @@ const PROJECTS = [
     "github": "",
     "description": "Corporate site of the EPC contractor for the construction of solar power plants (Photovoltaik) for the markets Germany / Poland / Austria / Belgium / Netherlands.",
     "features": [
-      "Multilingual localization (i18n) — 4 languages: DE/PL/UK/EN; change without rebooting",
-      "SEO optimization — hreflang, OpenGraph, Twitter Card, JSON-LD Organization + ProfessionalService, GA4",
-      "Responsive design — responsive CSS for mobile and desktop",
-      "Deployment on Cloudflare Pages via Wrangler CLI — zero-config edge hosting",
-      "Image processing pipeline — Sharp for optimization of photo projects (7.4 MW+)",
+      "Multilingual localization (i18n) - 4 languages: DE/PL/UK/EN; change without rebooting",
+      "SEO optimization - hreflang, OpenGraph, Twitter Card, JSON-LD Organization + ProfessionalService, GA4",
+      "Responsive design - responsive CSS for mobile and desktop",
+      "Deployment on Cloudflare Pages via Wrangler CLI - zero-config edge hosting",
+      "Image processing pipeline - Sharp for optimization of photo projects (7.4 MW+)",
       "Sitemap / robots.txt for correct indexing"
     ],
     "stack": [
@@ -214,13 +214,13 @@ const PROJECTS = [
     "github": "",
     "description": "Windows application for controlling the Tektronix TDS 520A oscilloscope via GPIB (IEEE-488). Provides a GDI waveform viewer and a built-in web interface for mobile viewing.",
     "features": [
-      "GPIB auto-scan — scan of addresses 1–30 on board 0, identification by *IDN?",
-      "SCPI protocol — WFMPRE?, CURVE?, ACQuire? for preamble and binary curve data",
-      "Waveform decoder — conversion of raw ADC to V/s by YMULT/YOFF/YZERO/XINCR",
-      "GDI double-buffered renderer — zoom/pan, autoscale, cursor overlay, ~10 FPS",
-      "Lock-free ring buffer (SPSC) — thread-safe transfer between acquisition thread and GUI",
+      "GPIB auto-scan - scan of addresses 1–30 on board 0, identification by *IDN?",
+      "SCPI protocol - WFMPRE?, CURVE?, ACQuire? for preamble and binary curve data",
+      "Waveform decoder - conversion of raw ADC to V/s by YMULT/YOFF/YZERO/XINCR",
+      "GDI double-buffered renderer - zoom/pan, autoscale, cursor overlay, ~10 FPS",
+      "Lock-free ring buffer (SPSC) - thread-safe transfer between acquisition thread and GUI",
       "Embedded HTTP + WebSocket server (RFC 6455) with self-contained SHA-1 and Base64",
-      "HtmlGenerator — autogenerates single-page frontend; waveform via WebSocket to mobile"
+      "HtmlGenerator - autogenerates single-page frontend; waveform via WebSocket to mobile"
     ],
     "stack": [
       [
@@ -286,9 +286,9 @@ const PROJECTS = [
     "github": "",
     "description": "Desktop Windows application for opening, parsing and visualizing MIDI files in the form of music strings.",
     "features": [
-      "MIDI parser — SMF: header/track chunks, VLQ decoding, note on/off, meta, SysEx",
-      "Score rendering — display of notes in standard staves with scaling",
-      "MFC MDI GUI — MainFrame, ScoreView, Open/Save/Export menu",
+      "MIDI parser - SMF: header/track chunks, VLQ decoding, note on/off, meta, SysEx",
+      "Score rendering - display of notes in standard staves with scaling",
+      "MFC MDI GUI - MainFrame, ScoreView, Open/Save/Export menu",
       "CMake build with precompiled headers"
     ],
     "stack": [
@@ -320,7 +320,7 @@ const PROJECTS = [
     "slug": "05-webhz",
     "number": "05",
     "title": "Power Grid Frequency Monitor",
-    "subtitle": "Real-time AC grid frequency dashboard — ESP32 → Supabase → GitHub Pages",
+    "subtitle": "Real-time AC grid frequency dashboard - ESP32 → Supabase → GitHub Pages",
     "category": "Web / Static",
     "filterGroup": "web",
     "color": "#00796b",
@@ -336,16 +336,16 @@ const PROJECTS = [
     "platform": "Vanilla JS + Chart.js 4.4.0 + Supabase REST API + GitHub Pages",
     "paired": "CrossZeroDetector (#11)",
     "github": "https://github.com/dgimbialo/webHz.github.io",
-    "description": "Fully serverless real-time dashboard that visualises power grid frequency. An ESP32 measures zero-crossing frequency every second and writes directly to Supabase — the browser reads via REST API with a publishable anon key. No server, no backend code. Hosted for free on GitHub Pages as a pure static site.",
+    "description": "Fully serverless real-time dashboard that visualises power grid frequency. An ESP32 measures zero-crossing frequency every second and writes directly to Supabase - the browser reads via REST API with a publishable anon key. No server, no backend code. Hosted for free on GitHub Pages as a pure static site.",
     "features": [
       "Real-time polling every 2 s via Supabase REST API (read-only anon key)",
-      "Smart drip queue — live mode: 1 point/s animation; backlog: instant flush",
-      "Null injection for gaps > 12 s — visible breaks instead of connecting lines",
-      "Viewport anchoring — live data scrolls to now; historical anchors to last point",
+      "Smart drip queue - live mode: 1 point/s animation; backlog: instant flush",
+      "Null injection for gaps > 12 s - visible breaks instead of connecting lines",
+      "Viewport anchoring - live data scrolls to now; historical anchors to last point",
       "Auto Y-scale always keeps 50.000 Hz nominal line in view",
-      "Data Age indicator — X:YY min format; turns red when data is older than 2 min",
+      "Data Age indicator - X:YY min format; turns red when data is older than 2 min",
       "Range buttons 1 min – 48 h; user selection preserved (no auto-override)",
-      "EN / UA full i18n — units, labels, range buttons, badges",
+      "EN / UA full i18n - units, labels, range buttons, badges",
       "CSV export of all visible data points",
       "PWA-ready: site.webmanifest, theme-color, standalone display",
       "Security: CSP meta tag, X-Content-Type-Options, Referrer-Policy, security.txt"
@@ -412,11 +412,11 @@ const PROJECTS = [
     "github": "",
     "description": "Pump controller firmware for automatic and manual liquid supply with 3-sensor level detection system.",
     "features": [
-      "3-sensor system — LOW/MIDDLE/HIGH level; pump relay control",
-      "Automatic mode — control by liquid level",
-      "Manual mode — override via buttons with LCD display",
-      "Error state detection — emergency situations (absence/error of the sensor)",
-      "LCD UI (LiquidCrystal 16×2) — mode, level, error status",
+      "3-sensor system - LOW/MIDDLE/HIGH level; pump relay control",
+      "Automatic mode - control by liquid level",
+      "Manual mode - override via buttons with LCD display",
+      "Error state detection - emergency situations (absence/error of the sensor)",
+      "LCD UI (LiquidCrystal 16×2) - mode, level, error status",
       "Centralized custom_pins.h for GPIO mapping"
     ],
     "stack": [
@@ -464,13 +464,13 @@ const PROJECTS = [
     "platform": "Arduino C/C++ / ATmega",
     "paired": null,
     "github": "",
-    "description": "Standalone Controller Firmware for Solar Collector System: Controls the fan based on the temperature difference between the collector and the room.",
+    "description": "Commercial standalone controller firmware for a solar collector system: Controls the fan based on the temperature difference between the collector and the room.",
     "features": [
-      "Two-sensor system DS18B20 (OneWire) — HomeThermometer + CollectorThermometer; check of 2 devices at start",
-      "3 modes — OFF / COOL / HEAT based on temperature difference + manual mode",
-      "EEPROM persistence — nSetTemp and nManualMode are restored after shutdown",
-      "Interrupt-driven buttons —  debounce 100 ms; Temp Down / Mode / Temp Up",
-      "LCD UI (LiquidCrystal 16×2) — both temperatures, mode, set temperature"
+      "Two-sensor system DS18B20 (OneWire) - HomeThermometer + CollectorThermometer; check of 2 devices at start",
+      "3 modes - OFF / COOL / HEAT based on temperature difference + manual mode",
+      "EEPROM persistence - nSetTemp and nManualMode are restored after shutdown",
+      "Interrupt-driven buttons -  debounce 100 ms; Temp Down / Mode / Temp Up",
+      "LCD UI (LiquidCrystal 16×2) - both temperatures, mode, set temperature"
     ],
     "stack": [
       [
@@ -522,12 +522,12 @@ const PROJECTS = [
     "github": "",
     "description": "Script analyzer for EAGLE Schematic Editor: analyzes which pins of the Source component are connected to the Target and which are free (N/C).",
     "features": [
-      "Autoassembly of components — schematic(SCH) { SCH.parts(P) } — name + value list",
-      "Netlist analysis — for each Source pin, search for net connections with Target",
-      "Filtering and sorting — All/Connected/Free N/C; 7 sorting criteria",
+      "Autoassembly of components - schematic(SCH) { SCH.parts(P) } - name + value list",
+      "Netlist analysis - for each Source pin, search for net connections with Target",
+      "Filtering and sorting - All/Connected/Free N/C; 7 sorting criteria",
       "HTML rendering in EAGLE viewer with color marking (green/gray)",
-      "Multi-format export — CSV, TXT, HTML",
-      "Statistics line — counter of connected/free pins"
+      "Multi-format export - CSV, TXT, HTML",
+      "Statistics line - counter of connected/free pins"
     ],
     "stack": [
       [
@@ -572,13 +572,13 @@ const PROJECTS = [
     "github": "",
     "description": "Windows desktop for real-time reception and analysis of signals from STM32H7 ADC device via USB CDC. Modes: FFT-on-device and PC-side FFT (RAW samples + local processing).",
     "features": [
-      "SerialWorker — background thread: Win32 COM API, ReadFile loop, CRC binary protocol",
-      "ChirpStore — CRITICAL_SECTION ring buffer 200 chirp frames: Push/GetLatest/GetAt",
-      "LocalFft — Radix-2 Cooley-Tukey FFT up to 16384 points; Rectangular/Hann/Hamming/Blackman windows",
-      "WaveformView — GDI zoom/pan (X+/X−/Y+/Y− + mousewheel + scrollbars)",
-      "SpectrumView — linear/logarithmic frequency response with cursor overlay",
-      "WaterfallView — spectrogram in pseudo-color",
-      "CommandPanel — COM combo, Start/Stop, Set Freq/Samples, Ping, Mode, Trigger, PC/Device mode"
+      "SerialWorker - background thread: Win32 COM API, ReadFile loop, CRC binary protocol",
+      "ChirpStore - CRITICAL_SECTION ring buffer 200 chirp frames: Push/GetLatest/GetAt",
+      "LocalFft - Radix-2 Cooley-Tukey FFT up to 16384 points; Rectangular/Hann/Hamming/Blackman windows",
+      "WaveformView - GDI zoom/pan (X+/X−/Y+/Y− + mousewheel + scrollbars)",
+      "SpectrumView - linear/logarithmic frequency response with cursor overlay",
+      "WaterfallView - spectrogram in pseudo-color",
+      "CommandPanel - COM combo, Start/Stop, Set Freq/Samples, Ping, Mode, Trigger, PC/Device mode"
     ],
     "stack": [
       [
@@ -632,12 +632,12 @@ const PROJECTS = [
     "github": "",
     "description": "Firmware high-speed ADC device on STM32H743 (Cortex-M7, 480 MHz). Captures analog signal via parallel DCMI ADC, performs chirp-excitation and FFT on MCU.",
     "features": [
-      "DCMI ADC capture (dcmi_adc.c) — parallel 8/16-bit bus; DMA → external SDRAM",
-      "External SDRAM (sdram_init.c) — FMC controller for large arrays of samples",
-      "Chirp DAC (chirp_dac.c) — generation of an exciting chirp signal through a DAC",
-      "On-device FFT (chirp_fft.c) — spectrum on the MCU; compression before USB transfer",
-      "Phase analysis (phase_a.c, phase_b.c) — two-channel phase analysis",
-      "USB CDC binary protocol (usb_protocol.h) — response to FastAcqWinApp commands"
+      "DCMI ADC capture (dcmi_adc.c) - parallel 8/16-bit bus; DMA → external SDRAM",
+      "External SDRAM (sdram_init.c) - FMC controller for large arrays of samples",
+      "Chirp DAC (chirp_dac.c) - generation of an exciting chirp signal through a DAC",
+      "On-device FFT (chirp_fft.c) - spectrum on the MCU; compression before USB transfer",
+      "Phase analysis (phase_a.c, phase_b.c) - two-channel phase analysis",
+      "USB CDC binary protocol (usb_protocol.h) - response to FastAcqWinApp commands"
     ],
     "stack": [
       [
@@ -702,7 +702,7 @@ const PROJECTS = [
       "3-attempt HTTP retry with 2 s delay on Supabase POST failure",
       "ISO 8601 timestamps with ms precision and Kyiv DST (UTC+2/+3) computed from NTP",
       "NTP re-sync every 60 s for drift-free timestamps",
-      "SSD1306 OLED 128x64 — frequency (4 decimal places), time, Wi-Fi & DB status",
+      "SSD1306 OLED 128x64 - frequency (4 decimal places), time, Wi-Fi & DB status",
       "Auto Wi-Fi reconnect on link loss"
     ],
     "stack": [
@@ -767,12 +767,12 @@ const PROJECTS = [
     "github": "",
     "description": "CLI tool for automatically saving git diff snapshots in .diff files. Runs regularly and saves only new changes, avoiding SHA-256 duplicates.",
     "features": [
-      "GitPython — repo.is_dirty(), repo.git.diff(None, name_only=True)",
-      "SHA-256 deduplication — sha256(diff_content); duplicates not stored",
-      "Hash store persistence — plain-text file of hashes; download/update",
-      "Timestamped output dirs — changes_YYYYMMDD_HHMMSS/",
-      "Multi-file — each dirty file → a separate .diff in the batch directory",
-      "argparse CLI — repo path, output path, hash store; polling/daemon mode"
+      "GitPython - repo.is_dirty(), repo.git.diff(None, name_only=True)",
+      "SHA-256 deduplication - sha256(diff_content); duplicates not stored",
+      "Hash store persistence - plain-text file of hashes; download/update",
+      "Timestamped output dirs - changes_YYYYMMDD_HHMMSS/",
+      "Multi-file - each dirty file → a separate .diff in the batch directory",
+      "argparse CLI - repo path, output path, hash store; polling/daemon mode"
     ],
     "stack": [
       [
@@ -806,8 +806,8 @@ const PROJECTS = [
     "id": "bandora",
     "slug": "13-bandora",
     "number": "13",
-    "title": "JAMMER Professional",
-    "subtitle": "Professional MIDI sequencer & music compositor",
+    "title": "BANDORA",
+    "subtitle": "Virtual Music Arrаnger & Composer",
     "category": "Desktop / Audio",
     "filterGroup": "audio",
     "color": "#880e4f",
@@ -815,23 +815,26 @@ const PROJECTS = [
       "C++",
       "MFC",
       "MIDI",
-      "WinMM",
-      "VST 2.x",
-      "SoundTouch",
-      "DirectShow"
+      "BASS",
+      "BASSMIDI",
+      "SoundFont",
+      "WinMM"
     ],
-    "path": "",
-    "platform": "C++ + MFC / Win32",
+    "path": "https://web.archive.org/web/20221209193625/https://bandora.com/en/",
+    "platform": "C++ + MFC/Win32 (MSVC)",
     "paired": null,
     "github": "",
-    "description": "Full-featured MIDI sequencer and music compositing application with notation, VST plug-ins and audio recording.",
+    "description": "Commercial Windows music-creation suite for building full arrangements from chord charts. You enter a chord progression and pick a band style, and the app generates a multi-instrument arrangement: bass, drums, comping, riffs and transitions - that plays back in real time. Shipped in several editions (Creator/Producer), each with its own feature set. Distribution is a signed installer with online license activation and an English/German localized UI.",
     "features": [
-      "MIDI engine — I/O, real-time playback, SysEx, channel mode messages",
-      "Track Sequencer — piano roll + sheet music editor",
-      "Audio capture — WAV and MP3 via DirectShow/WASAPI",
-      "Score notation editor — measures, staves, clef, time/key signatures",
-      "VST Host — download and run VST 2.x plug-ins",
-      "Multi-language UI — dynamic language switch without restart"
+      "Style-based arranger: band styles, drum styles, grooves, riffs, progression styles, chord voicings and transitions combine into a generated multi-track arrangement",
+      "Song editor: chord progression entry, key/time-signature changes, per-track layouts and templates",
+      "Real-time MIDI engine: playback to external MIDI devices or to the built-in soundfont synth",
+      "SoundFont synthesis: BASSMIDI renders MIDI through SF2 instrument banks, no external synth required",
+      "MIDI device profiles: General MIDI/GS patch-name maps for external sound modules (Roland, Korg, Yamaha)",
+      "Audio export: offline render of an arrangement to WAV, with MP3 encoding",
+      "Multi-edition build: Creator and Producer editions from one codebase",
+      "Multi-language UI: per-locale resource DLLs (English/German), switchable without reinstall",
+      "Licensing: online activation with serial-key validation"
     ],
     "stack": [
       [
@@ -839,33 +842,56 @@ const PROJECTS = [
         "C++ (MSVC)"
       ],
       [
-        "UI",
-        "MFC (Dynamic)"
+        "UI framework",
+        "MFC (dynamic dialogs, docking bars)"
       ],
       [
-        "MIDI",
-        "WinMM, DirectMusic"
+        "Audio engine",
+        "BASS audio library (un4seen)"
       ],
       [
-        "Audio",
-        "DirectShow, WASAPI"
+        "MIDI synthesis",
+        "BASSMIDI (SoundFont SF2)"
       ],
       [
-        "VST",
-        "VST 2.x host"
+        "Audio export",
+        "BASSenc, BASSenc_MP3 (WAV / MP3)"
+      ],
+      [
+        "MIDI I/O",
+        "WinMM, GM / GS device profiles"
+      ],
+      [
+        "Sequencer",
+        "In-house sequencer engine"
+      ],
+      [
+        "Localization",
+        "Per-locale resource DLLs (EN / DE)"
       ],
       [
         "Installer",
-        "Inno Setup"
+        "Visual Studio Setup Project"
       ],
       [
         "Build",
-        "VS2022"
+        "Visual Studio 2022, x86"
+      ],
+      [
+        "Target OS",
+        "Windows 7/8/10/11"
       ]
     ],
     "media": {
-      "foto": [],
-      "video": []
+      "foto": [
+        "projects/13-bandora/foto/Bandora_1.png",
+        "projects/13-bandora/foto/Bandora_2.png",
+        "projects/13-bandora/foto/Bandora_3.png",
+        "projects/13-bandora/foto/Bandora_4.png"
+      ],
+      "video": [
+        "https://www.youtube.com/watch?v=0KTqOvhLUM8"
+      ]
     },
     "notes": ""
   },
@@ -874,7 +900,7 @@ const PROJECTS = [
     "slug": "14-hmi-pic24",
     "number": "14",
     "title": "HMI Touchscreen (PIC24)",
-    "subtitle": "Syringe pump HMI — TFT35 + Modbus RTU",
+    "subtitle": "Syringe pump HMI - TFT35 + Modbus RTU",
     "category": "Embedded / PIC",
     "filterGroup": "embedded",
     "color": "#b71c1c",
@@ -891,14 +917,14 @@ const PROJECTS = [
     "platform": "Embedded C / PIC24 / MPLAB XC16",
     "paired": null,
     "github": "",
-    "description": "Standalone HMI for controlling an industrial syringe pump via a TFT35 touch display via Modbus RTU.",
+    "description": "Commercial standalone HMI for controlling an industrial syringe pump via a TFT35 touch display via Modbus RTU.",
     "features": [
-      "TFT35 SPI display — initialization, backlight, text/primitives",
-      "Touchscreen calibration — persistent in internal flash",
-      "TFTUI — TextBox, SelectFont, SetBackground/Foreground, center-aligned",
+      "TFT35 SPI display - initialization, backlight, text/primitives",
+      "Touchscreen calibration - persistent in internal flash",
+      "TFTUI - TextBox, SelectFont, SetBackground/Foreground, center-aligned",
       "Modbus master",
-      "Poll/update state machine — differential update only when registers are changed",
-      "UI BreakHook — callback during redraw for Modbus polling without blocking",
+      "Poll/update state machine - differential update only when registers are changed",
+      "UI BreakHook - callback during redraw for Modbus polling without blocking",
       "Bootloader"
     ],
     "stack": [
@@ -960,14 +986,14 @@ const PROJECTS = [
     "github": "",
     "description": "WYSIWYG HTML editor for TFT displays: drag-and-drop elements on the canvas with simultaneous editing of HTML code.",
     "features": [
-      "Dual-view editing — canvas (drag/resize) ↔ code (HTML); two-way synchronization",
-      "Drag-and-drop palette — text, button, image, line → canvas with (x, y)",
-      "Element management — select/move/resize/copy/paste/duplicate/delete",
-      "Property panel — position, size, text, color, font of the selected element",
-      "Undo/Redo (QUndoStack, DocumentStateCommand) — Command pattern",
-      "Grid — configurable grid; snap-to-grid when moving",
-      "Font management — custom fonts, Font Editor, system fonts menu",
-      "HTML parser (model/htmlparser.h) — parsing into the internal document model"
+      "Dual-view editing - canvas (drag/resize) ↔ code (HTML); two-way synchronization",
+      "Drag-and-drop palette - text, button, image, line → canvas with (x, y)",
+      "Element management - select/move/resize/copy/paste/duplicate/delete",
+      "Property panel - position, size, text, color, font of the selected element",
+      "Undo/Redo (QUndoStack, DocumentStateCommand) - Command pattern",
+      "Grid - configurable grid; snap-to-grid when moving",
+      "Font management - custom fonts, Font Editor, system fonts menu",
+      "HTML parser (model/htmlparser.h) - parsing into the internal document model"
     ],
     "stack": [
       [
@@ -1001,7 +1027,7 @@ const PROJECTS = [
     "id": "hmiapp",
     "slug": "16-hmiapp",
     "number": "16",
-    "title": "HMIApp — Industrial HMI",
+    "title": "HMIApp - Industrial HMI",
     "subtitle": "Cable stripping machine Qt6 touchscreen HMI",
     "category": "Desktop / Qt / Industrial",
     "filterGroup": "desktop",
@@ -1019,16 +1045,16 @@ const PROJECTS = [
     "platform": "C++ + Qt6 + QML / Windows embedded",
     "paired": null,
     "github": "",
-    "description": "Full-featured industrial HMI for a cable stripping machine. Touchscreen UI on Qt Quick/QML with Modbus communication, recipe management and diagnostics.",
+    "description": "Commercial, full-featured industrial HMI for a cable stripping machine. Touchscreen UI on Qt Quick/QML with Modbus communication, recipe management and diagnostics.",
     "features": [
       "Modbus async queue with priority queue and success statistics",
-      "Barcode scanner — serial port or HID keyboard emulation via eventFilter",
-      "Recipe engine — CRUD in SQLite",
-      "Multi-axis config — corrections, offsets",
-      "Details replacement wizard — guided step-by-step process",
-      "USB detection — WMI COM object for arrival/removal",
-      "Kiosk mode — Windows Registry Shell key;",
-      "Release pipeline — Inno Setup + rcedit + signtool + PFX; i18n"
+      "Barcode scanner - serial port or HID keyboard emulation via eventFilter",
+      "Recipe engine - CRUD in SQLite",
+      "Multi-axis config - corrections, offsets",
+      "Details replacement wizard - guided step-by-step process",
+      "USB detection - WMI COM object for arrival/removal",
+      "Kiosk mode - Windows Registry Shell key;",
+      "Release pipeline - Inno Setup + rcedit + signtool + PFX; i18n"
     ],
     "stack": [
       [
@@ -1086,13 +1112,13 @@ const PROJECTS = [
     "platform": "C++ + Qt6 + QML / Windows",
     "paired": null,
     "github": "",
-    "description": "Desktop for emulating Modbus RTU/TCP slave devices — testing master applications (HMIApp, HPLC Pump) without real hardware.",
+    "description": "Desktop for emulating Modbus RTU/TCP slave devices - testing master applications (HMIApp, HPLC Pump) without real hardware.",
     "features": [
-      "QModbusServer — FC 0x03/0x10, response generation",
-      "ModbusDataStore — register bank: bulk init, per-address R/W, notifications",
-      "QML UI — port/slave-ID configuration, real-time register table, Start/Stop",
-      "LogHandler — a structured log of requests/responses with a timestamp",
-      "CMakePresets — debug/release profiles"
+      "QModbusServer - FC 0x03/0x10, response generation",
+      "ModbusDataStore - register bank: bulk init, per-address R/W, notifications",
+      "QML UI - port/slave-ID configuration, real-time register table, Start/Stop",
+      "LogHandler - a structured log of requests/responses with a timestamp",
+      "CMakePresets - debug/release profiles"
     ],
     "stack": [
       [
@@ -1139,12 +1165,12 @@ const PROJECTS = [
     "platform": "C++ + Qt6 + QML / Windows",
     "paired": null,
     "github": "",
-    "description": "Desktop control of an HPLC syringe pump via Modbus RTU: flow,  pressure and flow monitoring.",
+    "description": "Commercial desktop control of an HPLC syringe pump via Modbus RTU: flow,  pressure and flow monitoring.",
     "features": [
       "Modbus async priority queue",
       "Auto-reconnect with adjustable interval",
       "Flow Method Manager",
-      "Calibration — guided procedure",
+      "Calibration - guided procedure",
       "Custom real-time charting"
     ],
     "stack": [
@@ -1193,8 +1219,8 @@ const PROJECTS = [
       "MusicXML",
       "vcpkg"
     ],
-    "path": "",
-    "platform": "C++ / Qt5 / Windows + macOS",
+    "path": "https://scan-score.com/en/",
+    "platform": "C++/ Qt5/ Windows + macOS",
     "paired": null,
     "github": "",
     "contribution": [
@@ -1203,20 +1229,17 @@ const PROJECTS = [
       "Improved existing behaviour of playback, transpose and MusicXML/MIDI export",
       "Refined UI dialogs, error handling and cross-platform (Windows/macOS) builds"
     ],
-    "description": "Cross-platform commercial OMR (Optical Music Recognition) application (Melody / Ensemble / Professional editions) published by Lugert Verlag GmbH. Ingests raster images (JPEG, PNG, TIFF) and multi-page PDFs, runs a symbol-detection pipeline to extract standard Western music notation, and produces an editable score document. The document can be played back, transposed, corrected in a built-in notation editor (Score mode), and exported as MusicXML or MIDI for downstream tools (Sibelius, Finale, Dorico, MuseScore, DAWs). Shipped as a licensed installer for Windows (8+) and macOS (10.12 Sierra+); 1-year license key with HTTPS activation.",
+    "description": "Cross-platform commercial OMR (Optical Music Recognition) application (Melody/Ensemble/Professional editions). 20,000+ licensed customers. Ingests raster images (JPEG, PNG, TIFF) and multi-page PDFs, runs a symbol-detection pipeline to extract standard Western music notation, and produces an editable score document. The document can be played back, transposed, corrected in a built-in notation editor (Score mode), and exported as MusicXML or MIDI for downstream tools (Sibelius, Finale, Dorico, MuseScore, DAWs). Shipped as a licensed installer for Windows (8+) and macOS (10.12 Sierra+); 1-year license key with HTTPS activation.",
     "features": [
-      "**Image ingestion pipeline** — accepts JPEG, PNG, TIFF, BMP; multi-page PDF import with per-page selection; advanced scan dialog (DPI, contrast, binarization threshold, page format); recommended 300–600 dpi for optimal recognition accuracy",
-      "**Image preprocessing** — grayscale conversion, adaptive binarization (Otsu / custom threshold), morphological ops (erosion/dilation) for noise removal, deskew / perspective correction, staff-line detection and removal prior to symbol classification",
-      "**OMR engine** — symbol classifier for: noteheads (filled/open), stems, beams, flags, augmentation dots, rests (whole–64th), accidentals, clefs, key/time signatures, barlines, ties, slurs, articulations, dynamics, lyric text, chord symbols; improved recognition engine in v3",
-      "**Score document model** — internal tree: Page → System → Staff → Measure → Voice → NoteEvent; unlimited pages/bars; polyphonic voices with independent stem direction; instrument name auto-detection",
-      "**Scan mode** — two-panel layout: original image viewer (zoom/pan, page navigation) + recognized score view; inline correction toolbar; element properties menus for each symbol type; new context menu (v3) for quick access to editing options; configurable keyboard shortcuts",
-      "**Score mode (v3+)** — full notation editor integrated in the same app; add/remove measures and sections; add/reorder instrument tracks; change voice assignments; system and page break control; voice excerpt export; repeats, voltas, segno/coda handled in playback",
-      "**Playback engine** — Qt Multimedia backend; per-track mixer (volume, pan, instrument sound, mute/solo); metronome; adjustable playback speed (% of BPM) for practice; loop region selection",
-      "**Transpose** — full score or per-staff transposition by interval or target key; Bb / Eb transposing instrument conversion; immediate playback of transposed result; print and export of transposed score",
-      "**Export pipeline** — MusicXML 3.x writer; MIDI type-1 multi-track writer; PDF page export; MP3 audio export; interoperable with FORTE, Sibelius, Finale, Dorico, MuseScore, Capella, Notion; DAW import via MIDI (Ableton, Logic, Cubase, FL Studio, ProTools)",
-      "**ScanScore Capture mobile companion** — iOS/Android app for scanning pages with a smartphone camera; QR code pairing (QR displayed in desktop Options dialog) for secure device link without account login",
-      "**Online updater** — HTTPS manifest check on startup; free updates delivered throughout the license period",
-      "**License system** — 1-year time-limited serial key; HTTPS activation against Lugert license server; QR-code pairing for mobile; no automatic renewal; saved projects remain accessible after expiry"
+      "Image and PDF import: load scans and photos (JPEG, PNG, TIFF, BMP) and multi-page PDFs, with a scan dialog for resolution, contrast and page format",
+      "Music recognition: reads standard notation including notes, rests, accidentals, clefs, key and time signatures, beams, ties, slurs, articulations, dynamics, lyrics and chord symbols",
+      "Scan mode: original image and recognized score side by side, with inline correction tools and per-element properties",
+      "Score mode: built-in notation editor to add or remove measures and sections, manage instrument tracks and voices, and control system and page breaks",
+      "Playback: multi-track playback with a per-track mixer (volume, pan, sound, mute/solo), metronome, adjustable tempo and loop regions",
+      "Transpose: transpose the whole score or individual staves by interval or key, including transposing-instrument conversion",
+      "Export: MusicXML, MIDI, PDF and audio export, compatible with major notation apps and DAWs",
+      "ScanScore Capture mobile companion: scan pages with a phone camera and pair to the desktop by QR code",
+      "Updates and licensing: online updates and activation with a time-limited license key"
     ],
     "stack": [
       [
@@ -1228,24 +1251,24 @@ const PROJECTS = [
         "Qt5 (QWidgets)"
       ],
       [
-        "Multimedia / playback",
+        "Multimedia/playback",
         "Qt5 Multimedia (QMediaPlayer, QAudioOutput)"
       ],
       [
         "PDF rendering",
-        "Qt5 Pdf module / Poppler"
+        "Qt5 Pdf module"
       ],
       [
         "Image processing",
-        "OpenCV (`imgproc`, `core`) — binarization, morphology, deskew, staff removal"
+        "OpenCV"
       ],
       [
         "OMR engine",
-        "Custom symbol classifier (trained on printed music font datasets)"
+        "Custom music-recognition engine"
       ],
       [
         "MusicXML I/O",
-        "Custom writer / QXmlStreamReader parser (MusicXML 3.x)"
+        "Custom writer/QXmlStreamReader parser (MusicXML 3.x)"
       ],
       [
         "MIDI export",
@@ -1254,10 +1277,6 @@ const PROJECTS = [
       [
         "Audio export",
         "MP3 encoding (bundled encoder)"
-      ],
-      [
-        "Package manager",
-        "vcpkg"
       ],
       [
         "Build system",
@@ -1270,20 +1289,19 @@ const PROJECTS = [
     ],
     "media": {
       "foto": [
-        "projects/19-scanscore/foto/app_main.png",
         "projects/19-scanscore/foto/app_quartet_score.jpg",
         "projects/19-scanscore/foto/score_editor.jpg",
         "projects/19-scanscore/foto/mixer.png",
         "projects/19-scanscore/foto/transpose_dialog.jpg",
         "projects/19-scanscore/foto/time_signature_dialog.jpg",
-        "projects/19-scanscore/foto/options_qr.png"
+        "projects/19-scanscore/foto/options_qr.png",
+        "projects/19-scanscore/foto/app_main.png"
       ],
       "video": [
-        "https://youtu.be/7I0dLa9V3qA",
-        "https://youtu.be/HmflRwd80_E"
+        "https://youtu.be/7I0dLa9V3qA"
       ]
     },
-    "notes": "- Product site: https://scan-score.com/en/ - FAQ: https://scan-score.com/en/faq/ - Manual (Scan mode PDF): https://scan-score.com/files/support/manual.pdf - Manual (Score mode PDF): https://scan-score.com/files/support/manual-score.pdf - Editions: Melody ($9/yr, 1 staff) → Ensemble ($39/yr, ≤4 staves) → Professional ($79/yr, unlimited staves) - 14-day full-featured trial; no auto-renewal on 1-year license - v3.0.8 (2024-12-21) — complete rewrite vs. v2: new Score mode, improved recognition engine, 1-year license model - 20,000+ licensed customers"
+    "notes": "- FAQ: https://scan-score.com/en/faq/"
   },
   {
     "id": "forte",
@@ -1302,7 +1320,7 @@ const PROJECTS = [
       "VST 2.x"
     ],
     "path": "https://www.fortenotation.com/en/",
-    "platform": "C++ + MFC / Windows (MSVC)",
+    "platform": "C++ + MFC/Windows (MSVC)",
     "paired": null,
     "github": "",
     "contribution": [
@@ -1311,23 +1329,23 @@ const PROJECTS = [
       "Improved existing playback, mixer and VST 2.x host behaviour",
       "Reworked BCGSoft Ribbon dialogs, localization and the in-app updater flow"
     ],
-    "description": "Commercial Windows music notation software (Basic / Home / Premium editions). The core is a score document model with a custom rendering pipeline that lays out staves, measures, noteheads, beams, ties, slurs and all standard engraving elements to GDI. The app integrates a real-time MIDI capture thread (WinMM), a VST 2.x plugin host, an audio render pipeline (DirectShow / WASAPI), and a MusicXML serializer. BCGSoft Ribbon replaces classic MFC menu bar. Distribution is a signed installer with HTTPS-based license activation and an in-app update mechanism.",
+    "description": "Commercial Windows music notation software (Basic/Home/Premium editions). The core is a score document model with a custom rendering pipeline that lays out staves, measures, noteheads, beams, ties, slurs and all standard engraving elements to GDI. Live recording from your MIDI-device to write your notes, the app integrates a real-time MIDI capture thread (WinMM), a VST 2.x plugin host, an audio render pipeline (DirectShow/WASAPI), and a MusicXML serializer. BCGSoft Ribbon replaces classic MFC menu bar. Distribution is a signed installer with HTTPS-based license activation and an in-app update mechanism.",
     "features": [
-      "Score document model — internal tree, supports all standard clefs, key/time signatures, tuplets, grace notes, multi-measure rests",
-      "Notation elements — noteheads, stems, beams (automatic grouping by time signature), ties, slurs, articulations, dynamics (hairpins, text), fermatas, trills, ornaments, chord symbols, guitar tablature (custom tuning per track), lyrics (16 verses per staff)",
-      "Multi-voice / multi-track — independent voices per staff, up to 32 instrument tracks per system",
-      "Ribbon UI (BCGSoft) — tabbed command bar (Home / Score / Record / Options / Help) built on BCGControlBar Pro, context-sensitive tabs for selection state, custom input palette docked as a side panel",
-      "MIDI live recording — WinMM `midiInOpen` / callback thread captures note-on/off, real-time mode quantizes to selected grid after recording, step-input mode",
-      "MIDI routing & mixing — in-app mixer (track volume, pan, mute/solo, channel assignment), MIDI-IN routing dialog for channel filter, split point (bass/treble clef auto-split), voice-to-track mapping",
-      "MIDI playback — WinMM or DirectMusic backend, General MIDI channel mapping, tempo track with BPM automation, loop and lead-in for recording",
-      "VST 2.x host — scans plugin directories for `*.dll`, instantiates via `VSTPluginMain`, routes audio via ASIO-style float buffers, FORTE Player is a bundled VST instrument with a GM sound library",
-      "Audio export — offline render of the entire score to PCM WAV, MP3 encoding via bundled encoder, uses DirectShow graph or WASAPI exclusive for output device routing",
-      "MusicXML I/O — custom DOM-based parser/writer against MusicXML 3.x schema, import maps `<note>`, `<attributes>`, `<direction>` to internal model, export round-trips to Sibelius, Finale, MuseScore",
-      "Layout engine — staff size scaling (%), margin/indent control, per-page system count, multi-measure rest merging, font overrides for all text element types, live preview in layout dialog",
-      "Print pipeline — GDI+ page renderer, outputs to Windows printer DC or EMF metafile for PDF export",
-      "Online updater — HTTPS manifest check at startup, downloads versioned installer and relaunches with elevation",
-      "License activation — RSA-signed serial key, online activation against license server, offline re-activation via email flow",
-      "Localization — resource DLL per locale; runtime language switch without restart (German, English)"
+      "Score document model - internal tree, supports all standard clefs, key/time signatures, tuplets, grace notes, multi-measure rests",
+      "Notation elements - noteheads, stems, beams (automatic grouping by time signature), ties, slurs, articulations, dynamics (hairpins, text), fermatas, trills, ornaments, chord symbols, guitar tablature (custom tuning per track), lyrics (16 verses per staff)",
+      "Multi-voice/multi-track - independent voices per staff, up to 32 instrument tracks per system",
+      "Ribbon UI (BCGSoft) - tabbed command bar (Home/Score/Record/Options/Help) built on BCGControlBar Pro, context-sensitive tabs for selection state, custom input palette docked as a side panel",
+      "MIDI live recording - WinMM `midiInOpen` / callback thread captures note-on/off, real-time mode quantizes to selected grid after recording, step-input mode",
+      "MIDI routing & mixing - in-app mixer (track volume, pan, mute/solo, channel assignment), MIDI-IN routing dialog for channel filter, split point (bass/treble clef auto-split), voice-to-track mapping",
+      "MIDI playback - WinMM or DirectMusic backend, General MIDI channel mapping, tempo track with BPM automation, loop and lead-in for recording",
+      "VST 2.x host - scans plugin directories for `*.dll`, instantiates via `VSTPluginMain`, routes audio via ASIO-style float buffers, FORTE Player is a bundled VST instrument with a GM sound library",
+      "Audio export - offline render of the entire score to PCM WAV, MP3 encoding via bundled encoder, uses DirectShow graph or WASAPI exclusive for output device routing",
+      "MusicXML I/O - custom DOM-based parser/writer against MusicXML 3.x schema, import maps `<note>`, `<attributes>`, `<direction>` to internal model, export round-trips to Sibelius, Finale, MuseScore",
+      "Layout engine - staff size scaling (%), margin/indent control, per-page system count, multi-measure rest merging, font overrides for all text element types, live preview in layout dialog",
+      "Print pipeline - GDI+ page renderer, outputs to Windows printer DC or EMF metafile for PDF export",
+      "Online updater - HTTPS manifest check at startup, downloads versioned installer and relaunches with elevation",
+      "License activation - RSA-signed serial key, online activation against license server, offline re-activation via email flow",
+      "Localization - resource DLL per locale; runtime language switch without restart (German, English)"
     ],
     "stack": [
       [
@@ -1339,7 +1357,7 @@ const PROJECTS = [
         "MFC (SDI/MDI, dynamic dialogs)"
       ],
       [
-        "Ribbon / toolbar",
+        "Ribbon/toolbar",
         "BCGControlBar Pro (BCGSoft)"
       ],
       [
@@ -1368,11 +1386,11 @@ const PROJECTS = [
       ],
       [
         "Score rendering",
-        "GDI / GDI+ (noteheads, beams, curves)"
+        "GDI/GDI+ (noteheads, beams, curves)"
       ],
       [
         "Print / export",
-        "GDI+ → printer DC / EMF metafile"
+        "GDI+ → printer DC metafile"
       ],
       [
         "Updater",
@@ -1380,35 +1398,25 @@ const PROJECTS = [
       ],
       [
         "Installer",
-        "Signed NSIS / Inno Setup package"
+        "Signed NSI /Inno Setup package"
       ],
       [
         "Build",
-        "Visual Studio (MSVC), x86 / x64"
+        "Visual Studio (MSVC), x86"
       ],
       [
         "Target OS",
-        "Windows 7 / 8 / 10 / 11"
+        "Windows 7/8/10/11"
       ]
     ],
     "media": {
       "foto": [
         "projects/20-forte/foto/Foto_1.png",
-        "projects/20-forte/foto/Foto_2.png",
-        "projects/20-forte/foto/Foto_3.png",
         "projects/20-forte/foto/Foto_4.png",
+        "projects/20-forte/foto/Foto_3.png",
+        "projects/20-forte/foto/Foto_2.png",
         "projects/20-forte/foto/Foto_5.jpg",
-        "projects/20-forte/foto/faq_midi_in.png",
-        "projects/20-forte/foto/faq_midi_out.png",
-        "projects/20-forte/foto/faq_midi_mixer.png",
-        "projects/20-forte/foto/faq_midi_step.png",
-        "projects/20-forte/foto/faq_midi_record_tab.png",
-        "projects/20-forte/foto/faq_midi_quant.png",
-        "projects/20-forte/foto/faq_midi_routing.png",
-        "projects/20-forte/foto/faq_layout_ribbon.png",
-        "projects/20-forte/foto/faq_layout_setup.png",
-        "projects/20-forte/foto/faq_layout_spacing.png",
-        "projects/20-forte/foto/faq_layout_options.png"
+        "projects/20-forte/foto/Foto_11.jpg"
       ],
       "video": [
         "https://youtube.com/watch?v=XzOZawpz8q4"
@@ -1420,8 +1428,8 @@ const PROJECTS = [
     "id": "onyx",
     "slug": "21-onyx",
     "number": "21",
-    "title": "Onyx",
-    "subtitle": "Plugin-based multimedia desktop application",
+    "title": "Onyx Arranger",
+    "subtitle": "Intelligent MIDI arranger - harmonize, arrange, humanize",
     "category": "Desktop / Win32",
     "filterGroup": "desktop",
     "color": "#1565c0",
@@ -1432,38 +1440,69 @@ const PROJECTS = [
       "DLL plugins",
       "Legacy"
     ],
-    "path": "",
-    "platform": "C/C++ / Windows (MSVC legacy)",
+    "path": "http://www.jasminemusic.com/onyx.htm",
+    "platform": "C/C++ + MFC/Win32 (MSVC)",
     "paired": null,
     "github": "",
-    "description": "Legacy desktop application with plugin architecture. Multimedia or productivity tool with an extensible system of DLL plugins.",
+    "description": "Commercial Windows MIDI sequencer and auto-arranger. Starting from a single melody, it builds a complete song through three core stages - intelligent harmonization, style-based auto-arrangement and performance humanization. The whole product is built on a modular plugin architecture: every MIDI-processing tool is a DLL plugin on a shared engine, and the arrangement engine can also be exported as a VST soft-synth.",
     "features": [
-      "Plugin architecture — DLL plugins, dynamic loading",
-      "Application modules — sub-applications within one process",
-      "Shared logic between Apps and Plugins",
-      "Legacy solution"
+      "Intelligent Harmonizer - automatically recognizes the key and scale of a melody and calculates chord progressions in several manners",
+      "Auto Arrangement - Orchestrator (OO) Styles reproduce full multi-instrument arrangements, preserving the original performance nuances of famous songs across genres",
+      "Humanizing/Performance Modeling - PM Styles apply instrument- and manner-specific playing nuances to make sequences sound live",
+      "Musical Object Morphing - morph and interpolate MIDI musical objects",
+      "MIDI FX plugins - DLL plugins for editing and processing: harmonize, chord and drum generation, quantize, time-stretch, time-morph, score creation, filter, shaper",
+      "VST export - run the arranger engine as a soft-synth via the bundled JMTOrchestrator VST and MIDIMatrix",
+      "Plugin architecture - plugin host + SDK with several app editions sharing one core engine",
+      "Expandable style libraries - additional OO Style and PM Style sets"
     ],
     "stack": [
       [
         "Language",
-        "C/C++"
+        "C/C++ (MSVC)"
       ],
       [
-        "UI",
-        "Win32 / MFC"
+        "UI framework",
+        "MFC/Win32, custom GUI controls"
       ],
       [
-        "Architecture",
-        "Plugin-based (DLL)"
+        "Sequencer engine",
+        "SE3 core with MIDI mux/demux routing"
+      ],
+      [
+        "Audio output",
+        "BASS audio library, SoundFont (SF2) playback"
+      ],
+      [
+        "Plugin system",
+        "DLL plugin host + SDK"
+      ],
+      [
+        "MIDI FX",
+        "Harmonizer, chord/drum generators, quantizer, time-stretch / morph, score creator"
+      ],
+      [
+        "VST",
+        "VST 2.x export (JMTOrchestrator soft-synth)"
       ],
       [
         "Build",
-        "Visual Studio legacy (.sln)"
+        "Visual Studio 2005 (legacy .sln)"
+      ],
+      [
+        "Target OS",
+        "Windows"
       ]
     ],
     "media": {
-      "foto": [],
-      "video": []
+      "foto": [
+        "projects/21-onyx/foto/Onyx_1.png",
+        "projects/21-onyx/foto/Onyx_2.png",
+        "projects/21-onyx/foto/Onyx_3.png",
+        "projects/21-onyx/foto/Onyx_4.png"
+      ],
+      "video": [
+        "https://www.youtube.com/watch?v=VzvniW8JiUY"
+      ]
     },
     "notes": ""
   },
@@ -1490,13 +1529,13 @@ const PROJECTS = [
     "github": "",
     "description": "CLI utility for maintaining semantic memory of AI assistant: store technical decisions, errors, dependencies across sessions.",
     "features": [
-      "MemoryEngine (core/engine.py) — add_memory(payload), session_summary()",
-      "Structured records — type, description, cause, fix, files[], decisions[], tags[], depends_on[]",
-      "Project-scoped storage — data/projects/{slug}/",
-      "Tag system — arbitrary tags + auto project:{slug}; filter on search",
-      "Semantic search (optional, sentence-transformers) — vector search",
-      "File watcher (optional, watchdog) — auto-track changes",
-      "JSON CLI output — all operations return JSON",
+      "MemoryEngine (core/engine.py) - add_memory(payload), session_summary()",
+      "Structured records - type, description, cause, fix, files[], decisions[], tags[], depends_on[]",
+      "Project-scoped storage - data/projects/{slug}/",
+      "Tag system - arbitrary tags + auto project:{slug}; filter on search",
+      "Semantic search (optional, sentence-transformers) - vector search",
+      "File watcher (optional, watchdog) - auto-track changes",
+      "JSON CLI output - all operations return JSON",
       "pytest test suite"
     ],
     "stack": [

@@ -4,7 +4,7 @@
     {
       "name": "resume-site",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8090"],
+      "runtimeArgs": ["serve_nocache.py", "8090"],
       "port": 8090
     }
   ]

@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "ai-memory": {
+      "command": "D:\\ai_memory_system\\.venv\\Scripts\\python.exe",
+      "args": [
+        "D:\\ai_memory_system\\mcp_server.py"
+      ],
+      "env": {
+        "AI_MEMORY_PROJECT": "dgimbialo.github.io"
+      }
+    }
+  }
+}

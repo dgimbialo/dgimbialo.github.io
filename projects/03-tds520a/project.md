@@ -3,6 +3,7 @@
 **Subtitle:** Oscilloscope control + mobile web viewer
 **Tags:** C++17, MFC, GPIB, NI-488.2, SCPI, WebSocket
 **Path:** `D:\My_project\TDS_520A_GPIB`
+**Button:** Go to App Website
 **Platform:** C++17 + MFC + NI-488.2 / Win64
 
 ## Purpose
@@ -11,13 +12,13 @@ Windows application for controlling the Tektronix TDS 520A oscilloscope via GPIB
 
 ## Key features
 
-- GPIB auto-scan — scan of addresses 1–30 on board 0, identification by *IDN?
-- SCPI protocol — WFMPRE?, CURVE?, ACQuire? for preamble and binary curve data
-- Waveform decoder — conversion of raw ADC to V/s by YMULT/YOFF/YZERO/XINCR
-- GDI double-buffered renderer — zoom/pan, autoscale, cursor overlay, ~10 FPS
-- Lock-free ring buffer (SPSC) — thread-safe transfer between acquisition thread and GUI
+- GPIB auto-scan - scan of addresses 1–30 on board 0, identification by *IDN?
+- SCPI protocol - WFMPRE?, CURVE?, ACQuire? for preamble and binary curve data
+- Waveform decoder - conversion of raw ADC to V/s by YMULT/YOFF/YZERO/XINCR
+- GDI double-buffered renderer - zoom/pan, autoscale, cursor overlay, ~10 FPS
+- Lock-free ring buffer (SPSC) - thread-safe transfer between acquisition thread and GUI
 - Embedded HTTP + WebSocket server (RFC 6455) with self-contained SHA-1 and Base64
-- HtmlGenerator — autogenerates single-page frontend; waveform via WebSocket to mobile
+- HtmlGenerator - autogenerates single-page frontend; waveform via WebSocket to mobile
 
 ## Tech Stack
 

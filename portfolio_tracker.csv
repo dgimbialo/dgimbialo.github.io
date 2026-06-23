@@ -1,0 +1,24 @@
+Project,Status,Category,Stack,Link,Next step
+FORTE 12,Done,Desktop / Audio,"C++, MFC, MIDI, VST 2.x, MusicXML",https://www.fortenotation.com/en/,
+Golden Cooperation,Done,Web,"HTML5, CSS3, JavaScript, Cloudflare Pages",https://www.golden-cooperation.com/,
+TDS 520A GPIB Desktop,Done,Desktop / Instruments,"C++17, MFC, GPIB, SCPI, WebSocket",,
+Power Grid Frequency Monitor,Done,Web / Static,"JavaScript, Chart.js, Supabase, PWA",https://dgimbialo.github.io/webHz,
+CrossZeroDetector,Done,Embedded / ESP32,"ESP32, FreeRTOS, Supabase, NTP",https://github.com/dgimbialo/CrossZeroDetector,
+ScanScore (OMR),Done,Desktop / CV-ML,"C++, Qt5, OpenCV, MusicXML",https://scan-score.com/en/,Final proofreading
+KeyBeep,In progress,Desktop / Win32,"C++, Win32 API, WinMM, MIDI",https://github.com/dgimbialo/KeyBeep,Add screenshots
+FastAcqWinApp,In progress,Desktop / DSP,"C++17, MFC, FFT, USB CDC",,Photos/video + link to paired STM32
+STM32H7 Fast Acquisition,In progress,Embedded / STM32,"C, HAL, DCMI, DMA, USB CDC",,Photos of board / waveforms
+JAMMER Professional,In progress,Desktop / Audio,"C++, MFC, MIDI, VST 2.x",,Screenshots + link
+HMIApp - Industrial HMI,In progress,Desktop / Qt,"C++17, Qt6, QML, Modbus RTU",,Photos of HMI screens
+HPLC Syringe Pump,In progress,Desktop / Qt,"C++17, Qt6, QML, Modbus RTU",,Screenshots of charts
+SimpleMidiViewer,Draft,Desktop / Audio,"C++17, MFC, MIDI",,Description + media
+Pump Controller Arduino,Draft,Embedded / Arduino,"Arduino, LCD, Relay",,Photo of device
+COMUS Temp Controller,Draft,Embedded / Arduino,"Arduino, DS18B20, EEPROM",,Photo
+EAGLE ULP Pin Analyzer,Draft,EDA / Scripting,"EAGLE ULP",,Screenshot of export
+Git Change Keeper,Draft,Python / CLI,"Python, GitPython, SHA-256",,GitHub link + terminal demo
+HMI Touchscreen (PIC24),Draft,Embedded / PIC,"PIC24, XC16, Modbus RTU, TFT35",,Photo of display
+Drag & Drop HTML Editor,Draft,Desktop / Qt,"C++17, Qt5, WYSIWYG",,Screenshots of editor
+ModbusEmulator,Draft,Desktop / Qt,"C++17, Qt6, QModbusServer",,Screenshot of UI
+Onyx,Draft,Desktop / Win32,"C/C++, Win32, MFC, DLL plugins",,Expand description
+AI Memory System,Draft,Python / CLI,"Python, sentence-transformers",,GitHub link + examples
+Improve main site page (index.html),In progress,Site / UX,,,"Hero, About/Skills, responsive, marquee performance"

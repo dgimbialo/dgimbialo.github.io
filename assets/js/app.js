@@ -281,6 +281,7 @@ function applyMarkdownOverrides(project) {
       const md = parseProjectMarkdown(text);
       if (md.tags && md.tags.length)                 project.tags = md.tags;
       if (md.contribution && md.contribution.length) project.contribution = md.contribution;
+      if (md.ctaLabel)                               project.ctaLabel = md.ctaLabel;
     })
     .catch(() => {});
 }
@@ -290,6 +291,8 @@ function parseProjectMarkdown(text) {
   const out = {};
   const tagsM = text.match(/^\s*\*\*Tags:\*\*\s*(.+)$/m);
   if (tagsM) out.tags = tagsM[1].split(',').map(t => t.trim()).filter(Boolean);
+  const btnM = text.match(/^\s*\*\*Button:\*\*\s*(.+)$/m);
+  if (btnM) out.ctaLabel = btnM[1].trim();
   out.contribution = extractMdListSection(text, 'What I Did');
   return out;
 }
@@ -442,9 +445,10 @@ function renderProjectDetail(p) {
       : esc(p.paired);
     return `<div class="paired-notice"><strong>Paired System:</strong> ${inner}</div>`;
   })();
+  const ctaLabel = (typeof p.ctaLabel === 'string' && p.ctaLabel.trim()) ? p.ctaLabel.trim() : 'Go to App Website';
   const websiteBtn = p.path && (p.path.startsWith('http://') || p.path.startsWith('https://')) ? `
     <a href="${esc(p.path)}" target="_blank" rel="noopener" class="project-link-btn project-link-btn--site project-cta-site">
-      Go to App Website →
+      ${esc(ctaLabel)} →
     </a>` : '';
   const githubBtn = p.github ? `
     <a href="${esc(p.github)}" target="_blank" rel="noopener" class="project-link-btn project-link-btn--github">

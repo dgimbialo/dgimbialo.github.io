@@ -3,19 +3,20 @@
 **Subtitle:** Modbus RTU/TCP slave emulator for testing
 **Tags:** C++17, Qt6, QML, QModbusServer, Testing tool
 **Path:** `D:\WORK_PROJECTS\ModbusEmulator`
+**Button:** Go to App Website
 **Platform:** C++ + Qt6 + QML / Windows
 
 ## Purpose
 
-Desktop for emulating Modbus RTU/TCP slave devices — testing master applications (HMIApp, HPLC Pump) without real hardware.
+Desktop for emulating Modbus RTU/TCP slave devices - testing master applications (HMIApp, HPLC Pump) without real hardware.
 
 ## Key features
 
-- QModbusServer — FC 0x03/0x10, response generation
-- ModbusDataStore — register bank: bulk init, per-address R/W, notifications
-- QML UI — port/slave-ID configuration, real-time register table, Start/Stop
-- LogHandler — a structured log of requests/responses with a timestamp
-- CMakePresets — debug/release profiles
+- QModbusServer - FC 0x03/0x10, response generation
+- ModbusDataStore - register bank: bulk init, per-address R/W, notifications
+- QML UI - port/slave-ID configuration, real-time register table, Start/Stop
+- LogHandler - a structured log of requests/responses with a timestamp
+- CMakePresets - debug/release profiles
 
 ## Tech Stack
 

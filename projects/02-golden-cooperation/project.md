@@ -3,6 +3,7 @@
 **Subtitle:** Corporate website for solar EPC contractor
 **Tags:** HTML5, CSS3, JavaScript, Cloudflare Pages, i18n, SEO
 **Path:** [https://www.golden-cooperation.com/](https://www.golden-cooperation.com/)
+**Button:** Go to App Website
 **Platform:** HTML/CSS/JS + Cloudflare Pages
 
 ## Purpose
@@ -11,11 +12,11 @@ Corporate site of the EPC contractor for the construction of solar power plants 
 
 ## Key features
 
-- Multilingual localization (i18n) — 4 languages: DE/PL/UK/EN; change without rebooting
-- SEO optimization — hreflang, OpenGraph, Twitter Card, JSON-LD Organization + ProfessionalService, GA4
-- Responsive design — responsive CSS for mobile and desktop
-- Deployment on Cloudflare Pages via Wrangler CLI — zero-config edge hosting
-- Image processing pipeline — Sharp for optimization of photo projects (7.4 MW+)
+- Multilingual localization (i18n) - 4 languages: DE/PL/UK/EN; change without rebooting
+- SEO optimization - hreflang, OpenGraph, Twitter Card, JSON-LD Organization + ProfessionalService, GA4
+- Responsive design - responsive CSS for mobile and desktop
+- Deployment on Cloudflare Pages via Wrangler CLI - zero-config edge hosting
+- Image processing pipeline - Sharp for optimization of photo projects (7.4 MW+)
 - Sitemap / robots.txt for correct indexing
 
 ## Tech Stack

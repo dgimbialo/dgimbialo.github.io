@@ -3,6 +3,7 @@
 **Subtitle:** Windows hotkey audio feedback tray app
 **Tags:** C++, Win32 API, WinMM, MIDI, Registry
 **Path:** `D:\My_project\chenge_lang`
+**Button:** Go to App Website
 **Platform:** C++ / Win32 API / Windows
 **GitHub:** [dgimbialo/KeyBeep](https://github.com/dgimbialo/KeyBeep)
 
@@ -12,13 +13,13 @@ Lightweight Windows tray program for audio confirmation of language switching or
 
 ## Key features
 
-- Global keyboard hook (WH_KEYBOARD_LL) — hotkey interception throughout the system regardless of the active window
-- MIDI audio via WinMM — always open HMIDIOUT handle, bypasses WASAPI delay
-- 4 types of sounds — 4 MIDI tones (Low/Mid/High/Double Beep)
-- System tray (Shell_NotifyIcon) — minimalistic UI; double-click settings
-- Configuration in the HKCU\Software\KeyBeep registry — VK code, modifiers, sound type; persist after reboot
-- Self-installer — setup.exe extracts KeyBeep.exe to %LOCALAPPDATA%\KeyBeep\ and adds it to autostart
-- Thread safety — the hook posts WM_USER+10 and returns; playback in worker thread
+- Global keyboard hook (WH_KEYBOARD_LL) - hotkey interception throughout the system regardless of the active window
+- MIDI audio via WinMM - always open HMIDIOUT handle, bypasses WASAPI delay
+- 4 types of sounds - 4 MIDI tones (Low/Mid/High/Double Beep)
+- System tray (Shell_NotifyIcon) - minimalistic UI; double-click settings
+- Configuration in the HKCU\Software\KeyBeep registry - VK code, modifiers, sound type; persist after reboot
+- Self-installer - setup.exe extracts KeyBeep.exe to %LOCALAPPDATA%\KeyBeep\ and adds it to autostart
+- Thread safety - the hook posts WM_USER+10 and returns; playback in worker thread
 
 ## Tech Stack
 

@@ -3,6 +3,7 @@
 **Subtitle:** MIDI file parser & score renderer
 **Tags:** C++17, MFC, MIDI, CMake
 **Path:** `D:\My_project\SimpleMidiViwer`
+**Button:** Go to App Website
 **Platform:** C++17 + MFC + CMake / Windows
 
 ## Purpose
@@ -11,9 +12,9 @@ Desktop Windows application for opening, parsing and visualizing MIDI files in t
 
 ## Key features
 
-- MIDI parser — SMF: header/track chunks, VLQ decoding, note on/off, meta, SysEx
-- Score rendering — display of notes in standard staves with scaling
-- MFC MDI GUI — MainFrame, ScoreView, Open/Save/Export menu
+- MIDI parser - SMF: header/track chunks, VLQ decoding, note on/off, meta, SysEx
+- Score rendering - display of notes in standard staves with scaling
+- MFC MDI GUI - MainFrame, ScoreView, Open/Save/Export menu
 - CMake build with precompiled headers
 
 ## Tech Stack

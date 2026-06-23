@@ -1,22 +1,23 @@
 # HMI Touchscreen (PIC24)
 
-**Subtitle:** Syringe pump HMI — TFT35 + Modbus RTU
-**Tags:** PIC24, C, XC16, Modbus RTU, TFT35, Touchscreen, Flash
+**Subtitle:** Syringe pump HMI - TFT35 + Modbus RTU
+**Tags:** Commercial, PIC24, C, XC16, Modbus RTU, TFT35, Touchscreen, Flash
 **Path:** 
+**Button:** Go to App Website
 **Platform:** Embedded C / PIC24 / MPLAB XC16
 
 ## Purpose
 
-Standalone HMI for controlling an industrial syringe pump via a TFT35 touch display via Modbus RTU.
+Commercial standalone HMI for controlling an industrial syringe pump via a TFT35 touch display via Modbus RTU.
 
 ## Key features
 
-- TFT35 SPI display — initialization, backlight, text/primitives
-- Touchscreen calibration — persistent in internal flash
-- TFTUI — TextBox, SelectFont, SetBackground/Foreground, center-aligned
+- TFT35 SPI display - initialization, backlight, text/primitives
+- Touchscreen calibration - persistent in internal flash
+- TFTUI - TextBox, SelectFont, SetBackground/Foreground, center-aligned
 - Modbus master 
-- Poll/update state machine — differential update only when registers are changed
-- UI BreakHook — callback during redraw for Modbus polling without blocking
+- Poll/update state machine - differential update only when registers are changed
+- UI BreakHook - callback during redraw for Modbus polling without blocking
 - Bootloader
 
 ## Tech Stack

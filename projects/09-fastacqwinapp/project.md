@@ -3,6 +3,7 @@
 **Subtitle:** Real-time signal acquisition & FFT analysis
 **Tags:** C++17, MFC, FFT, USB CDC, GDI, Spectrogram
 **Path:** `D:\My_project\FastAcqWinApp`
+**Button:** Go to App Website
 **Platform:** C++ + MFC / Windows (MSVC, x64)
 **Pair System:** STM32H7 Firmware (#10)
 
@@ -12,13 +13,13 @@ Windows desktop for real-time reception and analysis of signals from STM32H7 ADC
 
 ## Key features
 
-- SerialWorker — background thread: Win32 COM API, ReadFile loop, CRC binary protocol
-- ChirpStore — CRITICAL_SECTION ring buffer 200 chirp frames: Push/GetLatest/GetAt
-- LocalFft — Radix-2 Cooley-Tukey FFT up to 16384 points; Rectangular/Hann/Hamming/Blackman windows
-- WaveformView — GDI zoom/pan (X+/X−/Y+/Y− + mousewheel + scrollbars)
-- SpectrumView — linear/logarithmic frequency response with cursor overlay
-- WaterfallView — spectrogram in pseudo-color
-- CommandPanel — COM combo, Start/Stop, Set Freq/Samples, Ping, Mode, Trigger, PC/Device mode
+- SerialWorker - background thread: Win32 COM API, ReadFile loop, CRC binary protocol
+- ChirpStore - CRITICAL_SECTION ring buffer 200 chirp frames: Push/GetLatest/GetAt
+- LocalFft - Radix-2 Cooley-Tukey FFT up to 16384 points; Rectangular/Hann/Hamming/Blackman windows
+- WaveformView - GDI zoom/pan (X+/X−/Y+/Y− + mousewheel + scrollbars)
+- SpectrumView - linear/logarithmic frequency response with cursor overlay
+- WaterfallView - spectrogram in pseudo-color
+- CommandPanel - COM combo, Start/Stop, Set Freq/Samples, Ping, Mode, Trigger, PC/Device mode
 
 ## Tech Stack
 

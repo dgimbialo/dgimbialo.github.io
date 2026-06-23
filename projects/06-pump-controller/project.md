@@ -3,6 +3,7 @@
 **Subtitle:** 3-sensor liquid level controller
 **Tags:** Arduino, C/C++, Mega 2560, LCD, Relay
 **Path:** 
+**Button:** Go to App Website
 **Platform:** Arduino C/C++ / Arduino Mega 2560
 
 ## Purpose
@@ -11,11 +12,11 @@ Pump controller firmware for automatic and manual liquid supply with 3-sensor le
 
 ## Key features
 
-- 3-sensor system — LOW/MIDDLE/HIGH level; pump relay control
-- Automatic mode — control by liquid level
-- Manual mode — override via buttons with LCD display
-- Error state detection — emergency situations (absence/error of the sensor)
-- LCD UI (LiquidCrystal 16×2) — mode, level, error status
+- 3-sensor system - LOW/MIDDLE/HIGH level; pump relay control
+- Automatic mode - control by liquid level
+- Manual mode - override via buttons with LCD display
+- Error state detection - emergency situations (absence/error of the sensor)
+- LCD UI (LiquidCrystal 16×2) - mode, level, error status
 - Centralized custom_pins.h for GPIO mapping
 
 ## Tech Stack

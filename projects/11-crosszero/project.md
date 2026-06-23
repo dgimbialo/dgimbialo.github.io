@@ -3,6 +3,7 @@
 **Subtitle:** Interrupt-driven AC power-grid frequency meter · Heltec WiFi LoRa 32 V2 → Supabase
 **Tags:** ESP32, Arduino, PlatformIO, FreeRTOS, Supabase, NTP, OLED
 **Path:**
+**Button:** Go to App Website
 **Platform:** Arduino C++ / ESP32 (Heltec WiFi LoRa 32 V2) + FreeRTOS
 **GitHub:** https://github.com/dgimbialo/CrossZeroDetector
 **Pair System:** webHz (#05)
@@ -20,7 +21,7 @@ Firmware for measuring the frequency of the AC power grid (nominal 50 Hz) using 
 - 3-attempt HTTP retry with 2 s delay on Supabase POST failure
 - ISO 8601 timestamps with ms precision and Kyiv DST (UTC+2/+3) computed from NTP
 - NTP re-sync every 60 s for drift-free timestamps
-- SSD1306 OLED 128x64 — frequency (4 decimal places), time, Wi-Fi & DB status
+- SSD1306 OLED 128x64 - frequency (4 decimal places), time, Wi-Fi & DB status
 - Auto Wi-Fi reconnect on link loss
 
 ## Tech Stack

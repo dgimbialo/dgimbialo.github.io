@@ -1,20 +1,21 @@
 # HPLC Syringe Pump
 
 **Subtitle:** HPLC pump desktop control via Modbus RTU
-**Tags:** C++17, Qt6, QML, Modbus RTU, Qt Test, Charts
+**Tags:** Commercial, C++17, Qt6, QML, Modbus RTU, Qt Test, Charts
 **Path:** 
+**Button:** Go to App Website
 **Platform:** C++ + Qt6 + QML / Windows
 
 ## Purpose
 
-Desktop control of an HPLC syringe pump via Modbus RTU: flow,  pressure and flow monitoring.
+Commercial desktop control of an HPLC syringe pump via Modbus RTU: flow,  pressure and flow monitoring.
 
 ## Key features
 
 - Modbus async priority queue
 - Auto-reconnect with adjustable interval
 - Flow Method Manager
-- Calibration — guided procedure
+- Calibration - guided procedure
 - Custom real-time charting
 
 ## Tech Stack

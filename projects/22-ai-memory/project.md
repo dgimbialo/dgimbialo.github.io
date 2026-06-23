@@ -3,6 +3,7 @@
 **Subtitle:** Semantic memory CLI for AI-assisted development
 **Tags:** Python, argparse, JSON, sentence-transformers, watchdog, pytest
 **Path:** `D:\ai_memory_system`
+**Button:** Go to App Website
 **Platform:** Python 3
 
 ## Purpose
@@ -11,13 +12,13 @@ CLI utility for maintaining semantic memory of AI assistant: store technical dec
 
 ## Key features
 
-- MemoryEngine (core/engine.py) — add_memory(payload), session_summary()
-- Structured records — type, description, cause, fix, files[], decisions[], tags[], depends_on[]
-- Project-scoped storage — data/projects/{slug}/
-- Tag system — arbitrary tags + auto project:{slug}; filter on search
-- Semantic search (optional, sentence-transformers) — vector search
-- File watcher (optional, watchdog) — auto-track changes
-- JSON CLI output — all operations return JSON
+- MemoryEngine (core/engine.py) - add_memory(payload), session_summary()
+- Structured records - type, description, cause, fix, files[], decisions[], tags[], depends_on[]
+- Project-scoped storage - data/projects/{slug}/
+- Tag system - arbitrary tags + auto project:{slug}; filter on search
+- Semantic search (optional, sentence-transformers) - vector search
+- File watcher (optional, watchdog) - auto-track changes
+- JSON CLI output - all operations return JSON
 - pytest test suite
 
 ## Tech Stack

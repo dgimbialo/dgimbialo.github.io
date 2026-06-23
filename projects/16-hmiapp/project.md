@@ -1,25 +1,26 @@
-# HMIApp — Industrial HMI
+# HMIApp - Industrial HMI
 
 **Subtitle:** Cable stripping machine Qt6 touchscreen HMI
-**Tags:** C++17, Qt6, QML, Modbus RTU, SQLite, Kiosk, Inno Setup
+**Tags:** Commercial, C++17, Qt6, QML, Modbus RTU, SQLite, Kiosk, Inno Setup
 **Path:** 
+**Button:** Go to App Website
 **Platform:** C++ + Qt6 + QML / Windows embedded
 
 ## Purpose
 
-Full-featured industrial HMI for a cable stripping machine. 
+Commercial, full-featured industrial HMI for a cable stripping machine. 
 Touchscreen UI on Qt Quick/QML with Modbus communication, recipe management and diagnostics.
 
 ## Key features
 
 - Modbus async queue with priority queue and success statistics
-- Barcode scanner — serial port or HID keyboard emulation via eventFilter
-- Recipe engine — CRUD in SQLite
-- Multi-axis config — corrections, offsets
-- Details replacement wizard — guided step-by-step process
-- USB detection — WMI COM object for arrival/removal
-- Kiosk mode — Windows Registry Shell key;
-- Release pipeline — Inno Setup + rcedit + signtool + PFX; i18n
+- Barcode scanner - serial port or HID keyboard emulation via eventFilter
+- Recipe engine - CRUD in SQLite
+- Multi-axis config - corrections, offsets
+- Details replacement wizard - guided step-by-step process
+- USB detection - WMI COM object for arrival/removal
+- Kiosk mode - Windows Registry Shell key;
+- Release pipeline - Inno Setup + rcedit + signtool + PFX; i18n
 
 ## Tech Stack
 
