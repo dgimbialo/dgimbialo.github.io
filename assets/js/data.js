@@ -87,19 +87,20 @@ const PROJECTS = [
       "MIDI",
       "Registry"
     ],
-    "path": "",
-    "platform": "C++ / Win32 API / Windows",
+    "path": "https://github.com/dgimbialo/KeyBeep",
+    "platform": "C++/Win32 API/Windows",
     "paired": null,
-    "github": "https://github.com/dgimbialo/KeyBeep",
-    "description": "Lightweight Windows tray program for audio confirmation of language switching or any hotkey. Solves the problem of no feedback when a key is pressed.",
+    "github": "",
+    "description": "Lightweight Windows tray app that plays an instant, configurable sound every time a chosen hotkey is pressed, giving immediate audible confirmation that the key registered. It was born from a sticky keyboard that occasionally missed the language-switch key, leaving no way to tell whether the press worked. Useful for language-switch keys, mute / push-to-talk buttons, macro keys, or any key you want audio feedback for.",
     "features": [
-      "Global keyboard hook (WH_KEYBOARD_LL) - hotkey interception throughout the system regardless of the active window",
-      "MIDI audio via WinMM - always open HMIDIOUT handle, bypasses WASAPI delay",
-      "4 types of sounds - 4 MIDI tones (Low/Mid/High/Double Beep)",
-      "System tray (Shell_NotifyIcon) - minimalistic UI; double-click settings",
-      "Configuration in the HKCU\\Software\\KeyBeep registry - VK code, modifiers, sound type; persist after reboot",
-      "Self-installer - setup.exe extracts KeyBeep.exe to %LOCALAPPDATA%\\KeyBeep\\ and adds it to autostart",
-      "Thread safety - the hook posts WM_USER+10 and returns; playback in worker thread"
+      "Global hotkey with optional modifiers (Ctrl/Alt/Shift/Win) and key-combo detection",
+      "Instant audio via MIDI Out (WinMM), reliable even right after Windows volume or notification sounds (bypasses the audio engine)",
+      "Several MIDI sound types (low/medium/high/double beep) with a Test Sound button",
+      "Runs silently in the system tray; settings window opens on double-click",
+      "Settings saved to the registry (HKCU\\Software\\KeyBeep) and persist across reboots",
+      "Self-installer: copies the app to %LOCALAPPDATA%\\KeyBeep\\ and adds autostart; uninstall from the tray menu",
+      "Thread-safe low-level keyboard hook: the callback posts a message and returns immediately, playback runs on a worker thread",
+      "Single EXE, zero external dependencies (Windows built-in libraries only)"
     ],
     "stack": [
       [
@@ -108,27 +109,35 @@ const PROJECTS = [
       ],
       [
         "GUI",
-        "Win32 API, SystemTray, Keyboard hooks"
+        "Win32 API, system tray (Shell_NotifyIcon), low-level keyboard hook"
       ],
       [
         "Audio",
-        "WinMM (MIDI Out)"
+        "WinMM MIDI Out (persistent HMIDIOUT handle)"
       ],
       [
         "Persistence",
-        "Windows Registry"
+        "Windows Registry (HKCU)"
+      ],
+      [
+        "Installer",
+        "Embedded-resource self-installer (setup.exe)"
       ],
       [
         "Build",
-        "batch build.bat"
+        "build.bat, Visual Studio 2017/2019/2022"
       ],
       [
-        "Size",
-        "180 KB, zero dependencies"
+        "Dependencies",
+        "Windows built-in libs only (user32, winmm, shell32, advapi32)"
       ]
     ],
     "media": {
-      "foto": [],
+      "foto": [
+        "projects/01-keybeep/foto/Foto_1.png",
+        "projects/01-keybeep/foto/Foto_2.png",
+        "projects/01-keybeep/foto/Foto_3.png"
+      ],
       "video": []
     },
     "notes": ""
