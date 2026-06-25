@@ -510,7 +510,7 @@ img { max-width: 100%; display: block; }
 
 /* Notes & contribution lists — keep links short and text inside the card. */
 .notes-list, .contribution-list {
-  margin: 0; padding-left: 18px;
+  margin: 0; padding-left: 0; list-style: none;
   display: flex; flex-direction: column; gap: 8px;
   color: var(--muted); font-size: .95rem;
 }

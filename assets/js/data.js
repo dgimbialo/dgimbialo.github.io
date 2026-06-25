@@ -911,7 +911,7 @@ const PROJECTS = [
     "slug": "14-hmi-pic24",
     "number": "14",
     "title": "HMI Touchscreen (PIC24)",
-    "subtitle": "Syringe pump HMI - TFT35 + Modbus RTU",
+    "subtitle": "Bare-metal touchscreen HMI for a syringe pump",
     "category": "Embedded / PIC",
     "filterGroup": "embedded",
     "color": "#b71c1c",
@@ -920,24 +920,25 @@ const PROJECTS = [
       "PIC24",
       "C",
       "XC16",
+      "Bare-metal",
       "Modbus RTU",
       "TFT35",
-      "Touchscreen",
-      "Flash"
+      "Touchscreen"
     ],
     "path": "",
     "platform": "Embedded C / PIC24 / MPLAB XC16",
-    "paired": null,
+    "paired": "HPLC Syringe Pump (#18)",
     "github": "",
-    "description": "Commercial standalone HMI for controlling an industrial syringe pump via a TFT35 touch display via Modbus RTU.",
+    "description": "Commercial standalone touchscreen HMI for an industrial syringe pump. It runs bare metal on a small PIC24 microcontroller, drives a TFT35 touch display, and talks to the pump controller over Modbus RTU. The entire graphics stack and user interface were written from scratch, with no third-party graphics libraries.",
     "features": [
-      "TFT35 SPI display - initialization, backlight, text/primitives",
-      "Touchscreen calibration - persistent in internal flash",
-      "TFTUI - TextBox, SelectFont, SetBackground/Foreground, center-aligned",
-      "Modbus master",
-      "Poll/update state machine - differential update only when registers are changed",
-      "UI BreakHook - callback during redraw for Modbus polling without blocking",
-      "Bootloader"
+      "Bare-metal graphics: display driver and rendering written directly against the hardware, with no external GUI library",
+      "Custom UI framework built from scratch: text, buttons, input fields, menus and full screens",
+      "Responsive rendering on a low-power MCU: only what changed on screen is redrawn",
+      "Resistive touchscreen input with persistent calibration",
+      "Memory-optimized custom bitmap fonts with a dedicated conversion tool",
+      "Modbus RTU master with connection watchdog and automatic recovery",
+      "Serial bootloader for firmware updates over the serial port(UART)",
+      "Tuned to fit the limited program and data memory of a small PIC24"
     ],
     "stack": [
       [
@@ -946,34 +947,49 @@ const PROJECTS = [
       ],
       [
         "Language",
-        "C (XC16 compiler)"
+        "C (MPLAB XC16)"
+      ],
+      [
+        "Graphics",
+        "Bare metal, no third-party libraries"
       ],
       [
         "Display",
-        "TFT35 SPI"
+        "TFT35 over SPI"
       ],
       [
         "Touch",
-        "Resistive touchscreen + calibration"
+        "Resistive touchscreen with calibration"
       ],
       [
         "Protocol",
-        "Modbus RTU (Serial)"
+        "Modbus RTU (serial)"
+      ],
+      [
+        "Firmware update",
+        "Custom serial bootloader"
       ],
       [
         "Persistence",
-        "Internal PIC Flash"
+        "Internal PIC24 flash"
       ],
       [
         "Build",
-        "MPLAB / Makefile / nbproject"
+        "MPLAB X / Makefile"
       ]
     ],
     "media": {
-      "foto": [],
+      "foto": [
+        "projects/14-hmi-pic24/foto/Foto_1.JPEG",
+        "projects/14-hmi-pic24/foto/Foto_2.JPEG",
+        "projects/14-hmi-pic24/foto/Foto_3.JPEG",
+        "projects/14-hmi-pic24/foto/Foto_4.JPEG",
+        "projects/14-hmi-pic24/foto/Foto_5.JPEG",
+        "projects/14-hmi-pic24/foto/Foto_6.JPEG"
+      ],
       "video": []
     },
-    "notes": ""
+    "notes": "- Paired with the HPLC Syringe Pump desktop control over Modbus RTU."
   },
   {
     "id": "html-editor",
