@@ -135,6 +135,8 @@ function renderSkills() {
 }
 
 function renderProjectsSection() {
+  const countEl = document.querySelector('.projects-head .count');
+  if (countEl) countEl.textContent = PROJECTS.length;
   renderMarquee();
   renderFilters();
   renderProjectCards('all');
@@ -198,7 +200,7 @@ function renderFilters() {
   const el = document.getElementById('project-filters');
   if (!el) return;
   const groups = [
-    { id: 'all',      label: 'All (22)' },
+    { id: 'all',      label: `All (${PROJECTS.length})` },
     { id: 'embedded', label: 'Embedded' },
     { id: 'desktop',  label: 'Desktop C++' },
     { id: 'audio',    label: 'Audio / DSP' },

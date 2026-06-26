@@ -530,14 +530,17 @@ const PROJECTS = [
     "platform": "EAGLE ULP / Autodesk EAGLE",
     "paired": null,
     "github": "",
-    "description": "Script analyzer for EAGLE Schematic Editor: analyzes which pins of the Source component are connected to the Target and which are free (N/C).",
+    "description": "A custom EAGLE ULP (User Language Program) for the EAGLE Schematic Editor that analyzes pin-level connectivity between components. You pick a Source component and a Target, and the tool reports, pin by pin, which Source pins connect to the Target and which are free (not connected). It runs inside EAGLE and presents the result in an interactive dialog with filtering, sorting and export.",
     "features": [
-      "Autoassembly of components - schematic(SCH) { SCH.parts(P) } - name + value list",
-      "Netlist analysis - for each Source pin, search for net connections with Target",
-      "Filtering and sorting - All/Connected/Free N/C; 7 sorting criteria",
-      "HTML rendering in EAGLE viewer with color marking (green/gray)",
-      "Multi-format export - CSV, TXT, HTML",
-      "Statistics line - counter of connected/free pins"
+      "Runs inside EAGLE from the \"Run ULP\" toolbar button; ships as a single `pin-usage-analyzer.ulp` placed in EAGLE's ulp folder",
+      "Source and Target selectors: dropdowns that list every part in the schematic by reference and part number (for example \"IC1 (STM32H743IIT6)\"); the Target can be one component or \"All elements\"",
+      "Analyze and Reset buttons run or clear the analysis; a status line shows progress (Ready / done)",
+      "Results table with columns: Component Name, Pin #, Pin Name, Net Name, Target Pin, Target Component",
+      "Color-coded rows: connected pins are highlighted (green), free / not-connected pins are shown distinctly, so pin usage is readable at a glance",
+      "Filter by connection state: All, Connected, Free (N/C), each with a live count",
+      "Sort by any column (Component Name and more), ascending or descending, applied on demand",
+      "One-click export of the table to CSV, TXT or HTML",
+      "Statistics line with a live counter of connected and free pins"
     ],
     "stack": [
       [
@@ -545,16 +548,30 @@ const PROJECTS = [
         "EAGLE ULP (C-like DSL)"
       ],
       [
-        "Platform",
-        "Autodesk EAGLE / Fusion 360 Electronics"
+        "Host",
+        "Autodesk EAGLE 7.6 (Schematic Editor)"
+      ],
+      [
+        "Launch",
+        "Run ULP toolbar button (ulp/pin-usage-analyzer.ulp)"
+      ],
+      [
+        "UI",
+        "Native EAGLE dialog: dropdowns, results table, filter / sort, export"
       ],
       [
         "Output",
-        "HTML, CSV, TXT"
+        "CSV, TXT, HTML"
       ]
     ],
     "media": {
-      "foto": [],
+      "foto": [
+        "projects/08-eagle-ulp/foto/Foto_1.png",
+        "projects/08-eagle-ulp/foto/Foto_2.png",
+        "projects/08-eagle-ulp/foto/Foto_3.png",
+        "projects/08-eagle-ulp/foto/Foto_4.png",
+        "projects/08-eagle-ulp/foto/Foto_5.png"
+      ],
       "video": []
     },
     "notes": ""
@@ -1549,5 +1566,87 @@ const PROJECTS = [
       "video": []
     },
     "notes": "- Local tool: one installation serves all projects, each isolated under data/projects/<slug>/"
+  },
+  {
+    "id": "fmcw-radar",
+    "slug": "23-fmcw-radar",
+    "number": "23",
+    "title": "FMCW Radar",
+    "subtitle": "Analog part for a microwave FMCW radar",
+    "category": "Hardware/RF",
+    "filterGroup": "embedded",
+    "color": "#00838f",
+    "tags": [
+      "R&D",
+      "FMCW Radar",
+      "RF",
+      "Microwave",
+      "Analog",
+      "Vivaldi Antenna",
+      "EAGLE",
+      "PCB"
+    ],
+    "path": "",
+    "platform": "RF/microwave hardware (custom PCB)",
+    "paired": "STM32H7 Fast Acquisition (#10)",
+    "github": "",
+    "description": "A personal, self-initiated R&D project built to explore analog FMCW radar design. It reached a working prototype and remains an ongoing side project developed in my own time. Custom analog front-end for an FMCW (Frequency-Modulated Continuous-Wave) radar: a continuous-wave microwave sensor that determines the range and speed of a target by mixing the transmitted frequency-swept signal with its echo and reading the resulting beat frequency. The board implements the complete radio-frequency signal chain, from chirp generation through low-noise receive amplification and down-conversion, and delivers the raw beat-frequency signal to an external digitizer and signal-processing stage. It is built around a microwave IC chain: a voltage-controlled oscillator (VCO) swept by an external modulation source, a low-noise amplifier (LNA) on the receive path, and a down-conversion mixer. On the antenna side, two custom Vivaldi (tapered-slot) antennas were designed and mounted inside horns to narrow the radiation pattern, which raises directivity and extends the detection range.",
+    "features": [
+      "FMCW principle: target range and velocity are encoded in the beat frequency between the transmitted chirp and the received echo",
+      "Microwave signal chain: VCO transmit source, LNA receive amplifier and a down-conversion mixer",
+      "Custom antennas: two Vivaldi (tapered-slot) antennas designed and mounted inside horns to narrow the radiation pattern, increasing directivity and range",
+      "External FM modulation: the VCO is swept by an external generator to form the frequency chirp",
+      "Beat-frequency output: a clean analog output ready for an external digitizer/DSP",
+      "Custom PCB: schematic and controlled-impedance routing designed in EAGLE",
+      "Analog-only front-end, with digital signal processing handled downstream"
+    ],
+    "stack": [
+      [
+        "Type",
+        "Analog RF / microwave front-end"
+      ],
+      [
+        "VCO",
+        "HMC431LP4ETR (externally modulated)"
+      ],
+      [
+        "LNA",
+        "HMC717ALP3E"
+      ],
+      [
+        "Mixer",
+        "HMC219AMS8E"
+      ],
+      [
+        "Antennas",
+        "Two custom Vivaldi (tapered-slot) antennas in horns"
+      ],
+      [
+        "EDA",
+        "EAGLE (schematic + PCB routing)"
+      ],
+      [
+        "Modulation",
+        "External Chirp Generator"
+      ],
+      [
+        "Output",
+        "Analog beat-frequency signal"
+      ]
+    ],
+    "media": {
+      "foto": [
+        "projects/23-fmcw-radar/foto/Foto_1.JPEG",
+        "projects/23-fmcw-radar/foto/Foto_2.JPEG",
+        "projects/23-fmcw-radar/foto/Foto_3.JPEG",
+        "projects/23-fmcw-radar/foto/Foto_4.JPEG",
+        "projects/23-fmcw-radar/foto/Foto_5.png",
+        "projects/23-fmcw-radar/foto/Foto_6.png",
+        "projects/23-fmcw-radar/foto/Foto_7.png",
+        "projects/23-fmcw-radar/foto/Foto_8.png"
+      ],
+      "video": []
+    },
+    "notes": "- Status: prototype stage, functional but not yet finished. The planned next step is to add output high-pass and low-pass filtering on the beat-frequency signal to further reduce distortion and clean up the spectrum. - FMCW radar (Frequency-Modulated Continuous-Wave): analog front-end only. The output beat frequency is proportional to target distance and speed."
   }
 ];
