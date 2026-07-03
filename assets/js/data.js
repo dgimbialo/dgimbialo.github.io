@@ -789,7 +789,9 @@ const PROJECTS = [
       "foto": [
         "projects/11-crosszero/foto/foto_1.JPG",
         "projects/11-crosszero/foto/foto_2.JPG",
-        "projects/11-crosszero/foto/Foto_3.png"
+        "projects/11-crosszero/foto/Foto_3.png",
+        "projects/11-crosszero/foto/Foto_4.png",
+        "projects/11-crosszero/foto/Foto_5.png"
       ],
       "video": []
     },
