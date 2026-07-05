@@ -604,7 +604,7 @@ const PROJECTS = [
     "slug": "09-fastacqwinapp",
     "number": "09",
     "title": "FastAcqWinApp",
-    "subtitle": "Real-time signal acquisition & FFT analysis",
+    "subtitle": "Real-time signal acquisition and FFT analysis",
     "category": "Desktop / DSP",
     "filterGroup": "desktop",
     "color": "#1565c0",
@@ -616,19 +616,22 @@ const PROJECTS = [
       "GDI",
       "Spectrogram"
     ],
-    "path": "",
+    "path": "https://github.com/dgimbialo/FastAcqWinApp",
     "platform": "C++ + MFC / Windows (MSVC, x64)",
-    "paired": "STM32H7 Firmware (#10)",
+    "paired": "STM32H7 Fast Acquisition (#10)",
     "github": "",
-    "description": "Windows desktop for real-time reception and analysis of signals from STM32H7 ADC device via USB CDC. Modes: FFT-on-device and PC-side FFT (RAW samples + local processing).",
+    "description": "Windows desktop application for real-time acquisition and analysis of signals streamed from an STM32H7 ADC board over USB CDC. It receives sample frames, runs FFT analysis and renders live waveform, spectrum and waterfall (spectrogram) views. It is built entirely on C++ and MFC with GDI rendering, with no third-party libraries. MFC was chosen deliberately for speed, reliability and self-containment: the result is a single native executable with no runtime dependencies, low latency and predictable real-time performance.",
     "features": [
-      "SerialWorker - background thread: Win32 COM API, ReadFile loop, CRC binary protocol",
-      "ChirpStore - CRITICAL_SECTION ring buffer 200 chirp frames: Push/GetLatest/GetAt",
-      "LocalFft - Radix-2 Cooley-Tukey FFT up to 16384 points; Rectangular/Hann/Hamming/Blackman windows",
-      "WaveformView - GDI zoom/pan (X+/X−/Y+/Y− + mousewheel + scrollbars)",
-      "SpectrumView - linear/logarithmic frequency response with cursor overlay",
-      "WaterfallView - spectrogram in pseudo-color",
-      "CommandPanel - COM combo, Start/Stop, Set Freq/Samples, Ping, Mode, Trigger, PC/Device mode"
+      "Real-time serial acquisition: a background worker thread reads the USB CDC stream through a binary, CRC-checked protocol without blocking the UI",
+      "Ring-buffer frame store: the latest acquisition frames are kept for smooth live display while new data keeps arriving",
+      "In-house Radix-2 (Cooley-Tukey) FFT up to 16384 points, with selectable windows (Rectangular / Hann / Hamming / Blackman)",
+      "Waveform view: GDI double-buffered, with zoom and pan (keys, mouse wheel and scrollbars)",
+      "Spectrum view: linear or logarithmic magnitude with a cursor readout",
+      "Waterfall view: pseudo-color spectrogram",
+      "On-device or PC-side FFT: process raw samples locally or use the device result",
+      "Command panel: port select, start/stop, set frequency and samples, ping, trigger and mode switch",
+      "Custom-drawn modern UI (buttons, tabs, theme) on plain MFC, with no UI framework",
+      "Single native executable, no third-party dependencies"
     ],
     "stack": [
       [
@@ -637,26 +640,41 @@ const PROJECTS = [
       ],
       [
         "UI",
-        "MFC (CWnd custom panels, GDI double-buffer)"
+        "MFC with GDI double-buffered custom rendering (no third-party UI libs)"
       ],
       [
-        "Communication",
-        "Win32 COM port API, binary protocol"
+        "Acquisition",
+        "USB CDC virtual COM, Win32 serial API, binary CRC protocol"
       ],
       [
         "DSP",
-        "Radix-2 FFT, windowing functions"
+        "In-house Radix-2 Cooley-Tukey FFT, windowing"
+      ],
+      [
+        "Views",
+        "Waveform, spectrum, waterfall (spectrogram)"
       ],
       [
         "Build",
-        "VS2022, FastAcq.sln, x64"
+        "Visual Studio 2022, x64"
+      ],
+      [
+        "Dependencies",
+        "None (Win32 + MFC only)"
       ]
     ],
     "media": {
-      "foto": [],
+      "foto": [
+        "projects/09-fastacqwinapp/foto/Foto_1.png",
+        "projects/09-fastacqwinapp/foto/Foto_2.png",
+        "projects/09-fastacqwinapp/foto/Foto_3.png",
+        "projects/09-fastacqwinapp/foto/Foto_4.png",
+        "projects/09-fastacqwinapp/foto/Foto_5.png",
+        "projects/09-fastacqwinapp/foto/Foto_6.png"
+      ],
       "video": []
     },
-    "notes": ""
+    "notes": "- MIT licensed. - Pairs with the STM32H7 Fast Acquisition firmware, which streams the ADC data over USB CDC."
   },
   {
     "id": "stm32h7",
