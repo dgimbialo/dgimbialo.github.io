@@ -6,11 +6,11 @@ const PROFILE = {
   "linkedin": "https://www.linkedin.com/in/taras-pavlyk-861b84123/",
   "github": "https://github.com/dgimbialo",
   "email": "",
-  "summary": "Software engineer specialising in embedded systems, industrial automation, and desktop applications — building reliable products from the firmware up to the user interface.",
+  "summary": "Software engineer specialising in embedded systems, industrial automation, and desktop applications - building reliable products from the firmware up to the user interface.",
   "about": [
-    "I build systems where hardware meets software. My main focus is embedded development and industrial automation — the real-time firmware and control logic that keeps physical devices running reliably, around the clock.",
+    "I build systems where hardware meets software. My main focus is embedded development and industrial automation - the real-time firmware and control logic that keeps physical devices running reliably, around the clock.",
     "On top of that low-level work, I design the desktop tools that operators and engineers actually use day to day: instrument control, signal acquisition and analysis, and professional HMI panels for industrial equipment.",
-    "I've also shipped commercial desktop software beyond the industrial world, including music notation and arrangement applications. Across every project my goal stays the same — turn complex hardware into something dependable and genuinely easy to work with."
+    "I've also shipped commercial desktop software beyond the industrial world, including music notation and arrangement applications. Across every project my goal stays the same - turn complex hardware into something dependable and genuinely easy to work with."
   ],
   "skills": [
     {
@@ -18,10 +18,18 @@ const PROFILE = {
       "items": [
         "STM32H7 / HAL / CMSIS",
         "PIC24 (MPLAB XC16)",
-        "Arduino Mega",
         "ESP32 / PlatformIO",
         "DCMI / DMA / ADC",
         "OneWire / SPI / I2C"
+      ]
+    },
+    {
+      "category": "PCB & Hardware Design",
+      "items": [
+        "EAGLE CAD",
+        "KiCad",
+        "Schematic & PCB design from scratch",
+        "Gerber / drill / BOM for manufacturing"
       ]
     },
     {
@@ -30,8 +38,8 @@ const PROFILE = {
         "Qt6 Quick/QML",
         "Qt5 Widgets",
         "MFC / Win32 API",
-        "CMake / Ninja / MSBuild",
-        "MSVC / arm-none-eabi-gcc"
+        "CMake / MSBuild",
+        "MSVC"
       ]
     },
     {
@@ -40,9 +48,7 @@ const PROFILE = {
         "Modbus RTU / TCP",
         "GPIB / SCPI (NI-488.2)",
         "USB CDC (binary)",
-        "WebSocket RFC 6455",
-        "MIDI WinMM / DirectMusic",
-        "HTTP REST / JSON"
+        "MIDI WinMM / DirectMusic"
       ]
     },
     {
@@ -51,15 +57,13 @@ const PROFILE = {
         "FFT Radix-2 (16384 pt)",
         "Waveform Visualization",
         "VST 2.x Host",
-        "SoundTouch (time-stretch)",
-        "OpenCV / OMR",
         "Google Sheets API"
       ]
     },
     {
       "category": "Web & Scripting",
       "items": [
-        "Python / Flask / Jinja2",
+        "Python",
         "HTML5 / CSS3 / JS",
         "MySQL / SQLite",
         "Cloudflare Pages",
@@ -1196,7 +1200,7 @@ const PROJECTS = [
     "number": "18",
     "title": "HPLC Syringe Pump",
     "subtitle": "HPLC pump desktop control via Modbus RTU",
-    "category": "Desktop / Qt / Industrial",
+    "category": "Desktop / Qt",
     "filterGroup": "desktop",
     "color": "#1565c0",
     "tags": [
@@ -1205,20 +1209,21 @@ const PROJECTS = [
       "Qt6",
       "QML",
       "Modbus RTU",
-      "Qt Test",
-      "Charts"
+      "LGPLv3",
+      "Custom Charts"
     ],
     "path": "",
     "platform": "C++ + Qt6 + QML / Windows",
     "paired": null,
     "github": "",
-    "description": "Commercial desktop control of an HPLC syringe pump via Modbus RTU: flow,  pressure and flow monitoring.",
+    "description": "Commercial Windows desktop application to control and monitor an HPLC syringe pump over Modbus RTU: flow control, real-time pressure and flow monitoring, a guided calibration procedure and flow-method management. Built with C++17 and Qt6/QML. A deliberate licensing and engineering decision runs through the project: everything is built to use Qt for free under the LGPLv3 license, with no paid Qt component. In particular, a custom multi-axis real-time chart was developed own instead of Qt Charts(is not free), which is only available under GPL or a commercial license. This keeps all the benefits of Qt at zero licensing cost.",
     "features": [
-      "Modbus async priority queue",
-      "Auto-reconnect with adjustable interval",
-      "Flow Method Manager",
-      "Calibration - guided procedure",
-      "Custom real-time charting"
+      "Custom multi-axis real-time chart: developed in-house in Qt Quick to plot flow, pressure and more on independent axes, deliberately avoiding the commercial / GPL-only Qt Charts module",
+      "Modbus RTU master: asynchronous priority queue over Qt SerialBus, with auto-reconnect and an adjustable interval",
+      "Flow Method Manager: create, store and run flow methods",
+      "Guided calibration procedure",
+      "Real-time monitoring of flow and pressure",
+      "Free-Qt architecture: the whole application uses Qt under LGPLv3 (dynamic linking), so no paid Qt license is required"
     ],
     "stack": [
       [
@@ -1227,11 +1232,19 @@ const PROJECTS = [
       ],
       [
         "UI",
-        "Qt6 Quick/QML"
+        "Qt6 Quick / QML"
+      ],
+      [
+        "Charting",
+        "Custom in-house multi-axis chart (no Qt Charts, no commercial chart library)"
       ],
       [
         "Communication",
-        "SerialBus RTU"
+        "Qt SerialBus, Modbus RTU"
+      ],
+      [
+        "Qt license",
+        "LGPLv3 (dynamic linking, no paid components)"
       ],
       [
         "Build",
@@ -1243,10 +1256,19 @@ const PROJECTS = [
       ]
     ],
     "media": {
-      "foto": [],
+      "foto": [
+        "projects/18-hplc-pump/foto/Foto_1.png",
+        "projects/18-hplc-pump/foto/Foto_2.png",
+        "projects/18-hplc-pump/foto/Foto_3.png",
+        "projects/18-hplc-pump/foto/Foto_4.png",
+        "projects/18-hplc-pump/foto/Foto_5.png",
+        "projects/18-hplc-pump/foto/Foto_6.png",
+        "projects/18-hplc-pump/foto/Foto_7.png",
+        "projects/18-hplc-pump/foto/Foto_8.png"
+      ],
       "video": []
     },
-    "notes": ""
+    "notes": "- Commercial project C++/Qt/QML. - Qt is used under the free LGPLv3 license (dynamic linking). A custom multi-axis chart replaces the commercial / GPL-only Qt Charts module, so the app needs no paid Qt component."
   },
   {
     "id": "scanscore",

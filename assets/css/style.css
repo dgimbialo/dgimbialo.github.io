@@ -233,6 +233,28 @@ img { max-width: 100%; display: block; }
   gap: 16px; margin-bottom: 26px; flex-wrap: wrap;
 }
 .projects-head .section-title { margin-bottom: 0; flex: 1; }
+.cat-quick-group { display: flex; gap: 10px; flex-wrap: wrap; }
+.cat-quick {
+  font-family: 'Orbitron', sans-serif;
+  font-size: .8rem; font-weight: 700; letter-spacing: .8px;
+  padding: 10px 20px; border-radius: 11px; cursor: pointer;
+  color: var(--cat, var(--neon));
+  background: transparent;
+  border: 1.5px solid var(--cat, var(--neon));
+  transition: transform .18s, background .18s, box-shadow .18s;
+}
+.cat-quick::before { content: '#'; opacity: .7; margin-right: 1px; }
+.cat-quick:hover {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--cat, var(--neon)) 15%, transparent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--cat, var(--neon)) 55%, transparent);
+}
+.cat-quick.active {
+  color: #05050c;
+  background: linear-gradient(135deg, var(--neon), var(--neon-3));
+  border-color: transparent;
+  box-shadow: var(--glow-cyan);
+}
 .view-toggle {
   font-family: 'Orbitron', sans-serif;
   font-size: .8rem; font-weight: 700; letter-spacing: .8px;
@@ -301,7 +323,7 @@ img { max-width: 100%; display: block; }
 }
 .mq-num {
   font-family: 'Orbitron', sans-serif; font-size: .86rem; font-weight: 700;
-  color: var(--muted);
+  color: var(--neon);
 }
 .mq-cat {
   font-size: .82rem; font-weight: 700; letter-spacing: .4px;
@@ -359,7 +381,7 @@ img { max-width: 100%; display: block; }
 }
 .project-number {
   font-family: 'Orbitron', sans-serif;
-  font-size: .72rem; font-weight: 700; color: var(--muted);
+  font-size: .72rem; font-weight: 700; color: var(--neon);
   background: rgba(255,255,255,.03); padding: 3px 9px; border-radius: 8px;
   border: 1px solid var(--border-soft);
 }
@@ -397,8 +419,18 @@ img { max-width: 100%; display: block; }
 .page-back { max-width: 1220px; margin: 0 auto; padding: 22px 24px 0; }
 .page-back a {
   display: inline-flex; align-items: center; gap: 6px;
-  font-size: .9rem; font-weight: 600; color: var(--neon);
+  font-size: 1.26rem; font-weight: 600; color: var(--neon);
+  padding: 8px 18px; border: 1.5px solid var(--neon-dim); border-radius: 11px;
+  transition: background .18s, box-shadow .18s, transform .18s;
 }
+.page-back a:hover {
+  background: rgba(0,204,255,.10);
+  box-shadow: 0 0 12px rgba(0,204,255,.35);
+  transform: translateY(-1px);
+}
+/* Project detail hero: category badge and #number sizing (scoped so index cards stay). */
+.project-hero .project-category-badge { font-size: 1.008rem; }
+.project-hero .project-number { font-size: 1.008rem; }
 .project-hero {
   border-bottom: 1px solid var(--border-soft);
   padding: 40px 0 34px;

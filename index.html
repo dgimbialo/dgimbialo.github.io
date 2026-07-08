@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=56">
+  <link rel="stylesheet" href="assets/css/style.css?v=66">
 </head>
 <body data-page="index">
 
@@ -38,6 +38,14 @@
   <div class="container section" id="projects">
     <div class="projects-head">
       <h2 class="section-title">Projects <span class="count">21</span></h2>
+      <div class="cat-quick-group">
+        <button class="cat-quick" data-filter="tag:qt"   style="--cat:var(--c-tools)">Qt</button>
+        <button class="cat-quick" data-filter="tag:qml"  style="--cat:var(--c-audio)">QML</button>
+        <button class="cat-quick" data-filter="tag:mfc"  style="--cat:#ffcc33">WinApi/MFC</button>
+        <button class="cat-quick" data-filter="desktop"  style="--cat:var(--c-desktop)">Desktop</button>
+        <button class="cat-quick" data-filter="embedded" style="--cat:var(--c-embedded)">Embedded</button>
+        <button class="cat-quick" data-filter="web"      style="--cat:var(--c-web)">Web</button>
+      </div>
       <button class="view-toggle" id="view-toggle">All projects</button>
     </div>
     <div class="projects-marquee" id="projects-marquee"></div>
@@ -47,7 +55,7 @@
 
   <footer class="footer" id="main-footer"></footer>
 
-  <script src="assets/js/data.js?v=56"></script>
-  <script src="assets/js/app.js?v=56"></script>
+  <script src="assets/js/data.js?v=66"></script>
+  <script src="assets/js/app.js?v=66"></script>
 </body>
 </html>

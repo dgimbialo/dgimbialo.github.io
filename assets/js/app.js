@@ -91,7 +91,7 @@ function renderHero() {
   el.innerHTML = `
     <div class="hero-inner">
       <div class="hero-avatar">
-        <img src="assets/images/avatar.svg" alt="${esc(p.name)}" width="120" height="120">
+        <img src="assets/images/avatar.jpg" alt="${esc(p.name)}" width="120" height="120">
       </div>
       <div class="hero-info">
         <div class="hero-eyebrow">Portfolio</div>
@@ -138,7 +138,6 @@ function renderProjectsSection() {
   const countEl = document.querySelector('.projects-head .count');
   if (countEl) countEl.textContent = PROJECTS.length;
   renderMarquee();
-  renderFilters();
   renderProjectCards('all');
   initViewToggle();
 }
@@ -186,13 +185,31 @@ function initViewToggle() {
   if (!btn || !marquee || !filters || !grid) return;
 
   let gridMode = false;
-  btn.addEventListener('click', () => {
-    gridMode = !gridMode;
+  const setGridMode = on => {
+    gridMode = on;
     marquee.classList.toggle('hidden', gridMode);
-    filters.classList.toggle('hidden', !gridMode);
     grid.classList.toggle('hidden', !gridMode);
     btn.classList.toggle('is-grid', gridMode);
-    btn.textContent = gridMode ? 'Flow view' : 'All projects';
+    // Label stays "All projects" in both states, per request.
+  };
+  btn.addEventListener('click', () => {
+    const goingGrid = !gridMode;
+    setGridMode(goingGrid);
+    if (goingGrid) {
+      document.querySelectorAll('.cat-quick').forEach(c => c.classList.remove('active'));
+      renderProjectCards('all');
+    }
+  });
+
+  // Colored category shortcuts: jump straight to the grid filtered by group.
+  const quicks = document.querySelectorAll('.cat-quick');
+  quicks.forEach(q => {
+    q.addEventListener('click', () => {
+      setGridMode(true);
+      quicks.forEach(c => c.classList.toggle('active', c === q));
+      renderProjectCards(q.dataset.filter);
+      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+    });
   });
 }
 
@@ -220,10 +237,25 @@ function renderFilters() {
   });
 }
 
+// Technology quick-filters: match by project tags rather than filterGroup.
+const TAG_FILTERS = {
+  qt:  t => /^qt/i.test(t),
+  qml: t => t.trim().toLowerCase() === 'qml',
+  mfc: t => /mfc|win ?32|winapi/i.test(t),
+};
+
 function renderProjectCards(group) {
   const el = document.getElementById('projects-grid');
   if (!el) return;
-  const list = group === 'all' ? PROJECTS : PROJECTS.filter(p => p.filterGroup === group);
+  let list;
+  if (group === 'all') {
+    list = PROJECTS;
+  } else if (group.startsWith('tag:')) {
+    const match = TAG_FILTERS[group.slice(4)];
+    list = match ? PROJECTS.filter(p => (p.tags || []).some(match)) : [];
+  } else {
+    list = PROJECTS.filter(p => p.filterGroup === group);
+  }
   if (list.length === 0) {
     el.innerHTML = '<p style="color:var(--muted);padding:20px">No projects in this category.</p>';
     return;
@@ -524,8 +556,8 @@ function renderProjectDetail(p) {
     <div class="project-hero">
       <div class="container">
         <div class="project-meta-row">
-          <span class="project-category-badge" style="background:${color}">${esc(p.category)}</span>
           <span class="project-number">#${esc(p.number)}</span>
+          <span class="project-category-badge" style="background:${color}">${esc(p.category)}</span>
         </div>
         <h1>${esc(p.title)}</h1>
         <div class="subtitle">${esc(p.subtitle)}</div>
