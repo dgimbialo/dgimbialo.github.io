@@ -532,7 +532,14 @@ const PROJECTS = [
       ]
     ],
     "media": {
-      "foto": [],
+      "foto": [
+        "projects/07-comus/foto/176275332_107405111490287_9024137641245450847_n.jpg",
+        "projects/07-comus/foto/176930349_107405098156955_1619684966109683620_n.jpg",
+        "projects/07-comus/foto/176982087_107405091490289_5421949198385719882_n.jpg",
+        "projects/07-comus/foto/469860460_8864104883685865_2746403396933740588_n.jpg",
+        "projects/07-comus/foto/472179710_975389978025125_3615097736492572219_n.jpg",
+        "projects/07-comus/foto/472199715_975390201358436_1746682277738654585_n.jpg"
+      ],
       "video": []
     },
     "notes": ""
@@ -1147,28 +1154,31 @@ const PROJECTS = [
     "slug": "17-modbus-emulator",
     "number": "17",
     "title": "ModbusEmulator",
-    "subtitle": "Modbus RTU/TCP slave emulator for testing",
-    "category": "Desktop / Qt / Industrial",
+    "subtitle": "Modbus RTU/TCP slave emulator with a QML dashboard",
+    "category": "Desktop / Qt",
     "filterGroup": "desktop",
     "color": "#1565c0",
     "tags": [
       "C++17",
       "Qt6",
       "QML",
-      "QModbusServer",
+      "Modbus RTU",
+      "Modbus TCP",
       "Testing tool"
     ],
-    "path": "",
+    "path": "https://github.com/dgimbialo/ModbusEmulator",
     "platform": "C++ + Qt6 + QML / Windows",
     "paired": null,
     "github": "",
-    "description": "Desktop for emulating Modbus RTU/TCP slave devices - testing master applications (e.g. HPLC Pump) without real hardware.",
+    "description": "The project started as a small helper tool for testing Modbus communication in a commercial project. Similar emulators do exist, but I chose to build a simple one of my own for testing; it kept gaining features and grew into a full-fledged application. A desktop Modbus slave (server) emulator built with Qt 6 / QML and C++17. It emulates a field device over a serial line (Modbus RTU) or a network socket (Modbus TCP), exposes all four Modbus tables for live editing, and can feed registers with generated waveforms so a connected master sees realistic process data. Built to test Modbus master applications (e.g. the HPLC Syringe Pump) without real hardware. The app doubles as a QML showcase: a custom dark industrial theme, a component-based UI, Canvas-drawn real-time charts, animated delegates and a clean C++ backend integration.",
     "features": [
-      "QModbusServer - FC 0x03/0x10, response generation",
-      "ModbusDataStore - register bank: bulk init, per-address R/W, notifications",
-      "QML UI - port/slave-ID configuration, real-time register table, Start/Stop",
-      "LogHandler - a structured log of requests/responses with a timestamp",
-      "CMakePresets - debug/release profiles"
+      "Modbus RTU and Modbus TCP server modes, switchable at runtime, with a full connection editor (serial port, baud, parity, stop bits, TCP port, unit ID)",
+      "All four Modbus tables live: holding / input registers with named address groups, filtering and an inline 16-bit editor; coils / discrete inputs as an LED-style toggle grid",
+      "Signal simulation engine: sine, square, ramp, random and increment generators writing into any register at a configurable interval",
+      "Dashboard: read/write/error counters, uptime and a real-time auto-scaling trend chart of any register drawn on a Canvas",
+      "JSON project files: the whole emulator state (connection, tables, groups, generators, view settings) saves to a human-readable .json and reopens on start",
+      "Console with severity filtering, batched updates and smart auto-scroll",
+      "Two-way sync: master writes appear in the UI instantly; UI edits are pushed to the server data map"
     ],
     "stack": [
       [
@@ -1177,22 +1187,37 @@ const PROJECTS = [
       ],
       [
         "UI",
-        "Qt6 Quick/QML"
+        "Qt6 Quick / QML (Material dark, custom theme)"
       ],
       [
         "Protocol",
-        "Qt Modbus (QModbusServer, SerialBus)"
+        "Qt SerialBus (QModbusServer, RTU + TCP)"
+      ],
+      [
+        "Charts",
+        "QML Canvas (auto-scale, grid, gradient fill)"
+      ],
+      [
+        "Persistence",
+        "JSON project files"
       ],
       [
         "Build",
-        "CMake 3.16+, Ninja"
+        "CMake 3.16+, Qt 6.4+"
       ]
     ],
     "media": {
-      "foto": [],
+      "foto": [
+        "projects/17-modbus-emulator/foto/Foto_1.png",
+        "projects/17-modbus-emulator/foto/Foto_2.png",
+        "projects/17-modbus-emulator/foto/Foto_3.png",
+        "projects/17-modbus-emulator/foto/Foto_4.png",
+        "projects/17-modbus-emulator/foto/Foto_6.png",
+        "projects/17-modbus-emulator/foto/Foto_7.png"
+      ],
       "video": []
     },
-    "notes": ""
+    "notes": "- MIT-licensed application code; built with Qt 6 used under LGPLv3 (dynamic linking). - Works without hardware: Modbus TCP against 127.0.0.1, or Modbus RTU over a virtual serial port pair (com0com)."
   },
   {
     "id": "hplc-pump",
