@@ -1,7 +1,7 @@
 const PROFILE = {
   "name": "Taras Pavlyk",
   "initials": "TP",
-  "title": "Embedded & Desktop Software Engineer",
+  "title": "Embedded & Desktop C++ Software Engineer",
   "location": "Ukraine",
   "linkedin": "https://www.linkedin.com/in/taras-pavlyk-861b84123/",
   "github": "https://github.com/dgimbialo",
@@ -20,7 +20,7 @@ const PROFILE = {
         "PIC24 (MPLAB XC16)",
         "ESP32 / PlatformIO",
         "DCMI / DMA / ADC",
-        "OneWire / SPI / I2C"
+        "SPI / I2C"
       ]
     },
     {
@@ -1170,7 +1170,7 @@ const PROJECTS = [
     "platform": "C++ + Qt6 + QML / Windows",
     "paired": null,
     "github": "",
-    "description": "The project started as a small helper tool for testing Modbus communication in a commercial project. Similar emulators do exist, but I chose to build a simple one of my own for testing; it kept gaining features and grew into a full-fledged application. A desktop Modbus slave (server) emulator built with Qt 6 / QML and C++17. It emulates a field device over a serial line (Modbus RTU) or a network socket (Modbus TCP), exposes all four Modbus tables for live editing, and can feed registers with generated waveforms so a connected master sees realistic process data. Built to test Modbus master applications (e.g. the HPLC Syringe Pump) without real hardware. The app doubles as a QML showcase: a custom dark industrial theme, a component-based UI, Canvas-drawn real-time charts, animated delegates and a clean C++ backend integration.",
+    "description": "The project started as a small helper tool for testing Modbus communication in a commercial project. Similar emulators do exist, but I chose to build a simple one of my own for testing; it kept gaining features and grew into a full-fledged application. A desktop Modbus slave (server) emulator built with Qt 6 / QML and C++17. It emulates a field device over a serial line (Modbus RTU) or a network socket (Modbus TCP), exposes all four Modbus tables for live editing, and can feed registers with generated waveforms so a connected master sees realistic process data. Built to test Modbus master applications without real hardware. The app doubles as a QML showcase: a custom dark industrial theme, a component-based UI, Canvas-drawn real-time charts, animated delegates and a clean C++ backend integration.",
     "features": [
       "Modbus RTU and Modbus TCP server modes, switchable at runtime, with a full connection editor (serial port, baud, parity, stop bits, TCP port, unit ID)",
       "All four Modbus tables live: holding / input registers with named address groups, filtering and an inline 16-bit editor; coils / discrete inputs as an LED-style toggle grid",

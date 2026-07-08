@@ -55,9 +55,7 @@ function renderNav(activePage) {
         <span>${esc(PROFILE.name)}</span>
       </a>
       <div class="nav-links">
-        <a href="index.html#projects">Projects</a>
-        <a href="${esc(PROFILE.github)}" target="_blank" rel="noopener">GitHub</a>
-        <a href="${esc(PROFILE.linkedin)}" target="_blank" rel="noopener" class="btn-primary">LinkedIn</a>
+        <a href="index.html#projects" class="btn-primary">Projects</a>
       </div>
     </div>`;
 }
@@ -193,12 +191,10 @@ function initViewToggle() {
     // Label stays "All projects" in both states, per request.
   };
   btn.addEventListener('click', () => {
+    document.querySelectorAll('.cat-quick').forEach(c => c.classList.remove('active'));
     const goingGrid = !gridMode;
     setGridMode(goingGrid);
-    if (goingGrid) {
-      document.querySelectorAll('.cat-quick').forEach(c => c.classList.remove('active'));
-      renderProjectCards('all');
-    }
+    if (goingGrid) renderProjectCards('all');
   });
 
   // Colored category shortcuts: jump straight to the grid filtered by group.
