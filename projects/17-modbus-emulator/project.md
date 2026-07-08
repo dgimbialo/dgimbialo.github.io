@@ -11,7 +11,7 @@
 
 The project started as a small helper tool for testing Modbus communication in a commercial project. Similar emulators do exist, but I chose to build a simple one of my own for testing; it kept gaining features and grew into a full-fledged application.
 
-A desktop Modbus slave (server) emulator built with Qt 6 / QML and C++17. It emulates a field device over a serial line (Modbus RTU) or a network socket (Modbus TCP), exposes all four Modbus tables for live editing, and can feed registers with generated waveforms so a connected master sees realistic process data. Built to test Modbus master applications (e.g. the HPLC Syringe Pump) without real hardware.
+A desktop Modbus slave (server) emulator built with Qt 6 / QML and C++17. It emulates a field device over a serial line (Modbus RTU) or a network socket (Modbus TCP), exposes all four Modbus tables for live editing, and can feed registers with generated waveforms so a connected master sees realistic process data. Built to test Modbus master applications without real hardware.
 
 The app doubles as a QML showcase: a custom dark industrial theme, a component-based UI, Canvas-drawn real-time charts, animated delegates and a clean C++ backend integration.
 
