@@ -483,66 +483,88 @@ const PROJECTS = [
     "id": "comus",
     "slug": "07-comus",
     "number": "07",
-    "title": "COMUS Temp Controller",
-    "subtitle": "Solar collector thermal management firmware",
-    "category": "Embedded / Arduino",
+    "title": "MUSON Temp Controller",
+    "subtitle": "Controller for a solar air collector (firmware + hardware)",
+    "category": "Embedded / PlatformIO",
     "filterGroup": "embedded",
     "color": "#e65100",
     "tags": [
       "Commercial",
-      "Arduino",
+      "PlatformIO",
       "C/C++",
+      "PCB",
       "DS18B20",
       "OneWire",
       "EEPROM",
       "LCD"
     ],
     "path": "",
-    "platform": "Arduino C/C++ / ATmega",
+    "platform": "PlatformIO / C/C++ / ATmega",
     "paired": null,
     "github": "",
-    "description": "Commercial standalone controller firmware for a solar collector system: Controls the fan based on the temperature difference between the collector and the room.",
+    "description": "Commercial controller (firmware and hardware) for a MUSON solar air collector: a device that heats outdoor air on a solar absorber and blows warm, dry, fresh air into a room to cut humidity, mould and odours and save on heating. The MUSON controller drives the fan automatically from the temperature difference between the collector and the room, so air is only pushed inside once the collector is hot enough. The device went through several design iterations, from version 1 to version 3, over the course of development; the different revisions can be seen in the photos. The work covered the full path to production, including the BOM, Gerber files and manufacturing preparation.",
     "features": [
-      "Two-sensor system DS18B20 (OneWire) - HomeThermometer + CollectorThermometer; check of 2 devices at start",
-      "3 modes - OFF / COOL / HEAT based on temperature difference + manual mode",
-      "EEPROM persistence - nSetTemp and nManualMode are restored after shutdown",
-      "Interrupt-driven buttons -  debounce 100 ms; Temp Down / Mode / Temp Up",
-      "LCD UI (LiquidCrystal 16×2) - both temperatures, mode, set temperature"
+      "Fan control by temperature difference: reads the collector and room temperatures and runs the fan only when the collector is warm enough to deliver useful heat",
+      "Two DS18B20 sensors over OneWire (collector + room), with a device check at startup",
+      "Operating modes: OFF / COOL / HEAT by temperature difference, plus a manual mode",
+      "EEPROM persistence: the set temperature and manual mode are restored after a power cycle",
+      "Interrupt-driven buttons with debounce: Temp Down / Mode / Temp Up",
+      "LCD UI (16x2): both temperatures, the current mode and the set temperature",
+      "Hardware taken through three PCB revisions (v1 to v3) to a production-ready design"
     ],
     "stack": [
       [
-        "Platform",
-        "Arduino (ATmega)"
+        "Toolchain",
+        "AVR Studio / PlatformIO"
       ],
       [
         "Sensors",
-        "DS18B20 via OneWire + DallasTemperature"
+        "DS18B20 over OneWire (DallasTemperature)"
       ],
       [
         "Display",
-        "LiquidCrystal 16×2"
+        "LiquidCrystal 16x2"
       ],
       [
         "Persistence",
-        "EEPROM read/write/update"
+        "EEPROM read / write / update"
       ],
       [
-        "Interrupts",
-        "attachInterrupt"
+        "Inputs",
+        "Interrupt-driven buttons (attachInterrupt)"
+      ],
+      [
+        "Hardware",
+        "Custom PCB, v1 to v3, with BOM and Gerber for manufacturing"
       ]
     ],
     "media": {
       "foto": [
-        "projects/07-comus/foto/176275332_107405111490287_9024137641245450847_n.jpg",
-        "projects/07-comus/foto/176930349_107405098156955_1619684966109683620_n.jpg",
-        "projects/07-comus/foto/176982087_107405091490289_5421949198385719882_n.jpg",
-        "projects/07-comus/foto/469860460_8864104883685865_2746403396933740588_n.jpg",
-        "projects/07-comus/foto/472179710_975389978025125_3615097736492572219_n.jpg",
-        "projects/07-comus/foto/472199715_975390201358436_1746682277738654585_n.jpg"
+        "projects/07-comus/foto/Foto_1.jpg",
+        "projects/07-comus/foto/Foto_2.png",
+        "projects/07-comus/foto/Foto_3.png",
+        "projects/07-comus/foto/Foto_4.png",
+        "projects/07-comus/foto/Foto_5.jpg",
+        "projects/07-comus/foto/Foto_6.jpg",
+        "projects/07-comus/foto/Foto_7.png",
+        "projects/07-comus/foto/Foto_8.png",
+        "projects/07-comus/foto/Foto_9.JPG",
+        "projects/07-comus/foto/Foto_10.jpg",
+        "projects/07-comus/foto/Foto_11.png",
+        "projects/07-comus/foto/Foto_12.png",
+        "projects/07-comus/foto/Foto_13.png",
+        "projects/07-comus/foto/Foto_14.png",
+        "projects/07-comus/foto/Foto_15.png",
+        "projects/07-comus/foto/Foto_16.png",
+        "projects/07-comus/foto/Foto_17.png",
+        "projects/07-comus/foto/Foto_18.jpg",
+        "projects/07-comus/foto/Foto_19.jpg",
+        "projects/07-comus/foto/Foto_20.jpg",
+        "projects/07-comus/foto/Foto_21.jpg"
       ],
       "video": []
     },
-    "notes": ""
+    "notes": "- The controller runs a MUSON solar air collector, which supplies 20 to 60 m3/h of warm, dry, fresh air and can cut heating costs by up to about 30% over a season. - Hardware iterated through three revisions (v1 to v3); BOM, Gerber files and manufacturing preparation were part of the work."
   },
   {
     "id": "eagle-ulp",

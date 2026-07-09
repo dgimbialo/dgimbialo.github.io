@@ -13,7 +13,7 @@ HMIApp - Industrial HMI,In progress,Desktop / Qt,"C++17, Qt6, QML, Modbus RTU",,
 HPLC Syringe Pump,In progress,Desktop / Qt,"C++17, Qt6, QML, Modbus RTU",,Screenshots of charts
 SimpleMidiViewer,Draft,Desktop / Audio,"C++17, MFC, MIDI",,Description + media
 Pump Controller Arduino,Draft,Embedded / Arduino,"Arduino, LCD, Relay",,Photo of device
-COMUS Temp Controller,Draft,Embedded / Arduino,"Arduino, DS18B20, EEPROM",,Photo
+MUSON Temp Controller,Draft,Embedded / Arduino,"Arduino, DS18B20, EEPROM",,Photo
 EAGLE ULP Pin Analyzer,Draft,EDA / Scripting,"EAGLE ULP",,Screenshot of export
 Git Change Keeper,Draft,Python / CLI,"Python, GitPython, SHA-256",,GitHub link + terminal demo
 HMI Touchscreen (PIC24),Draft,Embedded / PIC,"PIC24, XC16, Modbus RTU, TFT35",,Photo of display

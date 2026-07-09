@@ -182,31 +182,57 @@ function initViewToggle() {
   const grid     = document.getElementById('projects-grid');
   if (!btn || !marquee || !filters || !grid) return;
 
+  const quicks = document.querySelectorAll('.cat-quick');
+
+  // Map between the shareable URL ?filter= value and the internal
+  // renderProjectCards() key, so a filtered view can be linked and restored.
+  const URL_TO_FILTER = {
+    all: 'all', desktop: 'desktop', embedded: 'embedded', web: 'web',
+    qt: 'tag:qt', qml: 'tag:qml', mfc: 'tag:mfc',
+  };
+  const FILTER_TO_URL = Object.fromEntries(
+    Object.entries(URL_TO_FILTER).map(([k, v]) => [v, k]));
+
   let gridMode = false;
   const setGridMode = on => {
     gridMode = on;
-    marquee.classList.toggle('hidden', gridMode);
-    grid.classList.toggle('hidden', !gridMode);
-    btn.classList.toggle('is-grid', gridMode);
-    // Label stays "All projects" in both states, per request.
+    marquee.classList.toggle('hidden', on);
+    grid.classList.toggle('hidden', !on);
+    btn.classList.toggle('is-grid', on);
   };
+
+  // Reflect the current view in the address bar (no page reload).
+  const setUrl = key => {
+    const url = key ? `?filter=${key}#projects` : `${location.pathname}#projects`;
+    history.replaceState(null, '', url);
+  };
+
+  const showGrid = (filter, { scroll = false } = {}) => {
+    setGridMode(true);
+    quicks.forEach(c => c.classList.toggle('active', c.dataset.filter === filter));
+    renderProjectCards(filter);
+    if (scroll) document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+  };
+  const showFlow = () => {
+    setGridMode(false);
+    quicks.forEach(c => c.classList.remove('active'));
+  };
+
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.cat-quick').forEach(c => c.classList.remove('active'));
-    const goingGrid = !gridMode;
-    setGridMode(goingGrid);
-    if (goingGrid) renderProjectCards('all');
+    if (gridMode) { showFlow(); setUrl(null); }
+    else { showGrid('all'); setUrl('all'); }
   });
 
-  // Colored category shortcuts: jump straight to the grid filtered by group.
-  const quicks = document.querySelectorAll('.cat-quick');
   quicks.forEach(q => {
     q.addEventListener('click', () => {
-      setGridMode(true);
-      quicks.forEach(c => c.classList.toggle('active', c === q));
-      renderProjectCards(q.dataset.filter);
-      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+      showGrid(q.dataset.filter, { scroll: true });
+      setUrl(FILTER_TO_URL[q.dataset.filter] || null);
     });
   });
+
+  // Restore a shared / bookmarked filter from the URL on load.
+  const initial = URL_TO_FILTER[(new URLSearchParams(location.search).get('filter') || '').toLowerCase()];
+  if (initial) showGrid(initial, { scroll: true });
 }
 
 function renderFilters() {
