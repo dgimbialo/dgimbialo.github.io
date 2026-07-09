@@ -2,7 +2,7 @@
 
 **Subtitle:** Controller for a solar air collector (firmware + hardware)
 **Category:** Embedded / PlatformIO
-**Tags:** Commercial, PlatformIO, C/C++, PCB, DS18B20, OneWire, EEPROM, LCD
+**Tags:** Commercial, PlatformIO, C/C++, PCB, DS18B20, EEPROM, LCD
 **Path:** 
 **Button:** 
 **Platform:** PlatformIO / C/C++ / ATmega
@@ -16,7 +16,7 @@ The device went through several design iterations, from version 1 to version 3, 
 ## Key features
 
 - Fan control by temperature difference: reads the collector and room temperatures and runs the fan only when the collector is warm enough to deliver useful heat
-- Two DS18B20 sensors over OneWire (collector + room), with a device check at startup
+- Two DS18B20 digital temperature sensors (collector + room), with a device check at startup
 - Operating modes: OFF / COOL / HEAT by temperature difference, plus a manual mode
 - EEPROM persistence: the set temperature and manual mode are restored after a power cycle
 - Interrupt-driven buttons with debounce: Temp Down / Mode / Temp Up
@@ -28,7 +28,7 @@ The device went through several design iterations, from version 1 to version 3, 
 | Component | Technology |
 |---|---|
 | Toolchain | AVR Studio / PlatformIO |
-| Sensors | DS18B20 over OneWire (DallasTemperature) |
+| Sensors | DS18B20 (DallasTemperature) |
 | Display | LiquidCrystal 16x2 |
 | Persistence | EEPROM read / write / update |
 | Inputs | Interrupt-driven buttons (attachInterrupt) |

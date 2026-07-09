@@ -494,7 +494,6 @@ const PROJECTS = [
       "C/C++",
       "PCB",
       "DS18B20",
-      "OneWire",
       "EEPROM",
       "LCD"
     ],
@@ -505,7 +504,7 @@ const PROJECTS = [
     "description": "Commercial controller (firmware and hardware) for a MUSON solar air collector: a device that heats outdoor air on a solar absorber and blows warm, dry, fresh air into a room to cut humidity, mould and odours and save on heating. The MUSON controller drives the fan automatically from the temperature difference between the collector and the room, so air is only pushed inside once the collector is hot enough. The device went through several design iterations, from version 1 to version 3, over the course of development; the different revisions can be seen in the photos. The work covered the full path to production, including the BOM, Gerber files and manufacturing preparation.",
     "features": [
       "Fan control by temperature difference: reads the collector and room temperatures and runs the fan only when the collector is warm enough to deliver useful heat",
-      "Two DS18B20 sensors over OneWire (collector + room), with a device check at startup",
+      "Two DS18B20 digital temperature sensors (collector + room), with a device check at startup",
       "Operating modes: OFF / COOL / HEAT by temperature difference, plus a manual mode",
       "EEPROM persistence: the set temperature and manual mode are restored after a power cycle",
       "Interrupt-driven buttons with debounce: Temp Down / Mode / Temp Up",
@@ -519,7 +518,7 @@ const PROJECTS = [
       ],
       [
         "Sensors",
-        "DS18B20 over OneWire (DallasTemperature)"
+        "DS18B20 (DallasTemperature)"
       ],
       [
         "Display",

@@ -187,7 +187,7 @@ function initViewToggle() {
   // Map between the shareable URL ?filter= value and the internal
   // renderProjectCards() key, so a filtered view can be linked and restored.
   const URL_TO_FILTER = {
-    all: 'all', desktop: 'desktop', embedded: 'embedded', web: 'web',
+    all: 'all', desktop: 'desktop', embedded: 'embedded', web: 'web', music: 'music',
     qt: 'tag:qt', qml: 'tag:qml', mfc: 'tag:mfc',
   };
   const FILTER_TO_URL = Object.fromEntries(
@@ -275,9 +275,22 @@ function renderProjectCards(group) {
   } else if (group.startsWith('tag:')) {
     const match = TAG_FILTERS[group.slice(4)];
     list = match ? PROJECTS.filter(p => (p.tags || []).some(match)) : [];
+  } else if (group === 'music') {
+    // Music software: the audio group plus anything tagged as music tech.
+    const MUSIC_TAG = /^(musicxml|vst|bass|soundfont|omr|music)/i;
+    list = PROJECTS.filter(p =>
+      p.filterGroup === 'audio' || (p.tags || []).some(t => MUSIC_TAG.test(t)));
   } else {
-    list = PROJECTS.filter(p => p.filterGroup === group);
+    // "Desktop" is an umbrella for all PC software: desktop apps, the music /
+    // audio desktop apps, and the PC tools (so nothing is unreachable now that
+    // only Desktop / Embedded / Web category buttons exist).
+    const GROUP_MEMBERS = { desktop: ['desktop', 'audio', 'tools'] };
+    const groups = GROUP_MEMBERS[group] || [group];
+    list = PROJECTS.filter(p => groups.includes(p.filterGroup));
   }
+  // Sort by number of photos (most first); projects with no photos go last.
+  const photoCount = p => (p.media && Array.isArray(p.media.foto)) ? p.media.foto.length : 0;
+  list = list.slice().sort((a, b) => photoCount(b) - photoCount(a));
   if (list.length === 0) {
     el.innerHTML = '<p style="color:var(--muted);padding:20px">No projects in this category.</p>';
     return;
