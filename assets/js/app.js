@@ -47,7 +47,10 @@ function categoryColor(group) {
 // ── i18n ────────────────────────────────────────────────────────────────────
 const LANG_KEY = 'portfolio_lang';
 let LANG = 'en';
-try { LANG = localStorage.getItem(LANG_KEY) || 'en'; } catch (e) {}
+// Use sessionStorage (not localStorage) so the choice lasts only for the
+// current tab session: every fresh visit to the site starts in English,
+// while navigating between pages within the same session keeps the language.
+try { LANG = sessionStorage.getItem(LANG_KEY) || 'en'; } catch (e) {}
 const UI_EN = { about: 'About', skills: 'Skills', paired: 'Paired System',
                 purpose: 'Purpose', keyFeatures: 'Key Features', notes: 'Notes',
                 projects: 'Projects', allProjects: 'All projects',
@@ -103,10 +106,10 @@ function updateI18nLabels() {
   document.querySelectorAll('#lang-menu [data-lang]').forEach(li =>
     li.classList.toggle('active', li.dataset.lang === LANG));
 }
-// Switch language: persist, relabel and re-render the visible content.
+// Switch language: persist for this tab session, relabel and re-render.
 function setLanguage(lang) {
   LANG = lang;
-  try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+  try { sessionStorage.setItem(LANG_KEY, lang); } catch (e) {}
   updateI18nLabels();
   const page = document.body.dataset.page;
   if (page === 'index') {
