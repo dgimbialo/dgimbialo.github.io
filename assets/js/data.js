@@ -431,7 +431,7 @@ const PROJECTS = [
     "slug": "06-pump-controller",
     "number": "06",
     "title": "Pump Controller Arduino",
-    "subtitle": "3-sensor liquid level controller",
+    "subtitle": "Home water-tank level controller (hardware + firmware)",
     "category": "Embedded / Arduino",
     "filterGroup": "embedded",
     "color": "#e65100",
@@ -446,7 +446,7 @@ const PROJECTS = [
     "platform": "Arduino C/C++ / Arduino Mega 2560",
     "paired": null,
     "github": "",
-    "description": "Pump controller firmware for automatic and manual liquid supply with 3-sensor level detection system.",
+    "description": "A hardware and software device I designed that keeps the water level in a home tank at the right point, both automatically and manually. It drives the pump from a three-sensor level system (low / middle / high): in automatic mode it tops the tank up by level, and a manual mode with buttons and an LCD lets you override and run the pump by hand. It also detects fault conditions, such as a missing or faulty sensor.",
     "features": [
       "3-sensor system - LOW/MIDDLE/HIGH level; pump relay control",
       "Automatic mode - control by liquid level",
@@ -474,7 +474,9 @@ const PROJECTS = [
       ]
     ],
     "media": {
-      "foto": [],
+      "foto": [
+        "projects/06-pump-controller/foto/Foto_1.jpg"
+      ],
       "video": []
     },
     "notes": ""
@@ -702,7 +704,8 @@ const PROJECTS = [
         "projects/09-fastacqwinapp/foto/Foto_3.png",
         "projects/09-fastacqwinapp/foto/Foto_4.png",
         "projects/09-fastacqwinapp/foto/Foto_5.png",
-        "projects/09-fastacqwinapp/foto/Foto_6.png"
+        "projects/09-fastacqwinapp/foto/Foto_6.png",
+        "projects/09-fastacqwinapp/foto/Foto_7.JPEG"
       ],
       "video": []
     },
@@ -713,7 +716,7 @@ const PROJECTS = [
     "slug": "10-stm32h7",
     "number": "10",
     "title": "STM32H7 Fast Acquisition",
-    "subtitle": "High-speed ADC firmware with on-device FFT",
+    "subtitle": "High-speed data acquisition with an external ADC over DCMI",
     "category": "Embedded / STM32",
     "filterGroup": "embedded",
     "color": "#b71c1c",
@@ -723,6 +726,7 @@ const PROJECTS = [
       "HAL",
       "DCMI",
       "DMA",
+      "AD9226",
       "USB CDC",
       "CMake"
     ],
@@ -730,46 +734,61 @@ const PROJECTS = [
     "platform": "C + ASM / STM32H743 / arm-none-eabi",
     "paired": "FastAcqWinApp (#9)",
     "github": "",
-    "description": "Firmware high-speed ADC device on STM32H743 (Cortex-M7, 480 MHz). Captures analog signal via parallel DCMI ADC, performs chirp-excitation and FFT on MCU.",
+    "description": "A high-speed data-acquisition device built around an STM32H743 (Cortex-M7 at 480 MHz). The working prototype runs on a breadboard: it is built, tested and works; the schematic and PCB are being designed now. What makes it unusual is how the samples are captured. Instead of the MCU's built-in ADC, it uses an external AD9226 12-bit ADC (65 MSPS-class, run here at 60 MS/s) and streams the samples into the MCU over its DCMI digital-camera interface: the ADC data is captured as if it were a video frame, with DMA moving it straight into memory. That offloads the CPU almost completely during a capture, so the Cortex-M7 stays free while high-rate acquisition runs in the background.",
     "features": [
-      "DCMI ADC capture (dcmi_adc.c) - parallel 8/16-bit bus; DMA → external SDRAM",
-      "External SDRAM (sdram_init.c) - FMC controller for large arrays of samples",
-      "Chirp DAC (chirp_dac.c) - generation of an exciting chirp signal through a DAC",
-      "On-device FFT (chirp_fft.c) - spectrum on the MCU; compression before USB transfer",
-      "Phase analysis (phase_a.c, phase_b.c) - two-channel phase analysis",
-      "USB CDC binary protocol (usb_protocol.h) - response to FastAcqWinApp commands"
+      "External AD9226 12-bit ADC at 60 MS/s, far faster than the MCU's on-chip ADC",
+      "Capture over the DCMI camera interface in continuous mode: the ADC stream is read like a video frame, so sampling does not load the CPU",
+      "DMA double-buffering straight into fast on-chip AXI SRAM",
+      "Large captures: about 650,000 samples per acquisition",
+      "Fast enough to resolve a clean square wave (meander) up to about 6 MHz",
+      "External FMC SDRAM for large sample buffers",
+      "DAC-generated chirp excitation output for the analysis stage",
+      "USB CDC link to the desktop app (FastAcqWinApp), plus UART debug with Serial Plotter"
     ],
     "stack": [
       [
         "MCU",
-        "STM32H743 (Cortex-M7, 480 MHz)"
+        "STM32H743IIT6 (Cortex-M7, 480 MHz)"
       ],
       [
-        "Language",
-        "C + startup ASM"
+        "External ADC",
+        "AD9226 12-bit (65 MSPS-class, 60 MS/s here)"
       ],
       [
-        "HAL",
-        "STM32 HAL / CMSIS"
+        "Capture path",
+        "DCMI camera interface + DMA double-buffer to AXI SRAM"
       ],
       [
-        "Peripherals",
-        "DCMI, DMA, SDRAM (FMC), DAC, USB FS"
+        "External memory",
+        "FMC SDRAM (16-bit)"
+      ],
+      [
+        "Excitation",
+        "DAC chirp output"
+      ],
+      [
+        "Host link",
+        "USB CDC (to FastAcqWinApp) + UART debug"
       ],
       [
         "Build",
-        "CMake + arm-none-eabi-gcc, Ninja"
+        "STM32CubeCLT, CMake + Ninja, arm-none-eabi-gcc, J-Link"
       ],
       [
         "Config",
-        "STM32CubeMX (.ioc) + J-Link scripts"
+        "STM32CubeMX (.ioc)"
       ]
     ],
     "media": {
-      "foto": [],
+      "foto": [
+        "projects/10-stm32h7/foto/Foto_1.JPEG",
+        "projects/10-stm32h7/foto/Foto_2.png",
+        "projects/10-stm32h7/foto/Foto_3.png",
+        "projects/10-stm32h7/foto/Foto_4.png"
+      ],
       "video": []
     },
-    "notes": ""
+    "notes": "- Current status: the prototype works on a breadboard, the schematic and PCB are in design. - Pairs with the FastAcqWinApp desktop application, which receives the captured data over USB CDC."
   },
   {
     "id": "crosszero",

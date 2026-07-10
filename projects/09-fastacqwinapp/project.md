@@ -49,6 +49,7 @@ MFC was chosen deliberately for speed, reliability and self-containment: the res
 - projects/09-fastacqwinapp/foto/Foto_4.png
 - projects/09-fastacqwinapp/foto/Foto_5.png
 - projects/09-fastacqwinapp/foto/Foto_6.png
+- projects/09-fastacqwinapp/foto/Foto_7.JPEG
 
 ### Videos
 

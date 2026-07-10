@@ -1,14 +1,14 @@
 # Pump Controller Arduino
 
-**Subtitle:** 3-sensor liquid level controller
+**Subtitle:** Home water-tank level controller (hardware + firmware)
 **Tags:** Arduino, C/C++, Mega 2560, LCD, Relay
 **Path:** 
-**Button:** Go to App Website
+**Button:** 
 **Platform:** Arduino C/C++ / Arduino Mega 2560
 
 ## Purpose
 
-Pump controller firmware for automatic and manual liquid supply with 3-sensor level detection system.
+A hardware and software device I designed that keeps the water level in a home tank at the right point, both automatically and manually. It drives the pump from a three-sensor level system (low / middle / high): in automatic mode it tops the tank up by level, and a manual mode with buttons and an LCD lets you override and run the pump by hand. It also detects fault conditions, such as a missing or faulty sensor.
 
 ## Key features
 
@@ -31,8 +31,7 @@ Pump controller firmware for automatic and manual liquid supply with 3-sensor le
 ## Media
 
 ### Photos
-<!-- Place photos in foto/ folder -->
-<!-- Then specify paths in media.foto in assets/js/data.js -->
+- projects/06-pump-controller/foto/Foto_1.jpg
 
 ### Videos
 <!-- Place videos in video/ folder -->
