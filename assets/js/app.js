@@ -67,6 +67,15 @@ function tui(key) {
   if (LANG === 'uk' && window.I18N?.uk?.ui?.[key]) return I18N.uk.ui[key];
   return UI_EN[key] || key;
 }
+// CTA button label (from project.md **Button:**) in the current language;
+// unknown / brand-name labels are left untouched.
+function tcta(label) {
+  if (LANG === 'uk') {
+    const v = window.I18N?.uk?.ui?.cta?.[label];
+    if (v) return v;
+  }
+  return label;
+}
 // Project field (subtitle/description/features/notes) in the current language.
 function tp(id, field, fallback) {
   if (LANG === 'uk') {
@@ -621,7 +630,7 @@ function renderProjectDetail(p) {
   const ctaLabel = (typeof p.ctaLabel === 'string' && p.ctaLabel.trim()) ? p.ctaLabel.trim() : 'Go to App Website';
   const websiteBtn = p.path && (p.path.startsWith('http://') || p.path.startsWith('https://')) ? `
     <a href="${esc(p.path)}" target="_blank" rel="noopener" class="project-link-btn project-link-btn--site project-cta-site">
-      ${esc(ctaLabel)} →
+      ${esc(tcta(ctaLabel))} →
     </a>` : '';
   const githubBtn = p.github ? `
     <a href="${esc(p.github)}" target="_blank" rel="noopener" class="project-link-btn project-link-btn--github">
