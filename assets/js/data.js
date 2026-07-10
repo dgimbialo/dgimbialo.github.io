@@ -8,9 +8,9 @@ const PROFILE = {
   "email": "",
   "summary": "Software engineer specialising in embedded systems, industrial automation, and desktop applications - building reliable products from the firmware up to the user interface.",
   "about": [
-    "I build systems where hardware meets software. My main focus is embedded development and industrial automation - the real-time firmware and control logic that keeps physical devices running reliably, around the clock.",
+    "I build systems where hardware meets software. My main focus is embedded development and industrial automation - the bare-metal firmware and control logic that keeps physical devices running reliably, around the clock.",
     "On top of that low-level work, I design the desktop tools that operators and engineers actually use day to day: instrument control, signal acquisition and analysis, and professional HMI panels for industrial equipment.",
-    "I've also shipped commercial desktop software beyond the industrial world, including music notation and arrangement applications. Across every project my goal stays the same - turn complex hardware into something dependable and genuinely easy to work with."
+    "Software is just as much my craft as hardware. I build commercial desktop applications from the ground up, and I've also worked on established products - adding new features and fixing bugs and crashes in commercial music-notation and arrangement software. Whether a project is embedded hardware or pure software, the goal stays the same - turn something complex into a product that is dependable and genuinely easy to work with."
   ],
   "skills": [
     {

@@ -10,7 +10,7 @@ Usage:  python serve_nocache.py [port]   (default port 8090)
 """
 
 import sys
-from http.server import HTTPServer, SimpleHTTPRequestHandler
+from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 
 
 class NoCacheHandler(SimpleHTTPRequestHandler):
@@ -36,7 +36,10 @@ class NoCacheHandler(SimpleHTTPRequestHandler):
 def main() -> None:
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8090
     try:
-        server = HTTPServer(("", port), NoCacheHandler)
+        # Threading server: the browser opens several parallel keep-alive
+        # connections (html, js, css, images). A single-threaded HTTPServer
+        # serialises them and can wedge; one thread per request avoids that.
+        server = ThreadingHTTPServer(("", port), NoCacheHandler)
     except OSError:
         # Port already taken — a server is probably already running. The site is
         # still reachable on that port, so this isn't a fatal error.

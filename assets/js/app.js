@@ -44,6 +44,77 @@ function categoryColor(group) {
   return map[group] || '#666';
 }
 
+// ── i18n ────────────────────────────────────────────────────────────────────
+const LANG_KEY = 'portfolio_lang';
+let LANG = 'en';
+try { LANG = localStorage.getItem(LANG_KEY) || 'en'; } catch (e) {}
+const UI_EN = { about: 'About', skills: 'Skills', paired: 'Paired System',
+                purpose: 'Purpose', keyFeatures: 'Key Features', notes: 'Notes',
+                projects: 'Projects', allProjects: 'All projects',
+                back: 'Back', foto: 'Foto', fullscreen: 'Open fullscreen',
+                techStack: 'Tech Stack', platform: 'Platform' };
+
+// Inline SVG flags for the language switcher (Windows does not render
+// regional-indicator emoji flags, so we draw them as SVG).
+const LANG_FLAGS = {
+  en: '<svg class="flag-svg" viewBox="0 0 60 30" aria-hidden="true"><rect width="60" height="30" fill="#012169"/><path d="M0 0l60 30M60 0L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30M60 0L0 30" stroke="#C8102E" stroke-width="3"/><rect x="25" width="10" height="30" fill="#fff"/><rect y="10" width="60" height="10" fill="#fff"/><rect x="27" width="6" height="30" fill="#C8102E"/><rect y="12" width="60" height="6" fill="#C8102E"/></svg>',
+  uk: '<svg class="flag-svg" viewBox="0 0 60 30" aria-hidden="true"><rect width="60" height="15" fill="#0057B7"/><rect y="15" width="60" height="15" fill="#FFD700"/></svg>',
+};
+const LANG_CODE = { en: 'EN', uk: 'UA' };
+
+// UI label in the current language (falls back to English).
+function tui(key) {
+  if (LANG === 'uk' && window.I18N?.uk?.ui?.[key]) return I18N.uk.ui[key];
+  return UI_EN[key] || key;
+}
+// Project field (subtitle/description/features/notes) in the current language.
+function tp(id, field, fallback) {
+  if (LANG === 'uk') {
+    const v = window.I18N?.uk?.projects?.[id]?.[field];
+    if (v !== undefined && v !== null && (Array.isArray(v) ? v.length : v !== '')) return v;
+  }
+  return fallback;
+}
+// Profile field (about/summary) in the current language.
+function tprofile(field, fallback) {
+  if (LANG === 'uk') {
+    const v = window.I18N?.uk?.profile?.[field];
+    if (v !== undefined && v !== null && (Array.isArray(v) ? v.length : v !== '')) return v;
+  }
+  return fallback;
+}
+// Update static [data-i18n] headings (About / Skills) to the current language.
+function updateI18nLabels() {
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = tui(el.dataset.i18n); });
+  // Reflect the current language on the custom flag dropdown.
+  const flagEl = document.querySelector('#lang-toggle .lang-flag');
+  const codeEl = document.querySelector('#lang-toggle .lang-code');
+  if (flagEl) flagEl.innerHTML = LANG_FLAGS[LANG] || LANG_FLAGS.en;
+  if (codeEl) codeEl.textContent = LANG_CODE[LANG] || 'EN';
+  document.querySelectorAll('#lang-menu [data-lang]').forEach(li =>
+    li.classList.toggle('active', li.dataset.lang === LANG));
+}
+// Switch language: persist, relabel and re-render the visible content.
+function setLanguage(lang) {
+  LANG = lang;
+  try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+  updateI18nLabels();
+  const page = document.body.dataset.page;
+  if (page === 'index') {
+    renderAbout();
+    renderMarquee();
+    const grid = document.getElementById('projects-grid');
+    if (grid && !grid.classList.contains('hidden')) {
+      const active = document.querySelector('.cat-quick.active');
+      renderProjectCards(active ? active.dataset.filter : 'all');
+    }
+  } else if (page === 'project') {
+    const id = new URLSearchParams(location.search).get('id');
+    const project = PROJECTS.find(p => p.id === id);
+    if (project) renderProjectDetail(project);
+  }
+}
+
 // ── NAV ─────────────────────────────────────────────────────────────────────
 function renderNav(activePage) {
   const nav = document.getElementById('main-nav');
@@ -55,9 +126,34 @@ function renderNav(activePage) {
         <span>${esc(PROFILE.name)}</span>
       </a>
       <div class="nav-links">
-        <a href="index.html#projects" class="btn-primary">Projects</a>
+        <a href="index.html#projects" class="btn-primary" data-i18n="projects">Projects</a>
+        <div class="lang-switch" id="lang-switch">
+          <button type="button" class="btn-primary lang-toggle" id="lang-toggle"
+                  aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+            <span class="lang-flag">${LANG_FLAGS[LANG] || LANG_FLAGS.en}</span>
+            <span class="lang-code">${LANG_CODE[LANG] || 'EN'}</span>
+            <svg class="lang-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <ul class="lang-menu" id="lang-menu" role="listbox">
+            <li role="option" data-lang="en"><span class="lang-flag">${LANG_FLAGS.en}</span><span class="lang-code">EN</span></li>
+            <li role="option" data-lang="uk"><span class="lang-flag">${LANG_FLAGS.uk}</span><span class="lang-code">UA</span></li>
+          </ul>
+        </div>
       </div>
     </div>`;
+  const toggle = document.getElementById('lang-toggle');
+  const menu = document.getElementById('lang-menu');
+  if (toggle && menu) {
+    const close = () => { menu.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); };
+    toggle.addEventListener('click', e => {
+      e.stopPropagation();
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    menu.querySelectorAll('[data-lang]').forEach(li =>
+      li.addEventListener('click', () => { setLanguage(li.dataset.lang); close(); }));
+    document.addEventListener('click', close);
+  }
 }
 
 // ── INDEX PAGE ───────────────────────────────────────────────────────────────
@@ -68,15 +164,19 @@ function initIndex() {
   // Tags (and other md-defined fields) are sourced from each project.md so the
   // markdown is the single source of truth across the whole site. Render the
   // project views once overrides are applied; fall back to data.js on failure.
-  Promise.all(PROJECTS.map(applyMarkdownOverrides)).finally(renderProjectsSection);
+  Promise.all(PROJECTS.map(applyMarkdownOverrides)).finally(() => {
+    renderProjectsSection();
+    updateI18nLabels();
+  });
 }
 
 function renderAbout() {
   const el = document.getElementById('about-content');
   if (!el) return;
-  const paras = (Array.isArray(PROFILE.about) && PROFILE.about.length)
+  const enParas = (Array.isArray(PROFILE.about) && PROFILE.about.length)
     ? PROFILE.about
     : [PROFILE.summary];
+  const paras = tprofile('about', enParas);
   el.innerHTML = paras
     .map((t, i) => `<p${i === 0 ? ' class="about-lead"' : ''}>${esc(t)}</p>`)
     .join('');
@@ -169,7 +269,7 @@ function marqueeCard(p) {
         <span class="mq-cat">${esc(p.category)}</span>
       </div>
       <h3>${esc(p.title)}</h3>
-      <p>${esc(p.subtitle)}</p>
+      <p>${esc(tp(p.id, 'subtitle', p.subtitle))}</p>
       <div class="mq-tags">${tags}</div>
     </a>`;
 }
@@ -307,7 +407,7 @@ function renderProjectCards(group) {
           <span class="project-category-badge" style="background:${color}">${esc(p.category)}</span>
         </div>
         <h3>${esc(p.title)}</h3>
-        <p class="subtitle">${esc(p.subtitle)}</p>
+        <p class="subtitle">${esc(tp(p.id, 'subtitle', p.subtitle))}</p>
         <div class="project-tags">${tags}</div>
       </div>
       <div class="project-card-footer">
@@ -334,7 +434,7 @@ function initProject() {
   document.title = project.title + ' — Taras Pavlyk Portfolio';
   // Content is sourced locally from each project's project.md (single source of
   // truth). Fall back to the values in data.js if the file can't be read.
-  applyMarkdownOverrides(project).then(() => renderProjectDetail(project));
+  applyMarkdownOverrides(project).then(() => { renderProjectDetail(project); updateI18nLabels(); });
 }
 
 // Fetch a project's project.md and override fields that are defined there.
@@ -498,7 +598,11 @@ function renderProjectDetail(p) {
   if (!el) return;
   const color = categoryColor(p.filterGroup);
   const tags  = p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('');
-  const feats = p.features.map((f, i) => `
+  const tSubtitle    = tp(p.id, 'subtitle', p.subtitle);
+  const tDescription = tp(p.id, 'description', p.description);
+  const tFeatures    = tp(p.id, 'features', p.features);
+  const tNotes       = tp(p.id, 'notes', p.notes);
+  const feats = tFeatures.map((f, i) => `
     <div class="feature-item">
       <div class="feature-bullet">${i+1}</div>
       <span>${esc(f)}</span>
@@ -512,7 +616,7 @@ function renderProjectDetail(p) {
     const inner = pairedProject
       ? `<a href="project.html?id=${esc(pairedProject.id)}">${esc(p.paired)}</a>`
       : esc(p.paired);
-    return `<div class="paired-notice"><strong>Paired System:</strong> ${inner}</div>`;
+    return `<div class="paired-notice"><strong>${esc(tui('paired'))}:</strong> ${inner}</div>`;
   })();
   const ctaLabel = (typeof p.ctaLabel === 'string' && p.ctaLabel.trim()) ? p.ctaLabel.trim() : 'Go to App Website';
   const websiteBtn = p.path && (p.path.startsWith('http://') || p.path.startsWith('https://')) ? `
@@ -528,10 +632,10 @@ function renderProjectDetail(p) {
 
   const hasFoto  = p.media && p.media.foto  && p.media.foto.length  > 0;
   const hasVideo = p.media && p.media.video && p.media.video.length > 0;
-  const notesText = typeof p.notes === 'string' ? p.notes.trim() : '';
+  const notesText = typeof tNotes === 'string' ? tNotes.trim() : '';
   const notesHtml = notesText ? `
     <div class="detail-card">
-      <h2>Notes</h2>
+      <h2>${esc(tui('notes'))}</h2>
       ${formatNotes(notesText)}
     </div>` : '';
 
@@ -560,9 +664,9 @@ function renderProjectDetail(p) {
         <img class="foto-main" src="${esc((p.media.foto || [])[0])}" alt="Project photo" loading="lazy">
         <div class="foto-toolbar">
           <div class="foto-nav-group">
-            <button type="button" class="foto-nav-btn foto-prev">← Prev</button>
+            <button type="button" class="foto-nav-btn foto-prev" aria-label="Prev">←</button>
             <span class="foto-counter">1 / ${esc(String((p.media.foto || []).length))}</span>
-            <button type="button" class="foto-nav-btn foto-next">Next →</button>
+            <button type="button" class="foto-nav-btn foto-next" aria-label="Next">→</button>
           </div>
         </div>
       </div>
@@ -585,7 +689,7 @@ function renderProjectDetail(p) {
 
   el.innerHTML = `
     <div class="page-back">
-      <a href="index.html#projects">← Back to all projects</a>
+      <a href="index.html#projects">← ${esc(tui('back'))}</a>
     </div>
 
     <div class="project-hero">
@@ -595,7 +699,7 @@ function renderProjectDetail(p) {
           <span class="project-category-badge" style="background:${color}">${esc(p.category)}</span>
         </div>
         <h1>${esc(p.title)}</h1>
-        <div class="subtitle">${esc(p.subtitle)}</div>
+        <div class="subtitle">${esc(tSubtitle)}</div>
         <div class="project-tags" style="margin-top:12px">${tags}</div>
       </div>
     </div>
@@ -604,12 +708,12 @@ function renderProjectDetail(p) {
       <div class="project-detail-grid">
         <div class="detail-left">
           <div class="detail-card">
-            <h2>Purpose</h2>
-            <p>${esc(p.description)}</p>
+            <h2>${esc(tui('purpose'))}</h2>
+            <p>${esc(tDescription)}</p>
           </div>
           ${contributionHtml}
           <div class="detail-card">
-            <h2>Key Features</h2>
+            <h2>${esc(tui('keyFeatures'))}</h2>
             <div class="features-list">${feats}</div>
           </div>
           ${hasVideo ? `
@@ -620,8 +724,8 @@ function renderProjectDetail(p) {
           ${hasFoto ? `
             <div class="detail-card">
               <div class="detail-card-head">
-                <h2>Foto</h2>
-                <button type="button" class="foto-fullscreen">Open fullscreen</button>
+                <h2>${esc(tui('foto'))}</h2>
+                <button type="button" class="foto-fullscreen">${esc(tui('fullscreen'))}</button>
               </div>
               ${fotoHtml}
             </div>` : ''}
@@ -629,13 +733,13 @@ function renderProjectDetail(p) {
         <div class="detail-right">
           ${websiteBtn}
           <div class="detail-card">
-            <h2>Tech Stack</h2>
+            <h2>${esc(tui('techStack'))}</h2>
             <table class="stack-table">
               <tbody>${stackRows}</tbody>
             </table>
           </div>
           <div class="detail-card">
-            <h2>Platform</h2>
+            <h2>${esc(tui('platform'))}</h2>
             <div style="font-size:.95rem;color:var(--text)">
               ${esc(p.platform)}
             </div>
